@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from '../pages/auth/login';
 import Register from '../pages/auth/register';
