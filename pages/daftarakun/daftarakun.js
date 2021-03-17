@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import { Button, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Button, DropdownButton, Dropdown, Table } from 'react-bootstrap';
 
 export default function DaftarAkun () {
 	return (
@@ -18,7 +18,7 @@ export default function DaftarAkun () {
 						<div class="flex flex-row-reverse">
 							<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
 								<Dropdown.Item>
-									<Link href="./daftarakun/atursaldoawal">
+									<Link href="/daftarakun/atursaldoawal">
 										<a>Atur Saldo Awal</a>
 									</Link>
 								</Dropdown.Item>
