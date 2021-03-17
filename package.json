@@ -8,9 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "mysql2": "^2.2.5",
     "next": "10.0.9",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "sequelize": "^6.5.1",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
