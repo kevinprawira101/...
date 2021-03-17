@@ -11,7 +11,7 @@ import TabelPajak from '../pages/pajak/tabelpajak';
 import AddPajak from '../pages/pajak/addpajak';
 import DaftarAkun from '../pages/daftarakun/daftarakun';
 
-export default function Layout ({}) {
+export default function Layout ({ children }) {
 	return (
 		<div className="bg-white-300">
 			<Navbar />
@@ -19,9 +19,7 @@ export default function Layout ({}) {
 				<Sidebar />
 			</Head>
 
-			<div className="container mx-64">
-				<DaftarAkun />
-			</div>
+			<main className="container mx-64">{children}</main>
 		</div>
 	);
 }
