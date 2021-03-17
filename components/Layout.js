@@ -1,31 +1,26 @@
-import React from 'react'
-import Head from 'next/head'
-import Navbar from './Navbar'
-import Login from '../pages/auth/login'
-import Register from '../pages/auth/register'
-import Sidebar from './Sidebar'
-import CreateUser from '../pages/createform/createuser'
-import TabelPajak from '../pages/pajak/tabelpajak'
-import AddPajak from '../pages/pajak/addpajak'
+import React from 'react';
+import Head from 'next/head';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
-export default function Layout({ }) {
-    return (
+import Login from '../pages/auth/login';
+import Register from '../pages/auth/register';
+import CreateUser from '../pages/createform/createuser';
+import TabelPajak from '../pages/pajak/tabelpajak';
+import AddPajak from '../pages/pajak/addpajak';
+import DaftarAkun from '../pages/daftarakun/daftarakun';
 
-        <div className="bg-white-300">
-            <Navbar>
-            </Navbar>
-            <Head>
+export default function Layout ({}) {
+	return (
+		<div className="bg-white-300">
+			<Navbar />
+			<Head>
+				<Sidebar />
+			</Head>
 
-                <Sidebar>
-
-                </Sidebar>
-            </Head>
-
-            <div className="container mx-64">
-                <TabelPajak>
-
-                </TabelPajak>
-            </div>
-        </div>
-    )
+			<div className="container mx-64">
+				<DaftarAkun />
+			</div>
+		</div>
+	);
 }
