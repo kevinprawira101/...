@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout';
-import { Card, Button, Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 
 export default function AturSaldoAwal () {
 	return (
@@ -9,88 +9,61 @@ export default function AturSaldoAwal () {
 				<h1>Saldo Awal</h1>
 				<h4>Tanggal Konversi</h4>
 
-				<table class="mt-4 min-w-full divide-y divide-gray-200">
-					<thead class="bg-gray-50">
+				<Table class="table">
+					<thead class="thead-light">
 						<tr>
-							<th
-								scope="col"
-								class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-							>
-								Akun
-							</th>
-							<th
-								scope="col"
-								class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-							/>
-							<th
-								scope="col"
-								class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-							>
-								Debit
-							</th>
-							<th
-								scope="col"
-								class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-							>
-								Kredit
-							</th>
-						</tr>
-					</thead>
-					<tbody class="bg-white divide-y divide-gray-200">
-						<tr>
-							<td class="px-6 py-4 whitespace-nowrap">
-								<div class="flex items-center">
-									<div>
-										<div class="text-sm font-medium text-gray-900">002</div>
-										<div class="text-sm text-gray-500">1-10001</div>
-									</div>
-								</div>
-							</td>
-							<td class="px-6 py-4 whitespace-nowrap">
-								<div class="text-sm text-gray-900">Cash</div>
-							</td>
-							<td class="px-6 py-4 whitespace-nowrap">
-								<div class="text-sm text-gray-900">Rp. 0.00</div>
-							</td>
-							<td class="px-6 py-4 whitespace-nowrap">
-								<div class="text-sm text-gray-900">Rp. 0.00</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			{/* <div variant="container">
-				<h1>Atur Saldo Awal</h1>
-				<Table striped bordered hover>
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Username</th>
+							<th scope="col">Akun</th>
+							<th scope="col" />
+							<th scope="col">Debit</th>
+							<th scope="col">Kredit</th>
 						</tr>
 					</thead>
 					<tbody>
+						<td>Aset</td>
 						<tr>
-							<td>1</td>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
+							<td>1-10001</td>
+							<td>Cash</td>
+							<td>Rp. 0,00</td>
+							<td class="text-muted">Rp. 0,00</td>
 						</tr>
 						<tr>
-							<td>2</td>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
+							<td>1-10002</td>
+							<td>Bank Account</td>
+							<td>Rp. 0,00</td>
+							<td class="text-muted">Rp. 0,00</td>
 						</tr>
 						<tr>
-							<td>3</td>
-							<td colSpan="2">Larry the Bird</td>
-							<td>@twitter</td>
+							<td>1-10751</td>
+							<td>Accumalted Depreciation - Building</td>
+							<td class="text-muted">Rp. 0,00</td>
+							<td>Rp. 0,00</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div class="text-md font-medium text-gray-900">Total</div>
+							</td>
+							<td>
+								<div class="text-md text-gray-900" />
+							</td>
+							<td>
+								<div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+							</td>
+							<td>
+								<div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+							</td>
 						</tr>
 					</tbody>
 				</Table>
-			</div> */}
+
+				<div>
+					<Button variant="secondary">Reset</Button>
+					<div className="float-right">
+						<Button variant="danger mr-4">Batal</Button>
+						<Button variant="success">Terbitkan</Button>
+					</div>
+				</div>
+			</div>
 		</Layout>
 	);
 }

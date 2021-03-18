@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import { Button, DropdownButton, Dropdown, Table } from 'react-bootstrap';
+import { Button, DropdownButton, Dropdown } from 'react-bootstrap';
 
 export default function DaftarAkun () {
 	return (
