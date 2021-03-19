@@ -5,7 +5,8 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 export default function BuatAkunBaru () {
 	return (
 		<Layout>
-			<div variant="container">
+			<h1>Buat Akun Baru</h1>
+			<div class="mt-12 container">
 				<Form>
 					<Form.Group as={Row} controlId="formPlaintext">
 						<Form.Label column sm="2">

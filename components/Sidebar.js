@@ -64,7 +64,7 @@ const Sidebar = () => {
 									</svg>
 								</span>
 								<span class="ml-2 text-sm tracking-wide truncate">Daftar Akun</span>
-								<Link href="/daftarakun/daftarakun">
+								<Link href="/daftar-akun/daftar-akun">
 									<a>Daftar Akun</a>
 								</Link>
 								<span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">
