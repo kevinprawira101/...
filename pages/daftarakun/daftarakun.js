@@ -59,7 +59,7 @@ export default function DaftarAkun () {
 						</thead>
 						<tbody class="bg-white divide-y divide-gray-200">
 							<tr>
-								<td class="px-6 py-4 whitespace-nowrap">
+								<td class="px-6 py-2 whitespace-nowrap">
 									<div class="flex items-center">
 										<div>
 											<div class="text-sm font-medium text-gray-900">002</div>
@@ -67,14 +67,14 @@ export default function DaftarAkun () {
 										</div>
 									</div>
 								</td>
-								<td class="px-6 py-4 whitespace-nowrap">
+								<td class="px-6 py-2 whitespace-nowrap">
 									<div class="text-sm text-gray-900">John Smith</div>
 									<div class="text-sm text-gray-500">Ceo</div>
 								</td>
-								<td class="px-6 py-4 whitespace-nowrap">
+								<td class="px-6 py-2 whitespace-nowrap">
 									<div class="text-sm text-gray-900">-</div>
 								</td>
-								<td class="px-6 py-4 whitespace-nowrap font-medium">
+								<td class="px-6 py-2 whitespace-nowrap font-medium">
 									<div class="text-sm text-gray-900">Rp. 0</div>
 								</td>
 							</tr>

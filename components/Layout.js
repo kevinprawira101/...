@@ -19,7 +19,7 @@ export default function Layout ({ children }) {
 				<Sidebar />
 			</Head>
 
-			<main className="container mx-64">{children}</main>
+			<main className="ml-64 p-8">{children}</main>
 		</div>
 	);
 }
