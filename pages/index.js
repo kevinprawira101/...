@@ -6,7 +6,8 @@ export default function Home ({}) {
 	return (
 		<Layout>
 			<div>
-				<h1 />
+				<span class="d-block p-2 bg-primary text-white">d-block</span>
+				<span class="d-block p-2 bg-dark text-white">d-block</span>
 			</div>
 		</Layout>
 	);
