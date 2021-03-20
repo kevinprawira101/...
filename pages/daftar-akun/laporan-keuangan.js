@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { Tabs, Tab, Card, Button } from 'react-bootstrap';
 
@@ -67,7 +68,9 @@ export default function LaporanKeuangan () {
 
 				<div class="float-right mt-8">
 					<Button variant="danger mr-2">Kembali</Button>
-					<Button variant="success">Konfirmasi Tutup Buku</Button>
+					<Link href="/daftar-akun/tutup-buku-berhasil">
+						<Button variant="success">Konfirmasi Tutup Buku</Button>
+					</Link>
 				</div>
 			</div>
 		</Layout>

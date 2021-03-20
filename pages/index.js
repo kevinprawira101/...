@@ -5,7 +5,9 @@ import Link from 'next/Link';
 export default function Home ({}) {
 	return (
 		<Layout>
-			<div />
+			<div>
+				<h1>Ini adalah dashboard</h1>
+			</div>
 		</Layout>
 	);
 }
