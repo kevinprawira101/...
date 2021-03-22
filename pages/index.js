@@ -6,7 +6,7 @@ export default function Home ({}) {
 	return (
 		<Layout>
 			<div>
-				<h1 />
+				<h1>Ini adalah dashboard</h1>
 			</div>
 		</Layout>
 	);
