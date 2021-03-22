@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 export default function addpajak () {
 	return (
 		<Layout>
-			<div>
+			<div variant="container">
 				<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-1">
 					<h1 class="text-4xl font-mono mb-7">Pajak</h1>
 					<div class="-mx-3 md:flex mb-6">
@@ -74,7 +74,7 @@ export default function addpajak () {
 							</select>
 						</div>
 					</div>
-					<div class="card bg-white py-3 px-5 rounded-xl flex flex-col mb-5">
+					<div class=" ">
 						<div class="w-full py-1">
 							<div class="inline-block mr-2 mt-2">
 								<button

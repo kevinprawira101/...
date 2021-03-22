@@ -9,7 +9,7 @@ export default function AturSaldoAwal () {
 				<h1>Saldo Awal</h1>
 				<h4>Tanggal Konversi</h4>
 
-				<Table class="table">
+				<Table >
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Akun</th>
