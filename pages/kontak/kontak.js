@@ -17,10 +17,20 @@ import {
 } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
+import AddIcon from '@material-ui/icons/Add';
 
 export default function Kontak () {
 	return (
 		<Layout>
+			<h2>Kontak</h2>
+			<div className="d-flex justify-content-end">
+				<Link href="/kontak/buat-kontak-baru">
+					<Button variant="primary">
+						<AddIcon fontSize="small" />Kontak Baru
+					</Button>
+				</Link>
+			</div>
+			<hr />
 			<div variant="container">
 				<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
 					<Tab eventKey="pelanggan" title="Pelanggan" />

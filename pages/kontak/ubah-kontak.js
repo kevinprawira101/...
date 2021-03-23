@@ -8,12 +8,12 @@ import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutli
 import AddIcon from '@material-ui/icons/Add';
 import Link from 'next/link';
 
-export default function BuatKontakBaru () {
+export default function UbahKontak () {
 	return (
 		<Layout>
 			<div>
 				<h4>Kontak</h4>
-				<h3>Buat Kontak Baru</h3>
+				<h3>Ubah Kontak</h3>
 				<hr />
 				<Card>
 					<Card.Body>
