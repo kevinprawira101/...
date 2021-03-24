@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { Button, DropdownButton, Dropdown, Table } from 'react-bootstrap';
+import Add from '@material-ui/icons/Add';
 
 export default function DaftarAkun () {
 	return (
@@ -20,7 +21,9 @@ export default function DaftarAkun () {
 						</Dropdown.Item>
 					</DropdownButton>
 					<Link href="/daftar-akun/buat-akun-baru">
-						<Button>Buat akun baru</Button>
+						<Button>
+							<Add fontSize="small" />Buat akun baru
+						</Button>
 					</Link>
 				</div>
 

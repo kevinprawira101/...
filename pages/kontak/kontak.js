@@ -12,13 +12,25 @@ import {
 	FormControl,
 	Form,
 	Col,
-	Row
+	Row,
+	FormCheck
 } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AddIcon from '@material-ui/icons/Add';
 
 export default function Kontak () {
 	return (
 		<Layout>
+			<h2>Kontak</h2>
+			<div className="d-flex justify-content-end">
+				<Link href="/kontak/buat-kontak-baru">
+					<Button variant="primary">
+						<AddIcon fontSize="small" />Kontak Baru
+					</Button>
+				</Link>
+			</div>
+			<hr />
 			<div variant="container">
 				<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
 					<Tab eventKey="pelanggan" title="Pelanggan" />
@@ -28,8 +40,21 @@ export default function Kontak () {
 
 					<div eventKey="pelanggan">
 						<div class="mt-8">
+							<Form.Group as={Row}>
+								<SettingsIcon fontSize="Large" />
+								<h3>Daftar Pelanggan</h3>
+							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
 								<Form.Group as={Row}>
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+										<Dropdown.Item>
+											<a>Arsip</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+
 									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
 										<Dropdown.Item>
 											<a>Excel</a>
@@ -38,7 +63,7 @@ export default function Kontak () {
 											<a>Hapus</a>
 										</Dropdown.Item>
 									</DropdownButton>
-									<Col sm="8">
+									<Col sm="6">
 										<InputGroup>
 											<InputGroup.Prepend>
 												<InputGroup.Text id="basic-addon1">
@@ -57,7 +82,60 @@ export default function Kontak () {
 
 							<Card>
 								<Card.Body>
-									<h1>Trial Balance</h1>
+									<div class="mt-2">
+										<table class="min-w-full table-auto">
+											<thead class="justify-between">
+												<tr class="bg-dark">
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama Perushaan</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Alamat</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Email</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">No Handphone</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Saldo</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="bg-white divide-y divide-gray-200">
+												<tr>
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">John Smith</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Bank Central Asia</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">081234567890</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</Card.Body>
 							</Card>
 						</div>
@@ -65,12 +143,102 @@ export default function Kontak () {
 
 					<div eventKey="supplier">
 						<div class="mt-8">
+							<Form.Group as={Row}>
+								<SettingsIcon fontSize="Large" />
+								<h3>Daftar Pelanggan</h3>
+							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
-								<Button variant="primary">Cetak</Button>
+								<Form.Group as={Row}>
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+										<Dropdown.Item>
+											<a>Arsip</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
+										<Dropdown.Item>
+											<a>Excel</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+									<Col sm="6">
+										<InputGroup>
+											<InputGroup.Prepend>
+												<InputGroup.Text id="basic-addon1">
+													<SearchIcon />
+												</InputGroup.Text>
+											</InputGroup.Prepend>
+											<FormControl
+												placeholder="cari"
+												aria-label="cari"
+												aria-describedby="basic-addon1"
+											/>
+										</InputGroup>
+									</Col>
+								</Form.Group>
 							</div>
+
 							<Card>
 								<Card.Body>
-									<h1>Laba - Rugi</h1>
+									<div class="mt-2">
+										<table class="min-w-full table-auto">
+											<thead class="justify-between">
+												<tr class="bg-dark">
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama Perushaan</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Alamat</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Email</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">No Handphone</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Saldo</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="bg-white divide-y divide-gray-200">
+												<tr>
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">John Smith</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Bank Central Asia</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">081234567890</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</Card.Body>
 							</Card>
 						</div>
@@ -78,12 +246,102 @@ export default function Kontak () {
 
 					<div eventKey="karyawan">
 						<div class="mt-8">
+							<Form.Group as={Row}>
+								<SettingsIcon fontSize="Large" />
+								<h3>Daftar Pelanggan</h3>
+							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
-								<Button variant="primary">Cetak</Button>
+								<Form.Group as={Row}>
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+										<Dropdown.Item>
+											<a>Arsip</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
+										<Dropdown.Item>
+											<a>Excel</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+									<Col sm="6">
+										<InputGroup>
+											<InputGroup.Prepend>
+												<InputGroup.Text id="basic-addon1">
+													<SearchIcon />
+												</InputGroup.Text>
+											</InputGroup.Prepend>
+											<FormControl
+												placeholder="cari"
+												aria-label="cari"
+												aria-describedby="basic-addon1"
+											/>
+										</InputGroup>
+									</Col>
+								</Form.Group>
 							</div>
+
 							<Card>
 								<Card.Body>
-									<h1>Neraca</h1>
+									<div class="mt-2">
+										<table class="min-w-full table-auto">
+											<thead class="justify-between">
+												<tr class="bg-dark">
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama Perushaan</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Alamat</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Email</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">No Handphone</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Saldo</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="bg-white divide-y divide-gray-200">
+												<tr>
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">John Smith</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Bank Central Asia</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">081234567890</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</Card.Body>
 							</Card>
 						</div>
@@ -91,12 +349,102 @@ export default function Kontak () {
 
 					<div eventKey="lainnya">
 						<div class="mt-8">
+							<Form.Group as={Row}>
+								<SettingsIcon fontSize="Large" />
+								<h3>Daftar Pelanggan</h3>
+							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
-								<Button variant="primary">Cetak</Button>
+								<Form.Group as={Row}>
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+										<Dropdown.Item>
+											<a>Arsip</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+
+									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
+										<Dropdown.Item>
+											<a>Excel</a>
+										</Dropdown.Item>
+										<Dropdown.Item>
+											<a>Hapus</a>
+										</Dropdown.Item>
+									</DropdownButton>
+									<Col sm="6">
+										<InputGroup>
+											<InputGroup.Prepend>
+												<InputGroup.Text id="basic-addon1">
+													<SearchIcon />
+												</InputGroup.Text>
+											</InputGroup.Prepend>
+											<FormControl
+												placeholder="cari"
+												aria-label="cari"
+												aria-describedby="basic-addon1"
+											/>
+										</InputGroup>
+									</Col>
+								</Form.Group>
 							</div>
+
 							<Card>
 								<Card.Body>
-									<h1>Arus Kas</h1>
+									<div class="mt-2">
+										<table class="min-w-full table-auto">
+											<thead class="justify-between">
+												<tr class="bg-dark">
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Nama Perushaan</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Alamat</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Email</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">No Handphone</span>
+													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Saldo</span>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="bg-white divide-y divide-gray-200">
+												<tr>
+													<th class="px-2 py-2">
+														<FormCheck />
+													</th>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">John Smith</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Bank Central Asia</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">081234567890</div>
+													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</Card.Body>
 							</Card>
 						</div>
