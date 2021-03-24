@@ -1,10 +1,358 @@
 import React from 'react'
+import Layout from '../../components/layout'
+import Link from 'next/link';
+import { Button, Table, DropdownButton , Dropdown } from 'react-bootstrap';
 
 const laporanneraca = () => {
     return (
-        <div>
-            
-        </div>
+        <Layout>
+        <div variant="container">
+            <div></div>
+             <h4 class="mb-8 mt-5">
+                Neraca
+                 </h4>
+                     
+                 <div class="flex flex-row-reverse">
+                     
+
+                         <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Export">
+                             <Dropdown.Item>
+                                 <Link href="#">
+                                     <a>PDF</a>
+                                 </Link>
+                             </Dropdown.Item>
+                             <Dropdown.Item href="#/action-2">XLS</Dropdown.Item>
+                             <Dropdown.Item href="#/action-2">CSV</Dropdown.Item>
+                         </DropdownButton>
+            </div>
+
+             <Table class="table mt-4">                        
+              
+               <thead class="thead-light">
+               <tr>
+                        <th>
+                             <div class="text-md font-medium text-gray-900">Aset</div>
+                       </th> 
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                     </tr>
+            </thead> 
+
+            <tbody>
+                     <tr>
+                         <td>
+                            <div class="text-md font-medium text-gray-900">Aset Lancar</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Aset Lancar</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+                 </tbody>
+
+
+               <tbody>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                    <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Aset Tetap</div>
+                        </td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Aset Tetap</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+
+                     <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Aset</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+                     
+                     <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                 </tbody>
+
+             <thead class="thead-light">
+               <tr>
+                        <th>
+                             <div class="text-md font-medium text-gray-900">Liabilitas dan Modal</div>
+                       </th> 
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                     </tr>
+            </thead> 
+
+            <tbody>
+                     <tr>
+                         <td>
+                            <div class="text-md font-medium text-gray-900">Liabilitas Jangka Pendek</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Liabilitas Jangka Pendek</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+                 </tbody>
+
+
+               <tbody>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                    <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Liabilitas Jangka Panjang</div>
+                        </td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Liabilitas Jangka Panjang</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+
+                     <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Liabilitas</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+                     
+                     <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     
+                 </tbody>
+
+                 <tbody>
+                     <tr>
+                         <td>
+                            <div class="text-md font-medium text-gray-900">Modal</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td class="px-4">Kode-Nama Akun</td>
+                         <td></td>
+                         <td>Rp. XXX</td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Modal</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+
+                     <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Liabilitas dan Modal</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                         </td>
+                     </tr>
+
+
+                 </tbody>
+             
+               
+             </Table>
+             
+
+                  
+             
+     </div>
+     </Layout>	
     )
 }
 

@@ -13,6 +13,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PaymentIcon from '@material-ui/icons/Payment';
 import SettingsIcon from '@material-ui/icons/Settings';
 
+
 const Sidebar = () => {
 	return (
 		<div>

@@ -14,7 +14,7 @@ const laporanbukubesar = () => {
                     <div class="flex flex-row-reverse">
 							<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Export">
 								<Dropdown.Item>
-									<Link href="#">
+									<Link href="#">	
 										<a>PDF</a>
 									</Link>
 								</Dropdown.Item>
