@@ -191,7 +191,7 @@ export default function UbahKontak () {
 							<Row className="mb-2">
 								<AccountBalanceOutlinedIcon fontSize="large" />
 								<h3>Daftar Bank</h3>
-								<h5>Hapus</h5>
+								{/* <h5>Hapus</h5> */}
 							</Row>
 
 							<Row className="mb-2">
