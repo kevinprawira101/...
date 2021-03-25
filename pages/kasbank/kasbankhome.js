@@ -18,12 +18,20 @@ const kasbankhome = () => {
                      
                          <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Buat Transaksi">
                              <Dropdown.Item>
-                                 <Link href="#">
+                             <Link href="/kasbank/transferuang">
                                      <a>Transfer Uang</a>
                                  </Link>
                              </Dropdown.Item>
-                             <Dropdown.Item href="#/action-2">Terima Uang</Dropdown.Item>
-                             <Dropdown.Item href="#/action-2">Kirim Uang</Dropdown.Item>
+                             <Dropdown.Item>
+                                <Link href="/kasbank/terimauang">
+                                     <a>Terima Uang</a>
+                                 </Link>
+                                 </Dropdown.Item>
+                             <Dropdown.Item>
+                             <Link href="/kasbank/kirimuang">
+                                     <a>Kirim Uang</a>
+                                 </Link>
+                             </Dropdown.Item>
                             
                          </DropdownButton>
                      </div>
@@ -49,7 +57,11 @@ const kasbankhome = () => {
 
                  <tr>
                         <td>XXXX</td>
-                         <td>XXXX</td>
+                         <td>
+                         <Link href="/kasbank/akundetail">
+                             XXXX
+                             </Link>
+                             </td>
                          <td>XXXX</td>
                          <td>XXXX</td>
                         

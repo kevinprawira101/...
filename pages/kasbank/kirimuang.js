@@ -12,7 +12,7 @@ const kirimuang = () => {
     return (
          <div>
             <Layout>
-                    <div class="container">
+                    <div variant="container">
                     <div class="text-md font-medium text-gray-900 mb-2">
                         Transaksi</div>
                         <h4 class="mt-2 mb-5">
@@ -243,7 +243,9 @@ const kirimuang = () => {
             
                 <div className="float-right mb-10">
                             <Button variant="danger mr-2"><HighlightOffIcon fontSize="medium"/> Batal</Button>
+                            <Link href="/kasbank/bankwithdraw">
                             <Button variant="success"><CheckCircleIcon fontSize="medium"/> Buat Transferan</Button>
+                            </Link>
                     </div>
                 </div>
             </Layout>

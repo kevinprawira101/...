@@ -13,14 +13,14 @@ const bankwithdraw = () => {
     return (
         <div>
              <Layout>
-        <div class="container">
+        <div variant="container">
         <div class="text-md font-medium text-gray-900 mb-2">
            
             Transaksi 
             <Row>
                 <Col>
                     <h4 class="mt-2 mb-5">
-                        Bank Deposit #XXX
+                        Bank Withdrawal #XXX
                         </h4>
                  </Col>
             

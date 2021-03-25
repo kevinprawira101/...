@@ -1,7 +1,10 @@
 import React from 'react'
+import Link from 'next/link';
+import Layout from '../../components/Layout';
 
 export default function tabelpajak() {
     return (
+        <Layout>
         <div>
             <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
                 <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
@@ -10,7 +13,9 @@ export default function tabelpajak() {
                             List Pajak
                         </h1>
                         <div class="inline-block mr-3 mt-2">
+                        <Link href="/pajak/addpajak">
                             <button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-blue-600 rounded-md bg-blue-500 hover:bg-blue-400">+ Create Pajak Baru</button>
+                       </Link>
                         </div>
                     </div>
                 </div>
@@ -86,5 +91,6 @@ export default function tabelpajak() {
                 </div>
             </div>
         </div>
+        </Layout>
     )
 }

@@ -20,7 +20,7 @@ export default function BuatKontakBaru () {
 						<Form>
 							{/* Info Kontak */}
 							<Row className="mb-2">
-								<PersonOutlineOutlinedIcon fontSize="large" />
+								<PersonOutlineOutlinedIcon fontSize="medium" className="mt-1.5"/>
 								<h3>Info Kontak</h3>
 							</Row>
 

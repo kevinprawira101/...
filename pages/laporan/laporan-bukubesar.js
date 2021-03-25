@@ -9,7 +9,7 @@ const laporanbukubesar = () => {
        	<div variant="container">
                <div></div>
 				<h4 class="mb-8 mt-5">
-                   Jurnal Umum
+                   Buku Besar
                     </h4>
                     <div class="flex flex-row-reverse">
 							<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Export">

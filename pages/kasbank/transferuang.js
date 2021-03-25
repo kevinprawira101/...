@@ -9,7 +9,7 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 function transferuang() {
     return (
         <Layout>
-        <div class="container">
+        <div variant="container">
         <div class="text-md font-medium text-gray-900 mb-2">
             Transaksi</div>
              <h4 class="mt-2 mb-5">
@@ -102,7 +102,9 @@ function transferuang() {
       
      <div className="float-right">
                 <Button variant="danger mr-2"><HighlightOffIcon fontSize="medium"/> Batal</Button>
+                <Link href="/kasbank/banktransfer">
                 <Button variant="success"><CheckCircleIcon fontSize="medium"/> Buat Transferan</Button>
+                </Link>
         </div>
         </div>
         </Layout>

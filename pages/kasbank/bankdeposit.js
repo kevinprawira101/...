@@ -12,7 +12,7 @@ import PrintIcon from '@material-ui/icons/Print';
 const bankdeposit = () => {
     return (
         <Layout>
-        <div class="container">
+        <div variant="container">
         <div class="text-md font-medium text-gray-900 mb-2">
            
             Transaksi 
