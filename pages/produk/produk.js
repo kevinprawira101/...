@@ -22,27 +22,34 @@ import AddIcon from '@material-ui/icons/Add';
 export default function Produk () {
 	return (
 		<Layout>
-			<h2>Produk</h2>
-			<div className="d-flex justify-content-end">
-				<SettingsIcon fontSize="Large" />
-				<h3 class="mr-4">Kategori Produk</h3>
-				<Link href="/kontak/buat-kontak-baru">
-					<Button variant="primary">
-						<AddIcon fontSize="small" />Buat Baru
-					</Button>
-				</Link>
-			</div>
+			<Row>
+				<Col>
+					<h2>Produk</h2>
+				</Col>
+				<Col className="d-flex justify-content-end">
+					<SettingsIcon fontSize="Large" />
+					<h4 class="mr-4">Kategori Produk</h4>
+					<Link href="/kontak/buat-kontak-baru">
+						<Button variant="primary">
+							<AddIcon fontSize="small" />Buat Baru
+						</Button>
+					</Link>
+				</Col>
+			</Row>
 
 			<hr />
 			<div>
 				<Card>
 					<Card.Body>
-						<Form.Group as={Row}>
-							<SettingsIcon fontSize="Large" />
-							<h3>Barang & Jasa</h3>
-						</Form.Group>
-						<div class="flex flex-row-reverse mb-2">
-							<Form.Group as={Row}>
+						<Row>
+							<Col>
+								<Row>
+									<SettingsIcon fontSize="medium" className="mt-1" />
+									<h4>Barang & Jasa</h4>
+								</Row>
+							</Col>
+
+							<Col className="d-flex justify-content-end">
 								<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
 									<Dropdown.Item>
 										<a>Excel</a>
@@ -51,7 +58,7 @@ export default function Produk () {
 										<a>Hapus</a>
 									</Dropdown.Item>
 								</DropdownButton>
-								<Col sm="8">
+								<Col sm="6">
 									<InputGroup>
 										<InputGroup.Prepend>
 											<InputGroup.Text id="basic-addon1">
@@ -65,8 +72,9 @@ export default function Produk () {
 										/>
 									</InputGroup>
 								</Col>
-							</Form.Group>
-						</div>
+							</Col>
+						</Row>
+
 						<div class="mt-2">
 							<table class="min-w-full table-auto">
 								<thead class="justify-between">

@@ -1,21 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import { Button } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
 
 export default function TutupBuku () {
 	return (
 		<Layout>
 			<div variant="container">
-				<h1>Tutup Buku</h1>
-				<div class="flex flex-row-reverse">
-					<Link href="/daftar-akun/periode-finansial">
-						<Button>
-							<AddIcon fontSize="small" />Mulai Tutup Buku
-						</Button>
-					</Link>
-				</div>
+				<Row>
+					<Col>
+						<h3>Tutup Buku</h3>
+					</Col>
+					<Col className="d-flex justify-content-end">
+						<Link href="/daftar-akun/periode-finansial">
+							<Button>
+								<AddIcon fontSize="small" />Mulai Tutup Buku
+							</Button>
+						</Link>
+					</Col>
+				</Row>
 
 				<div class="mt-2">
 					<table class="min-w-full table-auto">
