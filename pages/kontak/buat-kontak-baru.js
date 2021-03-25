@@ -5,6 +5,7 @@ import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutline
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import AccountBalanceOutlinedIcon from '@material-ui/icons/AccountBalanceOutlined';
 import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined';
+import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Link from 'next/link';
 
@@ -191,7 +192,18 @@ export default function BuatKontakBaru () {
 							<Row className="mb-2">
 								<AccountBalanceOutlinedIcon fontSize="large" />
 								<h3>Daftar Bank</h3>
-								<h5>Hapus</h5>
+							</Row>
+
+							<Row className="mb-2">
+								<Col sm="2">
+									<h5>Akun Bank</h5>
+								</Col>
+								<Col className="d-flex justify-content-end mr-3">
+									<Row>
+										<DeleteIcon fontSize="medium" />
+										<h5>Hapus</h5>
+									</Row>
+								</Col>
 							</Row>
 
 							<Row className="mb-2">

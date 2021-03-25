@@ -92,12 +92,14 @@ const Sidebar = () => {
 							</Link>
 						</li>
 						<li>
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<LocalMallIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Produk</span>
-							</a>
+							<Link href="/produk/produk">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<LocalMallIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Produk</span>
+								</a>
+							</Link>
 						</li>
 
 						<hr class="ml-4 mr-4" />
@@ -129,12 +131,14 @@ const Sidebar = () => {
 							</a>
 						</li>
 						<li>
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<PaymentIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Biaya</span>
-							</a>
+							<Link href="/biaya/pengeluaran">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<PaymentIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Biaya</span>
+								</a>
+							</Link>
 						</li>
 
 						<hr class="ml-4 mr-4" />
