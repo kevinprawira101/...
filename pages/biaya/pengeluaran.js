@@ -37,7 +37,7 @@ export default function Pengeluaran () {
 					</Col>
 					<Col>
 						<hr className="bg-black" />
-						<p className="font-medium">Biaya Belim Dibayar (dalam IDR)</p>
+						<p className="font-medium">Biaya Belum Dibayar (dalam IDR)</p>
 						<hr className="bg-black" />
 						<p style={{ fontSize: 25 }} class="text-gray-500">
 							Rp. 24,839,212
