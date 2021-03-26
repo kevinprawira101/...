@@ -40,12 +40,14 @@ const Sidebar = () => {
 							</Link>
 						</li>
 						<li>
+						<Link href="/jurnal/create-jurnal">
 							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 								<span class="inline-flex justify-center items-center ml-4">
 									<MenuBookIcon />
 								</span>
 								<span class="ml-2 text-sm tracking-wide truncate">Jurnal</span>
 							</a>
+							</Link>
 						</li>
 						<li />
 
@@ -115,12 +117,17 @@ const Sidebar = () => {
 							</Link>
 						</li>
 						<li>
+							<Link href="/jual/penjualan">
 							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 								<span class="inline-flex justify-center items-center ml-4">
 									<ShoppingBasketIcon />
 								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Penjualan</span>
-							</a>
+								
+								
+									<span class="ml-2 text-sm tracking-wide truncate">Penjualan</span>
+								</a>
+							</Link>
+							
 						</li>
 						<li>
 							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
@@ -144,12 +151,16 @@ const Sidebar = () => {
 						<hr class="ml-4 mr-4" />
 
 						<li>
+							<Link href="/setting/setting-perusahaan">
 							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 								<span class="inline-flex justify-center items-center ml-4">
 									<SettingsIcon />
 								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Peraturan</span>
-							</a>
+								
+									<span class="ml-2 text-sm tracking-wide truncate">Pengaturan</span>
+							</a>	
+							</Link>
+							
 						</li>
 					</ul>
 				</div>

@@ -38,7 +38,9 @@ export default function pengingatfaktur() {
                                 <option>Keduanya</option>
                             </Form.Control>
                             <br/>
+                            <Link href="/setting/tambah-interval">
                             <button type="button" class=" focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">Tambah Interval</button>
+									</Link>
                         </Col>
                     </Row>
                     <Row className="mb-2">

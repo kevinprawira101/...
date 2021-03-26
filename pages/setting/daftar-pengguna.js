@@ -4,6 +4,7 @@ import {Form,Row,Col,InputGroup,FormControl,Button,OverlayTrigger,Tooltip,Card} 
 import SidebarSetting from '../../components/SidebarSetting'
 import Divider from '@material-ui/core/Divider';
 import AddIcon from '@material-ui/icons/Add'
+import Link from 'next/link';
 
 export default function daftarpengguna() {
     return (
@@ -20,7 +21,9 @@ export default function daftarpengguna() {
                         </Col>
                         <Col>
                         <div className="flex flex-row-reverse">
+                        <Link href="/setting/detil-pengguna">
                         <button type="button" class=" focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon/>Invite</button>
+									</Link>
                         </div>
                         </Col>
                     </Row>

@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import {Form,Row,Col,Container,FormControl,Button} from 'react-bootstrap'
 import AddIcon from '@material-ui/icons/Add';
+import Link from 'next/Link'
 
 export default function penjualan() {
     return (
@@ -14,7 +15,9 @@ export default function penjualan() {
                     </Col>
                     <Col sm={4}>
                     <div class="">  
-                    <button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon fontSize="small"/> Buat Penjualan Baru</button>
+						<Link href="/setting/penagihan-penjualan">
+						<button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon fontSize="small"/> Buat Penjualan Baru</button>
+						</Link>
                     </div>
                     </Col>
                 </Row>

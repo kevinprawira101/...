@@ -3,6 +3,7 @@ import Layout from '../../components/Layout'
 import {Form,Row,Col,InputGroup,FormControl} from 'react-bootstrap'
 import SidebarSetting from '../../components/SidebarSetting'
 import Divider from '@material-ui/core/Divider';
+import Link from 'next/link';
 
 export default function produkdanjasa() {
     return (
@@ -29,7 +30,12 @@ export default function produkdanjasa() {
                             Kategori Produk
                         </Col>
                         <Col sm="8">
-                            Pengaturan kategori
+                        <Link href="/setting/pengaturan-kategori">
+                            <a>
+                                Pengaturan kategori
+                            </a>
+                        </Link>
+                            
                         </Col>
                     </Row>
                     <Row className="mb-2">
@@ -37,7 +43,11 @@ export default function produkdanjasa() {
                             Satuan Produk
                         </Col>
                         <Col sm="8">
-                            Pengaturan Satuan
+                        <Link href="/setting/pengaturan-satuan">
+                            <a>
+                                Pengaturan satuan
+                            </a>
+                        </Link>
                         </Col>
                     </Row>
                     
