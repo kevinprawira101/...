@@ -8,39 +8,31 @@ export default function BuatAkunBaru () {
 			<h1>Buat Akun Baru</h1>
 			<div class="mt-12 container">
 				<Form>
-					<Form.Group as={Row} controlId="formPlaintext">
-						<Form.Label column sm="2">
-							Nama
-						</Form.Label>
+					<Row className="mb-3">
+						<Col sm="2">Nama</Col>
 						<Col sm="6">
 							<Form.Control type="text" placeholder="Nama" />
 						</Col>
-					</Form.Group>
+					</Row>
 
-					<Form.Group as={Row} controlId="formPlaintextPassword">
-						<Form.Label column sm="2">
-							Password
-						</Form.Label>
+					<Row className="mb-3">
+						<Col sm="2">Password</Col>
 						<Col sm="6">
 							<Form.Control type="password" placeholder="Password" />
 						</Col>
-					</Form.Group>
+					</Row>
 
-					<Form.Group as={Row} controlId="formPlainText">
-						<Form.Label column sm="2">
-							Kategori
-						</Form.Label>
+					<Row className="mb-3">
+						<Col sm="2">Kategori</Col>
 						<Col sm="6">
 							<Form.Control as="select">
 								<option>Kategori select</option>
 							</Form.Control>
 						</Col>
-					</Form.Group>
+					</Row>
 
-					<Form.Group as={Row} controlId="formPlainText">
-						<Form.Label column sm="2">
-							Detail
-						</Form.Label>
+					<Row className="mb-3">
+						<Col sm="2">Detail</Col>
 						<Col sm="6">
 							<Form.Control as="select">
 								<option>None</option>
@@ -48,24 +40,22 @@ export default function BuatAkunBaru () {
 								<option>Akun Header Dari:</option>
 							</Form.Control>
 						</Col>
-					</Form.Group>
+					</Row>
 
-					<Form.Group as={Row}>
-						<Form.Label column sm="2">
-							Deskripsi
-						</Form.Label>
+					<Row className="mb-3">
+						<Col sm="2">Deskripsi</Col>
 						<Col sm="6">
 							<Form.Control as="textarea" rows={3} />
 						</Col>
-					</Form.Group>
+					</Row>
 
-					<Form.Group as={Row}>
+					<Row className="mb-3">
 						<Form.Label column sm="2" />
 						<Col sm="6">
 							<Button variant="danger mr-4">Batal</Button>
 							<Button variant="success">Buat</Button>
 						</Col>
-					</Form.Group>
+					</Row>
 				</Form>
 			</div>
 		</Layout>
