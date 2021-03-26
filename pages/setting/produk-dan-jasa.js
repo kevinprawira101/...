@@ -7,6 +7,7 @@ import Divider from '@material-ui/core/Divider';
 export default function produkdanjasa() {
     return (
         <Layout>
+            <h1>Pengaturan</h1>
             <Row>
                 <Col sm="3">
                 <SidebarSetting></SidebarSetting>

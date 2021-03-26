@@ -10,6 +10,7 @@ import AddIcon from '@material-ui/icons/Add'
 export default function pengingatfaktur() {
     return (
         <Layout>
+            <h1>Pengaturan</h1>
             <Row>
                 <Col sm="3">
                     <SidebarSetting/>
