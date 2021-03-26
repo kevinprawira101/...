@@ -11,15 +11,22 @@ export default function InformasiKontak () {
 	return (
 		<Layout>
 			<div>
+				<h4 class="text-gray-500">Kontak</h4>
+				<h3 class="text-blue-600">Informasi Kontak</h3>
+				<hr />
 				<Card>
 					<Card.Body>
-						<div className="d-flex justify-content-end">
-							<Link href="/kontak/ubah-kontak">
-								<Button variant="primary">Ubah Profil</Button>
-							</Link>
-						</div>
-						<h2>Nama Kontak</h2>
-						<h4>Tipe: </h4>
+						<Row>
+							<Col>
+								<h4>Nama Kontak</h4>
+							</Col>
+							<Col className="d-flex justify-content-end">
+								<Link href="/kontak/ubah-kontak">
+									<Button variant="primary">Ubah Profil</Button>
+								</Link>
+							</Col>
+						</Row>
+						<p>Tipe : </p>
 
 						<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
 							<Tab eventKey="profil" title="Profil" />
@@ -28,7 +35,7 @@ export default function InformasiKontak () {
 							<div eventKey="profil">
 								<div class="mt-8">
 									{/* Informasi Umum */}
-									<Card className="mb-2">
+									<Card className="mb-4">
 										<Card.Body>
 											<Row>
 												<BusinessCenterOutlinedIcon fontSize="large" />
@@ -82,7 +89,7 @@ export default function InformasiKontak () {
 									</Card>
 
 									{/* Akun Bank */}
-									<Card className="mb-2">
+									<Card className="mb-4">
 										<Card.Body>
 											<Row>
 												<AccountBalanceOutlinedIcon fontSize="large" />
@@ -153,7 +160,7 @@ export default function InformasiKontak () {
 									</Card>
 
 									{/* Pemetaan Akun */}
-									<Card className="mb-2">
+									<Card className="mb-4">
 										<Card.Body>
 											<Row>
 												<InsertDriveFileOutlinedIcon fontSize="large" />

@@ -1,33 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import { Button, DropdownButton, Dropdown, Table } from 'react-bootstrap';
+import { Button, DropdownButton, Dropdown, Row, Col } from 'react-bootstrap';
 import Add from '@material-ui/icons/Add';
 
 export default function DaftarAkun () {
 	return (
 		<Layout>
-			<h1>Daftar Akun</h1>
-			<div class="mt-12">
-				<div class="flex flex-row-reverse">
-					<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
-						<Dropdown.Item>
-							<Link href="/daftar-akun/atur-saldo-awal">
-								<a>Atur Saldo Awal</a>
-							</Link>
-						</Dropdown.Item>
-						<Dropdown.Item>
-							<Link href="/daftar-akun/tutup-buku">Penutupan Buku</Link>
-						</Dropdown.Item>
-					</DropdownButton>
-					<Link href="/daftar-akun/buat-akun-baru">
-						<Button>
-							<Add fontSize="small" />Buat akun baru
-						</Button>
-					</Link>
-				</div>
-
-				<div class="mt-2">
+			<div variant="container">
+				<Row>
+					<Col>
+						<h4>Daftar Akun</h4>
+					</Col>
+					<Col className="d-flex justify-content-end">
+						<DropdownButton variant="primary mr-2" id="dropdown-basic-button" title="Tindakan">
+							<Dropdown.Item>
+								<Link href="/daftar-akun/atur-saldo-awal">
+									<a>Atur Saldo Awal</a>
+								</Link>
+							</Dropdown.Item>
+							<Dropdown.Item>
+								<Link href="/daftar-akun/tutup-buku">Penutupan Buku</Link>
+							</Dropdown.Item>
+						</DropdownButton>
+						<Link href="/daftar-akun/buat-akun-baru">
+							<Button>
+								<Add fontSize="small" />Buat akun baru
+							</Button>
+						</Link>
+					</Col>
+				</Row>
+				<div class="mt-8">
 					<table class="min-w-full table-auto">
 						<thead class="justify-between">
 							<tr class="bg-dark">

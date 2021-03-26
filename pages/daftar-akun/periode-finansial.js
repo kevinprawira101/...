@@ -12,23 +12,23 @@ export default function PeriodeFinansial () {
 				<div class="mt-12 container">
 					<p class="font-medium">Anda akan melakukan proses tutup buku untuk periode finansial: </p>
 					<Form>
-						<Form.Group as={Row} controlId="formPlaintext">
+						<Row className="mb-3">
 							<Form.Label column sm="2">
 								Dari Tanggal
 							</Form.Label>
 							<Col sm="2">
 								<Form.Control type="text" placeholder="MM/DD/YYYY" />
 							</Col>
-						</Form.Group>
+						</Row>
 
-						<Form.Group as={Row} controlId="formPlaintext">
+						<Row className="mb-3">
 							<Form.Label column sm="2">
 								Sampai Tanggal
 							</Form.Label>
 							<Col sm="2">
 								<Form.Control type="text" placeholder="MM/DD/YYYY" />
 							</Col>
-						</Form.Group>
+						</Row>
 					</Form>
 
 					<Card body class="bg-red-100">
