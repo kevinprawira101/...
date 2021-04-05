@@ -4,19 +4,19 @@ import {Form,Row,Col,Container,FormControl,Button} from 'react-bootstrap'
 import AddIcon from '@material-ui/icons/Add';
 import Link from 'next/Link'
 
-export default function penjualan() {
+export default function pembelian() {
     return (
         <Layout>
             <Container>
                 <Row>
                     <Col sm={8}>
                     Transaksi
-                    <h3>Penjualan</h3>
+                    <h3>Pembelian</h3>
                     </Col>
                     <Col sm={4}>
                     <div class="">  
 						<Link href="/setting/penagihan-penjualan">
-						<button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon fontSize="small"/> Buat Penjualan Baru</button>
+						<button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon fontSize="small"/> Buat Pembelian Baru</button>
 						</Link>
                     </div>
                     </Col>
@@ -26,12 +26,12 @@ export default function penjualan() {
             <Form>
                 <Form.Group as={Row} controlId="formPlaintext">
                     <Form.Label column sm="4">
-                    Penjualan Belum Dibayar(dalam IDR)
+                    Pembelian Belum Dibayar(dalam IDR)
                     <br/>
                     Rp.0,00
                     </Form.Label>
                     <Form.Label column sm="4">
-                    Penjualan Jatuh Tempo(dalam IDR)
+                    Pembelian Jatuh Tempo(dalam IDR)
                     <br/>
                     Rp.0,00
                     </Form.Label>
@@ -42,7 +42,7 @@ export default function penjualan() {
             <Container>
                 <Row>
                     <Col sm={8}>
-                    <h3>Transaksi Penjualan</h3>
+                    <h3>Transaksi Pembelian</h3>
                     </Col>
                     <Col sm={4}>
                     <Form inline>
@@ -66,7 +66,7 @@ export default function penjualan() {
 									<span class="text-gray-300">Nomor</span>
 								</th>
 								<th class="px-2 py-2">
-									<span class="text-gray-300">Pelanggan</span>
+									<span class="text-gray-300">Supplier</span>
 								</th>
 								<th class="px-2 py-2">
 									<span class="text-gray-300">Tgl Jatuh Tempo</span>

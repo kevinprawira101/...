@@ -5,15 +5,15 @@ import Switch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import AddIcon from '@material-ui/icons/Add'
 
-export default function penagihanpenjualan() {
+export default function penagihanpembelian() {
     return (
         <Layout>
-            <h3>Buat Penagihan Penjualan</h3>
+            <h3>Buat Penagihan Pembelian</h3>
             <div className="border-t border-gray-200">
                 <Form>
                     <Form.Group as={Row} controlId="formPlaintext">
                         <Form.Label column sm="3">
-                        Pelanggan
+                        Supplier
                         </Form.Label>
                         <Form.Label column sm="3">
                         Email
@@ -42,7 +42,7 @@ export default function penagihanpenjualan() {
                 <Form>
                     <Form.Group as={Row} controlId="formPlaintext">
                         <Form.Label column sm="3">
-                            <label for="message">Alamat Penagihan</label><br/>
+                            <label for="message">Alamat Supplier</label><br/>
                             <textarea 
                                 rows="3" id="message" 
                                 class="px-16 py-2 border border-gray-800  "
@@ -59,7 +59,7 @@ export default function penagihanpenjualan() {
                         <Form.Label column sm="3">
                         No Transaksi <br/>
                         <Form.Control type="text" placeholder="Auto" /> <br/>
-                        No Referensi Penagihan <br/>
+                        No Referensi Supplier <br/>
                         <Form.Control type="text" placeholder="" /> <br/>
                         </Form.Label>
                     </Form.Group>
