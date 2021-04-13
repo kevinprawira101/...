@@ -4,7 +4,7 @@ import { Button, Form, Col, Row, FormCheck, Card } from 'react-bootstrap';
 import Link from 'next/link';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 
-export default function BuatProduk () {
+export default function BuatProduk() {
 	return (
 		<div>
 			<Layout>

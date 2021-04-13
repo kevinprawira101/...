@@ -9,7 +9,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Link from 'next/link';
 
-export default function BuatKontakBaru () {
+export default function BuatKontakBaru() {
 	return (
 		<Layout>
 			<div>
@@ -21,7 +21,7 @@ export default function BuatKontakBaru () {
 						<Form>
 							{/* Info Kontak */}
 							<Row className="mb-2">
-								<PersonOutlineOutlinedIcon fontSize="medium" className="mt-1.5"/>
+								<PersonOutlineOutlinedIcon fontSize="medium" className="mt-1.5" />
 								<h3>Info Kontak</h3>
 							</Row>
 
