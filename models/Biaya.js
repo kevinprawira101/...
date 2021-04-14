@@ -12,7 +12,7 @@ module.exports = sequelize.define("Biaya", {
         allowNull: false,
         unique: true
     },
-    password: {
+    password: { 
         type: Sequelize.STRING(20),
         allowNull: false,
     },
