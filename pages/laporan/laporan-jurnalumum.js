@@ -3,7 +3,17 @@ import Layout from '../../components/layout'
 import Link from 'next/link';
 import { Button, Table, DropdownButton , Dropdown } from 'react-bootstrap';
 
-const laporanjurnalumum = () => {
+export async function getServerSideProps() {
+	// Fetch data from external API
+	const res = await fetch(`http://localhost:3000/api/laporan-jurnalumum`)
+	const data = await res.json()
+
+	// Pass data to the page via props
+	return { props: { data } }
+}
+
+export default function laporanjurnalumum({ data }) {
+
     return (
         <Layout>
        	<div variant="container">
@@ -35,14 +45,18 @@ const laporanjurnalumum = () => {
 					</thead>
 					<tbody>
 						<td>Journal Entry</td>
+						
+						{data.map((i, index) => (
 						<tr>
-							<td>1-10001</td>
-							<td>Cash</td>
+							<td>{i.akun}</td>
+							<td>{i.deskripsi}</td>
                             <td></td>
-							<td>Rp. 0,00</td>
-							<td class="text-muted">Rp. 0,00</td>
+							<td>Rp. {i.debit}</td>
+							<td>Rp. {i.kredit}</td>
 						</tr>
-						<tr>
+						))}
+
+						{/* <tr>
 							<td>1-10002</td>
 							<td>Bank Account</td>
                             <td></td>
@@ -71,7 +85,8 @@ const laporanjurnalumum = () => {
 							<td>
 								<div class="text-md font-medium text-gray-900">Rp. 0.00</div>
 							</td>
-						</tr>
+						</tr> */}
+
 					</tbody>
 				</Table>
 			</div>
@@ -79,4 +94,3 @@ const laporanjurnalumum = () => {
     )
 }
 
-export default laporanjurnalumum

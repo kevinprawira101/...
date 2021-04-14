@@ -3,7 +3,17 @@ import Layout from '../../components/layout'
 import Link from 'next/link';
 import { Button, Table, DropdownButton , Dropdown } from 'react-bootstrap';
 
-const laporanneraca = () => {
+export async function getServerSideProps() {
+	// Fetch data from external API
+	const res = await fetch(`http://localhost:3000/api/laporan-neraca`)
+	const data = await res.json()
+
+	// Pass data to the page via props
+	return { props: { data } }
+}
+
+export default function laporanneraca({ data }) {
+
     return (
         <Layout>
         <div variant="container">
@@ -48,26 +58,15 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                      </tr>
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
 
+                     {data.map((i, index) => (
                      <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
+                         <td class="px-4">{i.namaAkun}</td>
                          <td></td>
-                         <td>Rp. XXX</td>
+                         <td>Rp. {i.debit}</td>
                          <td></td>
                      </tr>
-
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
+                    ))}
 
                      <tr>
                          <td>
@@ -76,10 +75,11 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                          <td>
-                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                             <div class="text-md font-medium text-gray-900">Rp. {data.reduce((init, curr) => (init += curr['debit']), 0)}</div>
                          </td>
                      </tr>
                  </tbody>
+
 
 
                <tbody>
@@ -97,26 +97,15 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                      </tr>
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
 
+                     {data.map((i, index) => (
                      <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
+                         <td class="px-4">{i.namaAkun}</td>
                          <td></td>
-                         <td>Rp. XXX</td>
+                         <td>Rp. {i.debit}</td>
                          <td></td>
                      </tr>
-
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
+                    ))}
 
                      <tr>
                          <td>
@@ -125,7 +114,7 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                          <td>
-                             <div class="text-md font-medium text-gray-900">Rp. 0.00</div>
+                             <div class="text-md font-medium text-gray-900">Rp.{data.reduce((init, curr) => (init += curr['debit']), 0)}</div>
                          </td>
                      </tr>
 
@@ -175,26 +164,16 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                      </tr>
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
 
+                     {data.map((i, index) => (
                      <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
+                         <td class="px-4">{i.namaAkun}</td>
                          <td></td>
-                         <td>Rp. XXX</td>
+                         <td>Rp. {i.debit}</td>
                          <td></td>
                      </tr>
-
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
+                    ))}
+                    
 
                      <tr>
                          <td>
@@ -224,27 +203,15 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                      </tr>
+
+                     {data.map((i, index) => (
                      <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
+                         <td class="px-4">{i.namaAkun}</td>
                          <td></td>
-                         <td>Rp. XXX</td>
+                         <td>Rp. {i.debit}</td>
                          <td></td>
                      </tr>
-
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
-
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
-
+                    ))}
                      <tr>
                          <td>
                              <div class="text-md font-medium text-gray-900">Total Liabilitas Jangka Panjang</div>
@@ -292,26 +259,15 @@ const laporanneraca = () => {
                          <td></td>
                          <td></td>
                      </tr>
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
 
+                     {data.map((i, index) => (
                      <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
+                         <td class="px-4">{i.namaAkun}</td>
                          <td></td>
-                         <td>Rp. XXX</td>
+                         <td>Rp. {i.debit}</td>
                          <td></td>
                      </tr>
-
-                     <tr>
-                         <td class="px-4">Kode-Nama Akun</td>
-                         <td></td>
-                         <td>Rp. XXX</td>
-                         <td></td>
-                     </tr>
+                    ))}
 
                      <tr>
                          <td>
@@ -344,16 +300,10 @@ const laporanneraca = () => {
 
 
                  </tbody>
-             
-               
-             </Table>
-             
-
-                  
-             
+             </Table> 
      </div>
      </Layout>	
     )
 }
 
-export default laporanneraca
+
