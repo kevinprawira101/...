@@ -2,7 +2,16 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { Button, Table, Input, Form, Col } from 'react-bootstrap';
 
-export default function AturSaldoAwal () {
+export async function getServerSideProps() {
+	// Fetch data from external API
+	const res = await fetch('http://localhost:3000/api/api-daftar-akun/saldo-awal');
+	const data = await res.json();
+
+	// Pass data to the page via props
+	return { props: { data } }
+}
+
+export default function AturSaldoAwal({ data }) {
 	return (
 		<Layout>
 			<div variant="container">
@@ -40,62 +49,27 @@ export default function AturSaldoAwal () {
 								</td>
 							</tr>
 
-							<tr>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="flex items-center">
-										<div>
-											<div class="text-sm font-medium text-gray-900 ">1-10001</div>
+							{data.map((i, index) => (
+								<tr>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="flex items-center">
+											<div>
+												<div class="text-sm font-medium text-gray-900 ">{i.kodeAset}</div>
+											</div>
 										</div>
-									</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Cash</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-medium">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
-								</td>
-							</tr>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">{i.namaAset}</div>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">Rp. {i.debit}</div>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">Rp. {i.kredit}</div>
+									</td>
+								</tr>
 
-							<tr>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="flex items-center">
-										<div>
-											<div class="text-sm font-medium text-gray-900">1-10002</div>
-										</div>
-									</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Bank Account</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-medium">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
-								</td>
-							</tr>
-
-							<tr>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="flex items-center">
-										<div>
-											<div class="text-sm font-medium text-gray-900">1-10751</div>
-										</div>
-									</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Accumulated Depreciation - Building</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-medium">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
-								</td>
-							</tr>
+							))}
 
 							<tr class="bg-gray-200 ">
 								<td class="px-2 py-2 whitespace-nowrap">
@@ -109,10 +83,10 @@ export default function AturSaldoAwal () {
 									<div class="text-sm text-gray-900" />
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-medium">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
+									<div class="text-sm text-gray-900">Rp. {data.reduce((init, curr) => (init += curr['debit']), 0)}</div>
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-medium">
-									<div class="text-sm text-gray-900">Rp. 0,00</div>
+									<div class="text-sm text-gray-900">Rp. {data.reduce((init, curr) => (init += curr['kredit']), 0)}</div>
 								</td>
 							</tr>
 						</tbody>
