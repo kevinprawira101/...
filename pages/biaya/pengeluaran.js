@@ -5,7 +5,16 @@ import Link from 'next/link';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 
-export default function Pengeluaran () {
+export async function getServerSideProps() {
+	// Fetch data from external API
+	const res = await fetch('http://localhost:3000/api/api-biaya/pengeluaran');
+	const data = await res.json();
+
+	// Pass data to the page via props
+	return { props: { data } }
+}
+
+export default function Pengeluaran({ data }) {
 	return (
 		<Layout>
 			<div>
@@ -31,7 +40,7 @@ export default function Pengeluaran () {
 						<p className="font-medium">Total Biaya Bulan ini (dalam IDR)</p>
 						<hr className="bg-black" />
 						<p style={{ fontSize: 25 }} class="text-gray-500">
-							Rp. 34,018,045
+							Rp. {data.reduce((init, curr) => (init += curr['total']), 0)}
 						</p>
 						<hr className="bg-black" />
 					</Col>
@@ -40,7 +49,7 @@ export default function Pengeluaran () {
 						<p className="font-medium">Biaya Belum Dibayar (dalam IDR)</p>
 						<hr className="bg-black" />
 						<p style={{ fontSize: 25 }} class="text-gray-500">
-							Rp. 24,839,212
+							Rp. {data.reduce((init, curr) => (init += curr['sisaTagihan']), 0)}
 						</p>
 						<hr className="bg-black" />
 					</Col>
@@ -96,6 +105,37 @@ export default function Pengeluaran () {
 						</tr>
 					</thead>
 					<tbody class="bg-white divide-y divide-gray-200">
+						{data.map((i, index) => (
+							<tr>
+								<th class="px-2 py-2">
+									<FormCheck />
+								</th>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">{i.tanggal}</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">{i.nomor}</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">{i.kategori}</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">{i.penerima}</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">
+										<span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">{i.status}</span>
+									</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">Rp. {i.sisaTagihan}</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900">Rp. {i.total}</div>
+								</td>
+							</tr>
+						))}
+
 						<tr>
 							<th class="px-2 py-2">
 								<FormCheck />
@@ -217,6 +257,7 @@ export default function Pengeluaran () {
 								<div class="text-sm text-gray-900">Rp. 0,00</div>
 							</td>
 						</tr>
+
 					</tbody>
 				</table>
 			</div>

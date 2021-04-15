@@ -4,7 +4,16 @@ import Layout from '../../components/Layout';
 import { Button, Row, Col } from 'react-bootstrap';
 import AddIcon from '@material-ui/icons/Add';
 
-export default function TutupBuku () {
+export async function getServerSideProps() {
+	// Fetch data from external API
+	const res = await fetch('http://localhost:3000/api/api-daftar-akun/tutup-buku');
+	const data = await res.json();
+
+	// Pass data to the page via props
+	return { props: { data } }
+}
+
+export default function TutupBuku({ data }) {
 	return (
 		<Layout>
 			<div variant="container">
@@ -37,17 +46,20 @@ export default function TutupBuku () {
 							</tr>
 						</thead>
 						<tbody class="bg-white divide-y divide-gray-200">
-							<tr>
-								<td class="px-2 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">Dari awal - DD/MM/YYYY</div>
-								</td>
-								<td class="px-48 py-2 whitespace-nowrap">
-									<div class="text-sm text-gray-900">-</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-medium">
-									<div class="text-sm text-gray-900">XXX.XXX</div>
-								</td>
-							</tr>
+							{data.map((i, index) => (
+								<tr>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">Dari awal - {i.periode}</div>
+									</td>
+									<td class="px-48 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">{i.catatan}</div>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap font-medium">
+										<div class="text-sm text-gray-900">Rp. {i.untungRugi}</div>
+									</td>
+								</tr>
+							))}
+
 						</tbody>
 					</table>
 				</div>
