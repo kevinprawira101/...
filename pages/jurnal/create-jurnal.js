@@ -2,6 +2,8 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import {Form,Row,Col} from 'react-bootstrap'
 import AddIcon from '@material-ui/icons/Add'
+import Link from 'next/link';
+
 // import 'date-fns';
 // import {KeyboardDatePicker} from '@material-ui/pickers';
 
@@ -94,8 +96,10 @@ export default function createjurnal() {
             </div>    
             <div class="left-0 px-4 py-3 border-t border-gray-200 w-full flex justify-end items-center gap-3">  
             <button onclick="openModal(false)"class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white focus:outline-none">Batal</button>
+            <Link href="/jurnal/jurnal-entry">
             <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white focus:outline-none">Submit</button>
-            </div>
+           </Link> 
+           </div>
             
         </Layout>
     )

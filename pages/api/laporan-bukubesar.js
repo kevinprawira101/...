@@ -21,6 +21,3 @@ export default (req, res) => {
     ]
     res.status(200).json(table)
 }
-
-trs tadi pas qyan nanya dia langsung skip pertanyaan 
-yang ssr ama csr

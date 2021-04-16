@@ -7,6 +7,19 @@ module.exports = sequelize.define("Biaya", {
         autoIncrement: true,
         primaryKey: true
     },
+<<<<<<< HEAD
+    username: {
+        type: Sequelize.STRING(35),
+        allowNull: false,
+        unique: true
+    },
+    password: { 
+        type: Sequelize.STRING(20),
+        allowNull: false,
+    },
+
+=======
+>>>>>>> 61f5f2fc79ebc8750e28fb9385e98079d9555f5d
     penerima: {
         type: Sequelize.CHAR(50),
         allowNull: false
