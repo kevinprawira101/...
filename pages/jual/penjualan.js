@@ -4,7 +4,16 @@ import {Form,Row,Col,Container,FormControl,Button} from 'react-bootstrap'
 import AddIcon from '@material-ui/icons/Add';
 import Link from 'next/Link'
 
-export default function penjualan() {
+
+export async function getServerSideProps() {
+	// Fetch data from external API
+	const res = await fetch(`http://localhost:3000/api/penjualan`)
+	const data = await res.json()
+
+	// Pass data to the page via props
+	return { props: { data } }
+}
+export default function penjualan({data}) {
     return (
         <Layout>
             <Container>
@@ -15,8 +24,10 @@ export default function penjualan() {
                     </Col>
                     <Col sm={4}>
                     <div class="">  
-						<Link href="/setting/penagihan-penjualan">
-						<button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon fontSize="small"/> Buat Penjualan Baru</button>
+						<Link href="/jual/penagihan-penjualan">
+							<a>
+								<button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg"><AddIcon fontSize="small"/> Buat Penjualan Baru</button>
+							</a>
 						</Link>
                     </div>
                     </Col>
@@ -83,21 +94,22 @@ export default function penjualan() {
 							</tr>
 						</thead>
 						<tbody class="bg-white divide-y divide-gray-200">
+						{data.map((i, index) => (
 							<tr>
                                 <td class="px-2 py-2 whitespace-nowrap font-large">
 									<Form.Check type="checkbox"/>
 								</td>
                                  <td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">1 Januari 2021</div>
+									<div class="text-lg text-gray-900">{i.tgltransaksi}</div>
 								</td>
 								<td class="px-8 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">01</div>
+									<div class="text-lg text-gray-900">{i.notransaksi}</div>
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">Kevin</div>
+									<div class="text-lg text-gray-900">{i.pelanggan}</div>
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">1 februari</div>
+									<div class="text-lg text-gray-900">{i.tgljatuhtempo}</div>
 								</td>
                                 <td class="px-2 py-2 whitespace-nowrap font-large">
 									<div class="text-lg text-gray-900">aktif</div>
@@ -109,32 +121,8 @@ export default function penjualan() {
 									<div class="text-lg text-gray-900">Rp.0,00</div>
 								</td>
 							</tr>
-                            <tr>
-                            <td class="px-2 py-2 whitespace-nowrap font-large">
-									<Form.Check type="checkbox"/>
-								</td>
-                                 <td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">1 Januari 2021</div>
-								</td>
-								<td class="px-8 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">02</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">Qyan</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">1 februari</div>
-								</td>
-                                <td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">aktif</div>
-								</td>
-								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">Rp.0,00</div>
-								</td>
-                                <td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">Rp.0,00</div>
-								</td>
-							</tr>
+					))}
+							
 						</tbody>
 			</table>
         </Layout>

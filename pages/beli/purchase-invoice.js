@@ -208,7 +208,7 @@ export default function purchaseinvoice() {
                             </Form.Label>
                             <Form.Label column sm="4">
                             <div class="flex flex-row-reverse">  
-                                <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white focus:outline-none">Buat Penjualan</button>
+                                <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white focus:outline-none">Buat Pembelian</button>
                                 <button onclick="openModal(false)"class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white focus:outline-none">Batal</button>
                                 
                             </div>
