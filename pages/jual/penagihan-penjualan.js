@@ -4,6 +4,7 @@ import {Form,Row,Col,InputGroup,FormControl} from 'react-bootstrap'
 import Switch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import AddIcon from '@material-ui/icons/Add'
+import Link from 'next/Link'
 
 export default function penagihanpenjualan() {
     return (
@@ -266,7 +267,7 @@ export default function penagihanpenjualan() {
             </Form>
             <div class="left-0 px-4 py-3 border-t border-gray-200 w-full flex justify-end items-center gap-3">  
             <button onclick="openModal(false)"class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white focus:outline-none">Batal</button>
-                <Link href="/setting/sales-invoice">
+                <Link href="/jual/sales-invoice">
                 <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white focus:outline-none">Buat Penjualan</button>
                 </Link>
             </div>
