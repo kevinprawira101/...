@@ -18,7 +18,7 @@ export default function laporanjurnalumum({ data }) {
         <Layout>
        	<div variant="container">
                <div></div>
-				<h4 class="mb-8 mt-5">
+				<h4 class="mb-6 mt-2">
                    Jurnal Umum
                     </h4>
                     <div class="flex flex-row-reverse">

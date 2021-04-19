@@ -1,12 +1,15 @@
 import React from 'react';
 import Layout from '../../components/Layout';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
 
 export default function addpajak () {
 	return (
 		<Layout>
 			<div variant="container">
-				<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-1">
-					<h1 class="text-4xl font-mono mb-7">Pajak</h1>
+				<div class="">
+					<h1 class="text-4xl mb-7">
+					<CreditCardIcon fontSize="large"/>
+						Pajak</h1>
 					<div class="-mx-3 md:flex mb-6">
 						<div class="md:w-1/2 px-3 mb-6 md:mb-0">
 							<label

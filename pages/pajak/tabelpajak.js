@@ -1,15 +1,17 @@
 import React from 'react'
 import Link from 'next/link';
 import Layout from '../../components/Layout';
+import CreditCardIcon from '@material-ui/icons/CreditCard';
 
 export default function tabelpajak() {
     return (
         <Layout>
         <div>
             <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
-                <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
+                <div class="">
                     <div class="flex justify-between">
-                        <h1 class="text-4xl font-mono mb-7">
+                        <h1 class="text-4xl mb-7 mr-2">
+                        <CreditCardIcon fontSize="large"/>
                             List Pajak
                         </h1>
                         <div class="inline-block mr-3 mt-2">
@@ -19,7 +21,7 @@ export default function tabelpajak() {
                         </div>
                     </div>
                 </div>
-                <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+                <div class="">
                     <table class="min-w-full">
                         <thead>
                             <tr>
