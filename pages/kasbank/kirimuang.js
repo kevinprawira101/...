@@ -78,7 +78,7 @@ const kirimuang = () => {
                                     Penerima
                                 </Form.Label>
                                         <Form.Control as="select" name="penerima" onChange={props.handleChange} onBlur={props.handleBlur}>
-                                            <option>Pilih Bank Penerima</option>
+                                            <option value='' disabled>Pilih Bank Penerima</option>
                                             <option value="BCA">BCA</option>
                                             <option value="BRI">BRI</option>
                                         </Form.Control>

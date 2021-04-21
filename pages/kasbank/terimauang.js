@@ -1,16 +1,44 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Layout from '../../components/layout'
 import Link from 'next/link';
-import { Button, Table, DropdownButton , Dropdown , Row , Col, Form, Card} from 'react-bootstrap';
+import { Button, Table, DropdownButton,InputGroup, FormControl,Dropdown , Row , Col, Form, Card} from 'react-bootstrap';
 import AttachmentIcon from '@material-ui/icons/Attachment';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import {Formik , Form as Forms} from 'formik'
+import * as Yup from 'yup'
 
-function terimauang() {
+const TerimaUangSchema = Yup.object().shape({
+    setor: Yup.string()
+      .required('Required'),
+    pengirim : Yup.string().required('Required'),
+    pembayaranAkun : Yup.string().required('Harus Dipilih!')
+    // lastName: Yup.string()
+    //   .min(2, 'Too Short!')
+    //   .max(50, 'Too Long!')
+    //   .required('Required'),
+    // email: Yup.string().email('Invalid email').required('Required'),
+  });
+
+
+const terimauang = () => {
     return (
         <div>
-             <Layout>
+         <Layout>
+             <Formik
+                    initialValues={{
+                        setor : '',
+                        pengirim : "",
+                        pembayaranAkun : ''
+                    }}
+                    validationSchema={TerimaUangSchema}
+                    onSubmit={(values) => {
+                        console.log(values)
+                    }}
+                >
+                    {(props) => (
+                        <Forms noValidate>
         <div variant="container">
         <div class="text-md font-medium text-gray-900 mb-2">
             Transaksi</div>
@@ -24,14 +52,15 @@ function terimauang() {
                 <Form.Label>
                     Setor ke
                     </Form.Label>
-                        <Form.Control as="select">
-                            <option>Pilih Bank Penerima</option>
-                            <option>BCA</option>
-                            <option>BRI</option>
-                            <option>BNI</option>
-                            <option>BUKOPIN</option>
-                            <option>MANDIRI</option>
+                        <Form.Control as="select" name="setor" onChange={props.handleChange} onBlur={props.handleBlur}>
+                            <option value='' disabled>Pilih Bank Penerima</option>
+                            <option value='BCA'>BCA</option>
+                            <option value='BRI'>BRI</option>
+                            <option value='BNI'>BNI</option>
+                            <option value='BUKOPIN'>BUKOPIN</option>
+                            <option value='MANDIRI'>MANDIRI</option>
                           </Form.Control>
+                          {props.errors.setor && props.touched.setor ? <div>{props.errors.setor}</div> : null}
                 </Col>
                 <Col></Col>
                 <Col>
@@ -49,20 +78,31 @@ function terimauang() {
                 <Form.Label>
                     Yang Membayar
                 </Form.Label>
-                        <Form.Control as="select">
-                            <option>Pilih Bank Pengirim</option>
-                            <option>BCA</option>
-                            <option>BRI</option>
+                        <Form.Control as="select" name="pengirim" onChange={props.handleChange} onBlur={props.handleBlur}>
+                            <option value="" disabled>Pilih Bank Pengirim</option>
+                            <option value="BCA">BCA</option>
+                            <option value="BRI">BRI</option>
                         </Form.Control>
+                        {props.errors.pengirim && props.touched.pengirim ? <div>{props.errors.pengirim}</div> : null}
                 </Col>
                 
                 <Col>
-                <Form.Label>
-                    Tanggal Transaksi
-                </Form.Label>  
-                <Form.Control placeholder="" />
-              
-                </Col>
+                                <Form.Label>
+                                    Tanggal Transaksi
+                                </Form.Label>
+                                <InputGroup className="mb-3">
+                                       
+                                  
+                                     
+                                        <FormControl
+                                        placeholder="Pick date"
+                                        type='date'
+                                        aria-label="date"
+                                        />
+                                    </InputGroup>
+                               
+                            
+                                </Col>
                 
                 <Col> 
                 <Form.Label>
@@ -97,10 +137,12 @@ function terimauang() {
 					<tbody>
 						<tr>
 							<td> 
-                                <Form.Control as="select">
-                                    <option>Pilih 1</option>
+                                <Form.Control as="select" >
+                                    <option value="1">Pilih 1</option>
                                 </Form.Control>
-                            </td>
+                             
+                            </td>   
+     
 							<td>
                                 <Form.Control placeholder="Isi Deskripsi" />    
                             </td>   
@@ -200,10 +242,13 @@ function terimauang() {
      <div className="float-right mb-10">
                 <Button variant="danger mr-2"><HighlightOffIcon fontSize="medium"/> Batal</Button>
                 <Link href="/kasbank/bankdeposit">
-                <Button variant="success"><CheckCircleIcon fontSize="medium"/> Buat Transferan</Button>
+                <Button variant="success" type="submit" onClick={props.handleSubmit}><CheckCircleIcon fontSize="medium"/> Buat Transferan</Button>
                 </Link>
         </div>
         </div>
+        </Forms>
+                    )}
+        </Formik>
         </Layout>
         </div>
     )

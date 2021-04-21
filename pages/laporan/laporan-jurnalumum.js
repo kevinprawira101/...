@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import Link from 'next/link';
-import { Button, Table, DropdownButton , Dropdown } from 'react-bootstrap';
+import { Button, Table, DropdownButton ,Form, FormControl,InputGroup, Dropdown } from 'react-bootstrap';
 
 export async function getServerSideProps() {
 	// Fetch data from external API
@@ -22,6 +22,8 @@ export default function laporanjurnalumum({ data }) {
                    Jurnal Umum
                     </h4>
                     <div class="flex flex-row-reverse">
+				
+
 							<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Export">
 								<Dropdown.Item>
 									<Link href="#">
@@ -31,6 +33,21 @@ export default function laporanjurnalumum({ data }) {
 								<Dropdown.Item href="#/action-2">XLS</Dropdown.Item>
                                 <Dropdown.Item href="#/action-2">CSV</Dropdown.Item>
 							</DropdownButton>
+
+							
+							{/* <Form.Label>
+                                    Tanggal Transaksi
+                                </Form.Label>
+                                <InputGroup className="mb-3">
+                                       
+                                  
+                                     
+                                        <FormControl
+                                        placeholder="Pick date"
+                                        type='date'
+                                        aria-label="date"
+                                        />
+                                    </InputGroup> */}
 						</div>
 
 				<Table class="table mt-4">

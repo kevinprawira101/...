@@ -80,19 +80,17 @@ export default function laporanneraca({ data }) {
                      </tr>
                  </tbody>
 
-
-
-               <tbody>
-                    <tr>
+                 <tbody>
+                 <tr>
                          <td></td>
                          <td></td>
                          <td></td>
                          <td></td>
                      </tr>
-                    <tr>
+                     <tr>
                          <td>
-                             <div class="text-md font-medium text-gray-900">Aset Tetap</div>
-                        </td>
+                            <div class="text-md font-medium text-gray-900">Aset Tetap</div>
+                         </td>
                          <td></td>
                          <td></td>
                          <td></td>
@@ -114,9 +112,51 @@ export default function laporanneraca({ data }) {
                          <td></td>
                          <td></td>
                          <td>
+                             <div class="text-md font-medium text-gray-900">Rp. {data.reduce((init, curr) => (init += curr['debit']), 0)}</div>
+                         </td>
+                     </tr>
+                 </tbody>
+
+
+
+               <tbody>
+                    <tr>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                    <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Aset Lainnya</div>
+                        </td>
+                         <td></td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+
+                     {data.map((i, index) => (
+                     <tr>
+                         <td class="px-4">{i.namaAkun}</td>
+                         <td></td>
+                         <td>Rp. {i.debit}</td>
+                         <td></td>
+                     </tr>
+                    ))}
+                    
+
+                     <tr>
+                         <td>
+                             <div class="text-md font-medium text-gray-900">Total Aset Lainnya</div>
+                         </td>
+                         <td></td>
+                         <td></td>
+                         <td>
                              <div class="text-md font-medium text-gray-900">Rp.{data.reduce((init, curr) => (init += curr['debit']), 0)}</div>
                          </td>
                      </tr>
+
+              
 
                      <tr>
                          <td></td>

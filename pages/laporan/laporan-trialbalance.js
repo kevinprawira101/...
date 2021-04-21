@@ -27,9 +27,9 @@ const laporantrialbalance = () => {
                  <thead>
                      <tr>
                        <th colspan="3">Daftar Akun</th>
-                       <th colspan="3" classnName="text-center">Neraca Saldo (Sebelum Penyesuaian)</th>
+                       <th colspan="3" classnName="text-center">Saldo Awal</th>
                        <th colspan="3" classnName="text-center">Penyesuaian Saldo</th>
-                       <th colspan="3" classnName="text-center">Neraca Saldo (Sesudah Penyesuaian)</th>
+                       <th colspan="3" classnName="text-center">Saldo Akhir</th>
                      </tr>
                  </thead>
 
