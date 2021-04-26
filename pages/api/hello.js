@@ -7,7 +7,7 @@ export default async (req, res) => {
   try {
     const createMany = await prisma.role.createMany({
       data: [
-        { roleType: "Admin HBM", roleDesc: "admin" },
+        { roleType: "Admin", roleDesc: "super user, access to all admin rights" },
         { roleType: "Web Developer", roleDesc: "Web Developer front end and back end" },
         { roleType: "Mobile Programmer", roleDesc: "Mobile developer creating mobile apps android or ios" },
       ],

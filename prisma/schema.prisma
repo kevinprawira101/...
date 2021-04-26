@@ -28,3 +28,45 @@ model User {
   role      Role     @relation(fields: [roleId], references: [id])
   roleId    Int      
 }
+
+// model AkunBaru {
+//   id        Int      @default(autoincrement()) @id  
+//   nama      String   @db.VarChar(20)
+//   nomor     String   @db.VarChar(20)
+//   kategori  String   
+//   detail    String   
+//   deskripsi String   
+// }
+
+model Akun{
+  id              Int     @default(autoincrement()) @id  
+  kode_akun       String  
+  tipe_akun       String  
+  nama_akun       String
+  kategori_akun   String
+}
+
+// model KontakBaru {
+//   id                  Int      @default(autoincrement()) @id  
+//   namaPanggilan       String   @db.VarChar(20)
+//   tipeKontak          String
+//   namaKontak          String
+//   handphone           String
+//   tipeIdentitas       String
+//   identitas           String
+//   infoLain            String
+//   namaPerushaan       String
+//   telepon             String
+//   fax                 String
+//   npwp                String
+//   alamatPembayaran    String
+//   alamatPengiriman    String
+//   namaBank            String
+//   cabangBank          String
+//   pemegangAkunBank    String
+//   nomorRekening       String
+//   akunPiutang         String
+//   akunHutang          String
+//   syaratPembayaran    String
+
+// }

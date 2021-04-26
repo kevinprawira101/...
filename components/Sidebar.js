@@ -12,6 +12,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PaymentIcon from '@material-ui/icons/Payment';
 import SettingsIcon from '@material-ui/icons/Settings';
+import FaceIcon from '@material-ui/icons/Face';
 
 
 const Sidebar = () => {
@@ -40,16 +41,26 @@ const Sidebar = () => {
 							</Link>
 						</li>
 						<li>
-						<Link href="/jurnal/create-jurnal">
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<MenuBookIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Jurnal</span>
-							</a>
+							<Link href="/jurnal/create-jurnal">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<MenuBookIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Jurnal</span>
+								</a>
 							</Link>
 						</li>
-						<li />
+
+						<li>
+							<Link href="/user/list">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<FaceIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">User</span>
+								</a>
+							</Link>
+						</li>
 
 						<hr class="ml-4 mr-4" />
 
@@ -75,22 +86,22 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/laporan/menulaporan">
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<AssessmentIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Laporan</span>
-							</a>
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<AssessmentIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Laporan</span>
+								</a>
 							</Link>
 						</li>
 						<li>
 							<Link href="/pajak/tabelpajak">
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<MonetizationOnIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Pajak</span>
-							</a>
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<MonetizationOnIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Pajak</span>
+								</a>
 							</Link>
 						</li>
 						<li>
@@ -107,35 +118,35 @@ const Sidebar = () => {
 						<hr class="ml-4 mr-4" />
 
 						<li>
-						<Link href="/kasbank/kasbankhome"> 
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<AccountBalanceWalletIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Kas & Bank</span>
-							</a>
+							<Link href="/kasbank/kasbankhome">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<AccountBalanceWalletIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Kas & Bank</span>
+								</a>
 							</Link>
 						</li>
 						<li>
 							<Link href="/jual/penjualan">
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<ShoppingBasketIcon />
-								</span>
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<ShoppingBasketIcon />
+									</span>
 									<span class="ml-2 text-sm tracking-wide truncate">Penjualan</span>
 								</a>
 							</Link>
-							
+
 						</li>
 						<li>
 							<Link href="/beli/pembelian">
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<ShoppingCartIcon />
-								</span>
-								<span class="ml-2 text-sm tracking-wide truncate">Pembelian</span>
-							</a>
-							</Link>	
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<ShoppingCartIcon />
+									</span>
+									<span class="ml-2 text-sm tracking-wide truncate">Pembelian</span>
+								</a>
+							</Link>
 						</li>
 						<li>
 							<Link href="/biaya/pengeluaran">
@@ -152,15 +163,15 @@ const Sidebar = () => {
 
 						<li>
 							<Link href="/setting/setting-perusahaan">
-							<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-								<span class="inline-flex justify-center items-center ml-4">
-									<SettingsIcon />
-								</span>
-								
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+									<span class="inline-flex justify-center items-center ml-4">
+										<SettingsIcon />
+									</span>
+
 									<span class="ml-2 text-sm tracking-wide truncate">Pengaturan</span>
-							</a>	
+								</a>
 							</Link>
-							
+
 						</li>
 					</ul>
 				</div>

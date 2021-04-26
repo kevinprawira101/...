@@ -4,16 +4,11 @@ import Layout from '../../components/Layout';
 import { Button, DropdownButton, Dropdown, Row, Col } from 'react-bootstrap';
 import Add from '@material-ui/icons/Add';
 
-export async function getServerSideProps() {
-	// Fetch data from external API
-	const res = await fetch('http://localhost:3000/api/api-daftar-akun/daftar-akun');
-	const data = await res.json();
-
-	// Pass data to the page via props
-	return { props: { data } }
-}
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 
 export default function DaftarAkun({ data }) {
+
 	return (
 		<Layout>
 			<div variant="container">
@@ -42,6 +37,7 @@ export default function DaftarAkun({ data }) {
 				<div class="mt-8">
 					<table class="min-w-full table-auto">
 						<thead class="justify-between">
+
 							<tr class="bg-dark">
 								<th class="px-2 py-2">
 									<span class="text-gray-300">Kode Akun</span>
@@ -58,7 +54,7 @@ export default function DaftarAkun({ data }) {
 								</th>
 							</tr>
 						</thead>
-						<tbody class="bg-white divide-y divide-gray-200">
+						{/* <tbody class="bg-white divide-y divide-gray-200">
 							{data.map((i, index) => (
 								<tr>
 									<td class="px-2 py-2 whitespace-nowrap">
@@ -81,10 +77,73 @@ export default function DaftarAkun({ data }) {
 								</tr>
 
 							))}
+						</tbody> */}
+						<tbody class="bg-white divide-y divide-gray-200">
+							<tr>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="flex items-center">
+										<div>
+											<div class="text-sm font-medium text-gray-900" />
+											<div class="text-sm text-gray-500" />
+										</div>
+									</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-xl text-red-600 font-medium">Kas</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap">
+									<div class="text-sm text-gray-900" />
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap font-medium">
+									<div class="text-sm text-gray-900" />
+								</td>
+							</tr>
+
+							{data.map(i => (
+								<tr>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="flex items-center">
+											<div>
+												<div class="text-sm font-medium text-gray-900">{i.kode_akun}</div>
+												{/* <div class="text-sm text-gray-500">test</div> */}
+											</div>
+										</div>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">{i.nama_akun}</div>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap">
+										<div class="text-sm text-gray-900">{i.kategori_akun}</div>
+									</td>
+									<td class="px-2 py-2 whitespace-nowrap font-medium">
+										<div class="text-sm text-gray-900">Rp. </div>
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</Layout>
 	);
+}
+
+export async function getServerSideProps() {
+	// // Pass data to the page via props
+	// return { props: { data } }
+
+	const akuns = await prisma.akun.findMany({
+		orderBy: [
+			{
+				kode_akun: 'asc'
+			}
+		]
+	});
+
+	return {
+		props: {
+			data: akuns
+		}
+
+	}
 }
