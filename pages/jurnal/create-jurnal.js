@@ -30,7 +30,7 @@ export default function createjurnal() {
                     <Form.Control type="text" placeholder="" />
                     </Col>
                     <Col sm="2">
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="date" placeholder="" />
                     {/* <KeyboardDatePicker disableToolbar variant="inline" format="MM/dd/yyyy" margin="normal" id="date-picker-inline" label="Date picker inline" value={selectedDate} onChange={handleDateChange} KeyboardButtonProps={{'aria-label': 'change date',}}/> */}
                     </Col>
                 </Form.Group>
@@ -42,13 +42,16 @@ export default function createjurnal() {
                     <Form.Label column sm="3">
                     Akun
                     </Form.Label>
-                    <Form.Label column sm="3">
+                    <Form.Label column sm="2">
                     Deskripsi
                     </Form.Label>
-                    <Form.Label column sm="3">
+                    <Form.Label column sm="2">
+                    Tag
+                    </Form.Label>
+                    <Form.Label column sm="2">
                     Debit
                     </Form.Label>
-                    <Form.Label column sm="3">
+                    <Form.Label column sm="2">
                     Kredit
                     </Form.Label>
                 </Form.Group>
@@ -58,13 +61,16 @@ export default function createjurnal() {
                         <option>Default select</option>
                     </Form.Control>
                     </Col>
-                    <Col sm="3">
+                    <Col sm="2">
                     <Form.Control type="text" placeholder="" />
                     </Col>
-                    <Col sm="3">
+                    <Col sm="2">
                     <Form.Control type="text" placeholder="" />
                     </Col>
-                    <Col sm="3">
+                    <Col sm="2">
+                    <Form.Control type="text" placeholder="" />
+                    </Col>
+                    <Col sm="2">
                     <Form.Control type="text" placeholder="" />
                     </Col>
                 </Form.Group>

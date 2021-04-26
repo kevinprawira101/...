@@ -18,6 +18,6 @@ export default function navbar () {
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
-		</div>
+		</div>			
 	);
 }

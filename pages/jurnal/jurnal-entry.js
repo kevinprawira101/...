@@ -23,7 +23,7 @@ export default function jurnalentry({ data }) {
 	return (
 		<Layout>
 			<h3>Transaksi</h3>
-			<h1>Jurnal Entry #XX</h1>
+			<h2 class="mb-4">Jurnal Entry #XX</h2>
 			<Form>
 				<Form.Group as={Row} controlId="formPlaintext">
 					<Col sm="3">
@@ -75,10 +75,10 @@ export default function jurnalentry({ data }) {
 								<div class="text-lg text-gray-900">{i.deskripsi}</div>
 							</td>
 							<td class="px-2 py-2 whitespace-nowrap font-large">
-								<div class="text-lg text-gray-900">rp.{i.debit}</div>
+								<div class="text-lg text-gray-900">Rp. {i.debit}</div>
 							</td>
 							<td class="px-2 py-2 whitespace-nowrap font-large">
-								<div class="text-lg text-gray-900">Rp.{i.kredit}</div>
+								<div class="text-lg text-gray-900">Rp. {i.kredit}</div>
 							</td>
 						</tr>
 
@@ -94,10 +94,10 @@ export default function jurnalentry({ data }) {
 							<div class="text-lg text-gray-900">test</div>
 						</td>
 						<td class="px-2 py-2 whitespace-nowrap font-large">
-							<div class="text-lg text-gray-900">rp.0,00</div>
+							<div class="text-lg text-gray-900">Rp. 0,00</div>
 						</td>
 						<td class="px-2 py-2 whitespace-nowrap font-large">
-							<div class="text-lg text-gray-900">Rp.0,00</div>
+							<div class="text-lg text-gray-900">Rp. 0,00</div>
 						</td>
 					</tr>
 					<tr class="bg-gray-200">
@@ -113,13 +113,13 @@ export default function jurnalentry({ data }) {
 						<td class="px-2 py-2 whitespace-nowrap font-large">
 							<div class="text-lg text-gray-900">
 								Total Debit <br />
-                                        rp.{data.reduce((init, curr) => (init += curr['debit']), 0)}
+                                        Rp. {data.reduce((init, curr) => (init += curr['debit']), 0)}
 							</div>
 						</td>
 						<td class="px-2 py-2 whitespace-nowrap font-large">
 							<div class="text-lg text-gray-900">
 								Total Kredit <br />
-                                        Rp.0,00
+                                        Rp. 0,00
                                         </div>
 						</td>
 					</tr>

@@ -67,7 +67,12 @@ export default function Expense () {
 						<p>Jl. Jend. Sudirman</p>
 					</Col>
 
-					<Col sm="4" />
+					<Col sm="2">
+						<p className="font-medium">Tag:</p>
+					</Col>
+					<Col sm="2">
+						<p>XX</p>
+					</Col>
 
 					<Col sm="2">
 						<p className="font-medium">Cara Pembayaran:</p>

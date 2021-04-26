@@ -111,6 +111,13 @@ const kirimuang = () => {
                                 </Form.Label>
                                 <Form.Control placeholder="ID" />
                                 </Col>
+
+                                <Col>
+                                <Form.Label>
+                                    Tag
+                                </Form.Label>
+                                <Form.Control placeholder="Tag" />
+                                </Col>
                 
                             </Row>
                 
@@ -191,7 +198,7 @@ const kirimuang = () => {
                                 </Col>
                                 <Col></Col> 
                                 <Col>
-                                <Form.Group as={Row} controlId="\">
+                                <Form.Group as={Row} >
                                         <Form.Label column sm="3">
                                         Subtotal
                                         </Form.Label>
@@ -200,7 +207,7 @@ const kirimuang = () => {
                                         </Col>
                                     </Form.Group>
                 
-                                <Form.Group as={Row} controlId="\">
+                                <Form.Group as={Row}>
                                         <Form.Label column sm="3">
                                         Total
                                         </Form.Label>

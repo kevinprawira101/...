@@ -6,6 +6,8 @@ import Divider from '@material-ui/core/Divider';
 import Switch from '@material-ui/core/Switch'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import AddIcon from '@material-ui/icons/Add'
+import Link from 'next/link';
+
 
 export default function pengingatfaktur() {
     return (

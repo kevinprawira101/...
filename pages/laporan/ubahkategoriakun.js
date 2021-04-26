@@ -3,11 +3,21 @@ import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 
-export default function BuatAkunBaru () {
+export default function  () {
 	return (
 		<Layout>
-			<h1><AccountBalanceIcon class="mr-5"/> 
-			Buat Akun Baru</h1>
+			 <div class="text-md font-medium text-gray-900 mb-2">
+           
+           Akun - Kategori Akun
+           <Row>
+               <Col>
+                   <h4 class="mt-2 mb-3">
+                       Ubah Akun
+                       </h4>
+                </Col>
+                </Row>
+           </div>
+
 			<div class="mt-12 container">
 				<Form>
 					<Row className="mb-3">
@@ -62,7 +72,14 @@ export default function BuatAkunBaru () {
 						</Col>
 					</Row>
 
-					<Row className="mb-3">
+                    <Row className="mb-4">
+						<Col sm="2">Saldo</Col>
+						<Col sm="6">
+							Rp. 0,00
+						</Col>
+					</Row>
+
+					<Row className="mb-4">
 						<Col sm="2">Deskripsi</Col>
 						<Col sm="6">
 							<Form.Control as="textarea" rows={3} />
@@ -73,7 +90,7 @@ export default function BuatAkunBaru () {
 						<Form.Label column sm="2" />
 						<Col sm="6">
 							<Button variant="danger mr-4">Batal</Button>
-							<Button variant="success">Buat</Button>
+							<Button variant="success">Perbarui Akun</Button>
 						</Col>
 					</Row>
 				</Form>

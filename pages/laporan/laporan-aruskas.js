@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import Link from 'next/link';
-import { Button, Table, DropdownButton , Dropdown } from 'react-bootstrap';
+import { Button, Table, DropdownButton ,Row,Col,InputGroup,FormControl,Form, Dropdown } from 'react-bootstrap';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 const laporanaruskas = () => {
@@ -9,13 +9,47 @@ const laporanaruskas = () => {
             <Layout>
             <div variant="container">
                 <div></div>
-                <h4 class="mb-8 mt-5">
+                <h4 class="mb-8 mt-3">
                     Arus Kas
                     </h4>
+
+             <Row>
+                <Col sm='3'>
+                <Form.Label>
+                                    Tanggal Mulai
+                                </Form.Label>
+                                <InputGroup className="mb-3">
+                                        <FormControl
+
+                                        placeholder="Pick date"
+                                        type='date'
+                                        aria-label="date"
+                                        />
+                                    </InputGroup>
+              
+                </Col>
+				<Col sm="3">
+                <Form.Label>
+                                    Tanggal Selesai
+                                </Form.Label>
+                                <InputGroup className="mb-3">
+                                        <FormControl
+                                        placeholder="Pick date"
+                                        type='date'
+                                        aria-label="date"
+                                        />
+                                    </InputGroup>
+              
+                </Col>
+
+				<Col>
+					<Button variant="primary mr-2 mt-7"> Filter</Button>
+				</Col>
+            </Row>
+        
                         
                     <div class="flex flex-row-reverse">
-                        
-
+                    
                             <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Export">
                                 <Dropdown.Item>
                                     <Link href="#">

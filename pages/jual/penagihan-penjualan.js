@@ -52,17 +52,22 @@ export default function penagihanpenjualan() {
                         <Form.Label column sm="3">
                         Tgl Transaksi <br/>
                         <Form.Control type="text" placeholder="Auto" /> <br/>
+
                         Tgl Jatuh Tempo <br/>
                         <Form.Control type="text" placeholder="Auto" /> <br/>
                         Syarat Pembayaran <br/>
                         <Form.Control type="text" placeholder="" /> <br/>
                         </Form.Label>
+
                         <Form.Label column sm="3">
                         No Transaksi <br/>
                         <Form.Control type="text" placeholder="Auto" /> <br/>
                         No Referensi Penagihan <br/>
                         <Form.Control type="text" placeholder="" /> <br/>
+                        Tag <br/>
+                        <Form.Control type="text" placeholder="" /> <br/>
                         </Form.Label>
+                        
                     </Form.Group>
                 </Form>
                 <div class="flex flex-row-reverse">

@@ -78,6 +78,11 @@ export default function BuatBiaya () {
 						<Form.Label className="font-medium">Alamat Penagihan</Form.Label>
 						<Form.Control as="textarea" rows={4} />
 					</Col>
+
+					<Col sm="3" className="mt-3">
+						<Form.Label className="font-medium">Tag</Form.Label>
+						<Form.Control placeholder="" />
+					</Col>
 				</Row>
 
 				<Row className="d-flex justify-content-end mr-3">

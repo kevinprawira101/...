@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/layout'
 import Link from 'next/link';
-import { Button, Table, DropdownButton ,Form, FormControl,InputGroup, Dropdown } from 'react-bootstrap';
+import { Button, Table, DropdownButton ,Row,Col,Form, FormControl,InputGroup, Dropdown } from 'react-bootstrap';
 
 export async function getServerSideProps() {
 	// Fetch data from external API
@@ -21,6 +21,41 @@ export default function laporanjurnalumum({ data }) {
 				<h4 class="mb-6 mt-2">
                    Jurnal Umum
                     </h4>
+					<div class="mb-10">
+            <Row>
+                <Col sm='3'>
+                <Form.Label>
+                                    Tanggal Mulai
+                                </Form.Label>
+                                <InputGroup className="mb-3">
+                                        <FormControl
+
+                                        placeholder="Pick date"
+                                        type='date'
+                                        aria-label="date"
+                                        />
+                                    </InputGroup>
+              
+                </Col>
+				<Col sm="3">
+                <Form.Label>
+                                    Tanggal Selesai
+                                </Form.Label>
+                                <InputGroup className="mb-3">
+                                        <FormControl
+                                        placeholder="Pick date"
+                                        type='date'
+                                        aria-label="date"
+                                        />
+                                    </InputGroup>
+              
+                </Col>
+
+				<Col>
+					<Button variant="primary mr-2 mt-7"> Filter</Button>
+				</Col>
+            </Row>
+        
                     <div class="flex flex-row-reverse">
 				
 
@@ -33,23 +68,10 @@ export default function laporanjurnalumum({ data }) {
 								<Dropdown.Item href="#/action-2">XLS</Dropdown.Item>
                                 <Dropdown.Item href="#/action-2">CSV</Dropdown.Item>
 							</DropdownButton>
-
-							
-							{/* <Form.Label>
-                                    Tanggal Transaksi
-                                </Form.Label>
-                                <InputGroup className="mb-3">
-                                       
-                                  
-                                     
-                                        <FormControl
-                                        placeholder="Pick date"
-                                        type='date'
-                                        aria-label="date"
-                                        />
-                                    </InputGroup> */}
 						</div>
+				</div>
 
+				
 				<Table class="table mt-4">
 					<thead class="thead-light">
 						<tr>

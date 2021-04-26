@@ -83,6 +83,9 @@ export default function pembelian({data}) {
 									<span class="text-gray-300">Tgl Jatuh Tempo</span>
 								</th>
 								<th class="px-2 py-2">
+									<span class="text-gray-300">Tag</span>
+								</th>
+								<th class="px-2 py-2">
 									<span class="text-gray-300">Status</span>
 								</th>
                                 <th class="px-2 py-2">
@@ -110,6 +113,9 @@ export default function pembelian({data}) {
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-large">
 									<div class="text-lg text-gray-900">{i.tgljatuhtempo}</div>
+								</td>
+								<td class="px-2 py-2 whitespace-nowrap font-large">
+									<div class="text-lg text-gray-900">XXX</div>
 								</td>
                                 <td class="px-2 py-2 whitespace-nowrap font-large">
 									<div class="text-lg text-gray-900">aktif</div>

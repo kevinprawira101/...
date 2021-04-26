@@ -7,6 +7,7 @@ import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import CachedIcon from '@material-ui/icons/Cached';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 
 const akundetail = () => {
     return (
@@ -255,7 +256,7 @@ const akundetail = () => {
 					</div>
 
                   <div eventKey="pemetaanKas">
-                    <div class="mt-6">
+                    <div class="mt-6 mb-3">
                     <div>
                         
                         <Button variant="primary"><CachedIcon fontSize="medium"/> Muat Ulang</Button>
@@ -267,7 +268,7 @@ const akundetail = () => {
                         </div>
                         </div>
 							
-                          <Table class="table mt-8">
+                          <Table class="table mt-6">
 				            	<thead class="thead-light">
                               <tr>
                             <th class="px-2 py-2">
@@ -287,6 +288,9 @@ const akundetail = () => {
                             </th>
                             <th class="px-2 py-2">
                                  <span>Tarif Pajak</span>
+                            </th>
+                            <th class="px-2 py-2">
+                                 <span></span>
                             </th>
                         </tr>
                         </thead>    
@@ -308,6 +312,20 @@ const akundetail = () => {
                             </td>
                             <td class="px-2 py-2 whitespace-nowrap font-large">
                             <div class="text-lg text-gray-900">Data Dummy</div>
+                            </td>  
+                            <td class="px-2 py-2 whitespace-nowrap font-large">
+                                <div class="text-lg text-gray-900">
+                                    
+                                <DropdownButton variant="secondary" id="dropdown-basic-button">
+								<Dropdown.Item>
+										<a>Pisah</a>
+								</Dropdown.Item>
+								<Dropdown.Item>
+										<a>Hapus</a>
+                                </Dropdown.Item>
+							</DropdownButton>
+
+                                </div>
                             </td>                     
                         </tr>    
                     </Table>                

@@ -13,7 +13,8 @@ const TerimaUangSchema = Yup.object().shape({
     setor: Yup.string()
       .required('Required'),
     pengirim : Yup.string().required('Required'),
-    pembayaranAkun : Yup.string().required('Harus Dipilih!')
+    pembayaranAkun : Yup.string().required('Harus Dipilih!'),
+    nomortransaksi : Yup.string().required('Required')
     // lastName: Yup.string()
     //   .min(2, 'Too Short!')
     //   .max(50, 'Too Long!')
@@ -30,7 +31,8 @@ const terimauang = () => {
                     initialValues={{
                         setor : '',
                         pengirim : "",
-                        pembayaranAkun : ''
+                        pembayaranAkun : '',
+                        nomortransaksi : ""
                     }}
                     validationSchema={TerimaUangSchema}
                     onSubmit={(values) => {
@@ -105,10 +107,18 @@ const terimauang = () => {
                                 </Col>
                 
                 <Col> 
-                <Form.Label>
+                <Form.Label name="nomortransaksi" onCharge={props.handleChange} onBlur={props.handleBlur}>
                     Nomor Transaksi
                 </Form.Label>
                 <Form.Control placeholder="ID" />
+                {props.errors.nomortransaksi && props.touched.nomortransaksi ? <div>{props.errors.nomortransaksi}</div> : null}
+                </Col>
+
+                <Col>
+                <Form.Label>
+                    Tag
+                </Form.Label>
+                <Form.Control placeholder="Tag" />
                 </Col>
 
             </Row>
@@ -192,21 +202,21 @@ const terimauang = () => {
                 </Col>
                 <Col></Col> 
                 <Col>
-                <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Group as={Row} >
                         <Form.Label column sm="3">
                         Subtotal
                         </Form.Label>
                         <Col sm="6">
-                        <Form.Control type="password" placeholder="0,00" />
+                        <Form.Control  placeholder="0,00" />
                         </Col>
                     </Form.Group>
 
-                <Form.Group as={Row} controlId="formPlaintextPassword">
+                <Form.Group as={Row} >
                         <Form.Label column sm="3">
                         Total
                         </Form.Label>
                         <Col sm="6">
-                        <Form.Control type="password" placeholder="Rp, 0.00" />
+                        <Form.Control  placeholder="Rp, 0.00" />
                         </Col>
                 </Form.Group>
                 </Col>

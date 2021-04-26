@@ -98,9 +98,6 @@ const transferuang = () => {
                                     Tanggal Transaksi
                                 </Form.Label>
                                 <InputGroup className="mb-3">
-                                       
-                                  
-                                     
                                         <FormControl
                                         placeholder="Pick date"
                                         type='date'
@@ -108,6 +105,12 @@ const transferuang = () => {
                                         />
                                     </InputGroup>
               
+                </Col>
+                <Col>
+                <Form.Label>
+                    Tag
+                </Form.Label>
+                <Form.Control placeholder="Tag" />
                 </Col>
             </Row>
         </div>

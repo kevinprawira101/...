@@ -62,6 +62,8 @@ export default function salesinvoice() {
                             test <br/>
                             No Referensi Penagihan: <br/>
                             test <br/>
+                            Tag: <br/>
+                            test <br/>
                             </Form.Label>
                         </Form.Group>
                     </Form>
@@ -205,6 +207,7 @@ export default function salesinvoice() {
                             </Form.Label>
                             <Form.Label column sm="4">
                             <button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">Cetak</button>
+                            <button type="button" class="mr-2 focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:bg-blue-600 hover:shadow-lg">Bayar</button>
                             </Form.Label>
                             <Form.Label column sm="4">
                             <div class="flex flex-row-reverse">  
