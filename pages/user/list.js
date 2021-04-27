@@ -44,6 +44,10 @@ export default function list({ data }) {
                                 <th class="px-2 py-2">
                                     <span class="text-gray-300">Role</span>
                                 </th>
+
+                                <th class="px-2 py-2">
+                                    <span class="text-gray-300">Actions</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -68,6 +72,13 @@ export default function list({ data }) {
                                     </td>
                                     <td class="px-2 py-2 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">{i.roleId}</div>
+                                    </td>
+
+                                    <td class="px-2 py-2 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">
+                                            <Button variant="warning mr-2">Edit</Button>
+                                            <Button variant="danger">Delete</Button>
+                                        </div>
                                     </td>
                                 </tr>
 

@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { Formik, Form as Forms } from 'formik';
 import * as Yup from 'yup';
+import Axios from 'axios'
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
@@ -23,7 +24,8 @@ export default function User({ data }) {
                     first_name: '',
                     last_name: '',
                     email: '',
-                    password: ''
+                    password: '',
+                    roleId: ''
                 }}
 
                 validationSchema={UserSchema}
@@ -34,7 +36,7 @@ export default function User({ data }) {
                 {(props) => (
                     <Forms noValidate>
                         <div>
-                            <h4>Buat Kontak Baru</h4>
+                            <h4>Buat User Baru</h4>
                             <div class="mt-12 container">
                                 <Form>
                                     <Row className="mb-2">
@@ -84,7 +86,7 @@ export default function User({ data }) {
                                         <Col sm="4">
                                             <Row>
                                                 <Col>
-                                                    <Form.Control as="select" defaultValue="Choose...">
+                                                    <Form.Control as="select" defaultValue="Choose..." name="roleSelect">
                                                         {data.map(i => (
                                                             <option value={i.roleId}>{i.roleType}</option>
                                                         ))}
