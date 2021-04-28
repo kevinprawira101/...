@@ -3,15 +3,15 @@ import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { Formik, Form as Forms } from 'formik';
 import * as Yup from 'yup';
-
+import Axios from 'axios'
 export default function BuatAkunBaru() {
 
 	const BuatAkunBaruSchema = Yup.object().shape({
-		nama_akun: Yup.string().required('*required'),
-		kode_akun: Yup.string().required('*required'),
+		nama_akun: Yup.string().required('*Required'),
+		kode_akun: Yup.string().required('*Required'),
 		// kategori_akun: Yup.string().required('kategori_akun harus dipilih'),
-		// detail: Yup.string().required('detail harus dipilih'),
-		// deskripsi: Yup.string().required('*deskripsi tidak boleh kosong'),
+		detail: Yup.string().required('detail harus dipilih'),
+		deskripsi: Yup.string().required('*deskripsi tidak boleh kosong'),
 	});
 
 	return (
@@ -21,12 +21,14 @@ export default function BuatAkunBaru() {
 					nama_akun: '',
 					kode_akun: '',
 					kategori_akun: '',
-					// detail: '',
-					// deskripsi: '',
+					detail: '',
+					deskripsi: '',
 				}}
 				validationSchema={BuatAkunBaruSchema}
-				onSubmit={(values) => {
-					console.log(values)
+				onSubmit={async (values) => {
+					Axios.post(url, values).
+						then(function (response) { console.log(response) }).
+						catch(function (error) { console.log(error) })
 				}}
 			>
 				{(props) => (

@@ -29,6 +29,31 @@ model User {
   roleId    Int      
 }
 
+// Kategori Table
+model Kategori {
+  id         Int     @default(autoincrement()) @id  
+  name       String  
+  Akun       Akun[]
+}
+
+model TipeAkun {
+  id         Int     @default(autoincrement()) @id  
+  name       String  
+  Akun       Akun[]
+}
+
+// Akun table
+model Akun{
+  id              Int     @default(autoincrement()) @id  
+  kode_akun       String  
+  tipe_akun       TipeAkun @relation(fields: [tipeId] , references: [id])
+  tipeId          Int
+  nama_akun       String
+  kategori_akun   Kategori @relation(fields: [kategoriId], references: [id])
+  kategoriId      Int
+
+}
+
 // model AkunBaru {
 //   id        Int      @default(autoincrement()) @id  
 //   nama      String   @db.VarChar(20)
@@ -37,14 +62,6 @@ model User {
 //   detail    String   
 //   deskripsi String   
 // }
-
-model Akun{
-  id              Int     @default(autoincrement()) @id  
-  kode_akun       String  
-  tipe_akun       String  
-  nama_akun       String
-  kategori_akun   String
-}
 
 // model KontakBaru {
 //   id                  Int      @default(autoincrement()) @id  

@@ -125,9 +125,6 @@ export default function User({ data }) {
 }
 
 export async function getServerSideProps() {
-    // // Pass data to the page via props
-    // return { props: { data } }
-
     const roles = await prisma.role.findMany({
         orderBy: [
             {
