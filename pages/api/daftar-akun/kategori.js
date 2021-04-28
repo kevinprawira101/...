@@ -39,5 +39,6 @@ export default async (req, res) => {
         res.status(200).json({ message: 'success!', data: createMany })
     } catch (error) {
         res.status(400).json({ rname: 'error', error })
+        console.log(error)
     }
 }
