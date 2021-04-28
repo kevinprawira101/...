@@ -1,8 +1,9 @@
 import React from 'react'
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import { Formik, Form as Forms } from 'formik';
+
 import * as Yup from 'yup';
+import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
 
 import { PrismaClient } from '@prisma/client'
@@ -16,6 +17,7 @@ const UserSchema = Yup.object().shape({
 });
 
 export default function User({ data }) {
+    const url = 'http://localhost:3000/api/user/user';
 
     return (
         <Layout>
@@ -25,12 +27,20 @@ export default function User({ data }) {
                     last_name: '',
                     email: '',
                     password: '',
-                    roleId: ''
+                    role_id: '',
                 }}
 
                 validationSchema={UserSchema}
-                onSubmit={(values) => {
+                onSubmit={async (values) => {
                     console.log(values)
+                    Axios.post(url, values).
+                        then(function (response) {
+                            console.log(response)
+                            history.push('/');
+                        }).
+                        catch(function (error) {
+                            console.log(error)
+                        })
                 }}
             >
                 {(props) => (
@@ -86,13 +96,12 @@ export default function User({ data }) {
                                         <Col sm="4">
                                             <Row>
                                                 <Col>
-                                                    <Form.Control as="select" defaultValue="Choose..." name="roleSelect">
-                                                        {data.map(i => (
-                                                            <option value={i.roleId}>{i.roleType}</option>
+                                                    <Form.Control as="select" defaultValue="Choose..." name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
+                                                        {data.map((i, index) => (
+                                                            <option key={i.roleId} value={index}>{i.roleType}</option>
                                                         ))}
                                                     </Form.Control>
                                                 </Col>
-
                                             </Row>
                                         </Col>
                                     </Row>
@@ -104,7 +113,6 @@ export default function User({ data }) {
                                             <Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
                                         </Col>
                                     </Row>
-
                                 </Form>
                             </div>
                         </div>

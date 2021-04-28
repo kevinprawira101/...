@@ -4,10 +4,23 @@ import Layout from '../../components/Layout';
 import { Button, Row, Col } from 'react-bootstrap';
 import Add from '@material-ui/icons/Add';
 
+import Axios from 'axios'
+
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function roleList({ data }) {
+    const url = 'http://localhost:3000/api/user/role/1';
+    const updateData = (e) => {
+        const data = {
+            roleType: 'test',
+            roleDesc: 'test22222'
+        }
+        Axios.put(url, data).
+            then(function (response) { console.log(response) }).
+            catch(function (error) { console.log(error) })
+    };
+
     return (
         <Layout>
             <div variant="container">
@@ -27,6 +40,9 @@ export default function roleList({ data }) {
                                 <th class="px-2 py-2">
                                     <span class="text-gray-300">Role Type</span>
                                 </th>
+                                <th class="px-2 py-2">
+                                    <span class="text-gray-300">Actions</span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -43,9 +59,13 @@ export default function roleList({ data }) {
                                             </div>
                                         </div>
                                     </td>
-
+                                    <td class="px-2 py-2 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">
+                                            <Button variant="warning mr-2" onClick={updateData}>Edit</Button>
+                                            <Button variant="danger">Delete</Button>
+                                        </div>
+                                    </td>
                                 </tr>
-
                             ))}
                         </tbody>
                     </table>
@@ -56,21 +76,22 @@ export default function roleList({ data }) {
 }
 
 export async function getServerSideProps() {
-    // // Pass data to the page via props
-    // return { props: { data } }
+    try {
+        const roles = await prisma.role.findMany({
+            orderBy: [
+                {
+                    id: 'asc'
+                }
+            ]
+        });
 
-    const roles = await prisma.role.findMany({
-        orderBy: [
-            {
-                id: 'asc'
+        return {
+            props: {
+                data: roles
             }
-        ]
-    });
-
-    return {
-        props: {
-            data: roles
         }
 
+    } catch (err) {
+        console.error(err)
     }
 }

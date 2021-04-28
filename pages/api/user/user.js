@@ -8,25 +8,11 @@ export default async (req, res) => {
         const createMany = await prisma.user.createMany({
             data: [
                 {
-                    firstName: "Admin",
-                    lastName: "HBM",
-                    email: "admin@hbm.com",
-                    password: "adminhbm1234",
-                    roleId: 1,
-                },
-                {
-                    firstName: "Roseanne",
-                    lastName: "Park",
-                    email: "rosie@hbm.com",
-                    password: "rose1234",
-                    roleId: 2,
-                },
-                {
-                    firstName: "Jiso",
-                    lastName: "Jiso",
-                    email: "jiso@hbm.com",
-                    password: "jiso1234",
-                    roleId: 3,
+                    firstName: req.body.first_name,
+                    lastName: req.body.last_name,
+                    email: req.body.email,
+                    password: req.body.password,
+                    roleId: req.body.role_id
                 }
             ],
             skipDuplicates: true,

@@ -1,43 +1,38 @@
 import React from 'react'
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import { Formik, Form as Forms } from 'formik';
-import * as Yup from 'yup';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+
+import * as Yup from 'yup';
+import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
 
 const UserSchema = Yup.object().shape({
-    role_name: Yup.string().required(' required'),
+    role_type: Yup.string().required(' required'),
     role_desc: Yup.string().required(' required'),
 });
 
 export default function Role() {
-    // Axios.post('http://localhost:3000/api/user/role', {
-    //     role_name: Formik.role_name,
-    //     role_desc: Formik.role_desc,
-    // }).then(function (response) {
-    //     console.log(response)
-    // }).catch(function (error) {
-    //     console.log(error);
-    // });
+    const url = 'http://localhost:3000/api/user/role';
     return (
         <Layout>
             <Formik
                 initialValues={{
-                    role_name: '',
+                    role_type: '',
                     role_desc: '',
                 }}
 
                 validationSchema={UserSchema}
                 onSubmit={async (values) => {
-
-                    Axios.post('http://localhost:3000/api/user/role', values)
+                    Axios.post(url, values).
+                        then(function (response) { console.log(response) }).
+                        catch(function (error) { console.log(error) })
                 }}
             >
                 {(props) => (
                     <Forms noValidate>
                         <div>
-                            <h4>Buat Kontak Baru</h4>
+                            <h4>Buat Role Baru</h4>
                             <div class="mt-12 container">
                                 <Form>
                                     <Row className="mb-2">
@@ -45,8 +40,8 @@ export default function Role() {
                                             <Form.Label>Role Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Role Name" name="role_name" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                            {props.errors.role_name && props.touched.role_name ? <div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.role_name}</div> : null}
+                                            <Form.Control placeholder="Role Name" name="role_type" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            {props.errors.role_type && props.touched.role_type ? <div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.role_type}</div> : null}
                                         </Col>
                                     </Row>
 
