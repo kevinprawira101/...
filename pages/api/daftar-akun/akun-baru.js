@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default async (req, res) => {
 
-    console.log(error);
+    // console.log(error);
     try {
         const createMany = await prisma.akun.createMany({
             data: [

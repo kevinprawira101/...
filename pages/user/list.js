@@ -164,7 +164,12 @@ export default function list({ data }) {
                                         <div class="text-sm text-gray-900">{i.email}</div>
                                     </td>
                                     <td class="px-2 py-2 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{i.roleId}</div>
+                                        <div class="text-sm text-gray-900">
+                                            {i.roleId}
+                                            {data.map((i, index) => (
+                                                <p>{i.roleType}</p>
+                                            ))}
+                                        </div>
                                     </td>
 
                                     <td class="px-2 py-2 whitespace-nowrap">

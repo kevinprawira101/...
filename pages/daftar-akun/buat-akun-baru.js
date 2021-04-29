@@ -18,7 +18,7 @@ const BuatAkunBaruSchema = Yup.object().shape({
 });
 
 export default function BuatAkunBaru({ data, data2 }) {
-	const url = 'http://localhost:3000/api/daftar-akun/buat-akun-baru';
+	const url = 'http://localhost:3000/api/daftar-akun/akun-baru';
 	return (
 		<Layout>
 			<Formik

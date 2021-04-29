@@ -11,7 +11,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 export default function login() {
-    const url = 'http://localhost:3000/api/user/';
+    const url = 'http://localhost:3000/api/user/login';
     return (
         <Layout>
             <Formik
@@ -22,9 +22,16 @@ export default function login() {
 
                 validationSchema={LoginSchema}
                 onSubmit={async (values) => {
-                    console.log(values)
-                    Axios.get(url, values).
-                        then(function (response) { console.log(response) }).
+                    Axios.post(url, values).
+                        then(function (response) {
+                            if (response.data.data !== null) {
+                                alert("login benar")
+                                redirect('../daftar-akun/daftar-akun');
+
+                            } else {
+                                alert("login salah")
+                            }
+                        }).
                         catch(function (error) { console.log(error) })
                 }}
             >
