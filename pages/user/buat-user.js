@@ -98,7 +98,7 @@ export default function User({ data }) {
                                                 <Col>
                                                     <Form.Control as="select" defaultValue="Choose..." name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
                                                         {data.map((i, index) => (
-                                                            <option key={i.roleId} value={index}>{i.roleType}</option>
+                                                            <option key={i.id} value={index}>{i.roleType}</option>
                                                         ))}
                                                     </Form.Control>
                                                 </Col>

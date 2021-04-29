@@ -26,7 +26,8 @@ model User {
   email     String   @unique
   password  String   @db.VarChar(20)
   role      Role     @relation(fields: [roleId], references: [id])
-  roleId    Int      
+  roleId    Int  
+  loggedIn  Boolean @default(false)    
 }
 
 // Kategori Table
@@ -51,7 +52,6 @@ model Akun{
   nama_akun       String
   kategori_akun   Kategori @relation(fields: [kategoriId], references: [id])
   kategoriId      Int
-
 }
 
 // model AkunBaru {

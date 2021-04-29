@@ -62,7 +62,6 @@ export default function Role() {
                                             <Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
                                         </Col>
                                     </Row>
-
                                 </Form>
                             </div>
                         </div>
