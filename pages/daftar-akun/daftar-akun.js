@@ -101,8 +101,9 @@ export default function DaftarAkun({ data }) {
 									<div class="text-sm text-gray-900" />
 								</td>
 							</tr>
-
+							{console.log(data)}
 							{data.map(i => (
+
 								<tr>
 									<td class="px-2 py-2 whitespace-nowrap">
 										<div class="flex items-center">
@@ -116,7 +117,7 @@ export default function DaftarAkun({ data }) {
 										<div class="text-sm text-gray-900">{i.nama_akun}</div>
 									</td>
 									<td class="px-2 py-2 whitespace-nowrap">
-										<div class="text-sm text-gray-900">{i.kategoriId}</div>
+										<div class="text-sm text-gray-900">{i.kategori_akun.name}</div>
 									</td>
 									<td class="px-2 py-2 whitespace-nowrap font-medium">
 										<div class="text-sm text-gray-900">Rp. </div>
@@ -143,7 +144,11 @@ export async function getServerSideProps() {
 			{
 				kode_akun: 'asc'
 			}
-		]
+		],
+		include: {
+			kategori_akun: true,
+		}
+
 	});
 
 	return {

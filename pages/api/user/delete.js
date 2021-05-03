@@ -5,16 +5,14 @@ const prisma = new PrismaClient();
 
 export default async (req, res) => {
     try {
-        const akuns = await prisma.user.findMany({
-            orderBy: [
-                {
-                    id: 'asc'
-                }
-            ]
-        });
+        const createMany = await prisma.user.delete({
+            where: {
+                id: req.body.userId,
+            },
 
+        })
 
-        res.status(201).json({ message: 'success!', data: akuns })
+        res.status(200).json({ message: 'success!', data: createMany })
     } catch (error) {
         res.status(400).json({ data: 'error', error })
         console.log(error)

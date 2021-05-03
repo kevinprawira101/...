@@ -8,6 +8,14 @@ export default async (req, res) => {
         const createMany = await prisma.role.createMany({
             data: [
                 { roleType: req.body.role_type, roleDesc: req.body.role_desc }
+                // {
+                //     roleType: 'Super Admin',
+                //     roleDesc: 'Super Administrator'
+                // },
+                // {
+                //     roleType: 'User',
+                //     roleDesc: 'User Biasa'
+                // },
             ],
             skipDuplicates: true,
         })

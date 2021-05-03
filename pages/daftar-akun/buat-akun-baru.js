@@ -63,8 +63,7 @@ export default function BuatAkunBaru({ data, data2 }) {
 									<Col sm="6">
 										<Form.Control as="select" name="sub_akun" onChange={props.handleChange} onBLur={props.handleBlur}>
 											{data2.map((i, index) => (
-												<option key={i.id} value={index}>{i.name}</option>
-
+												<option key={i.id} value={i.id}>{i.name}</option>
 											))}
 										</Form.Control>
 										{props.errors.sub_akun && props.touched.sub_akun ? <div class="text-red-500 text-sm">{props.errors.sub_akun}</div> : null}
@@ -76,7 +75,7 @@ export default function BuatAkunBaru({ data, data2 }) {
 									<Col sm="6">
 										<Form.Control as="select" name="header_akun" onChange={props.handleChange} onBLur={props.handleBlur}>
 											{data.map((i, index) => (
-												<option key={i.id} value={index}>{i.name}</option>
+												<option key={i.id} value={i.id}>{i.name}</option>
 											))}
 
 										</Form.Control>

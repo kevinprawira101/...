@@ -28,6 +28,12 @@ export default function roleList({ data }) {
                     <Col>
                         <h4>Role List</h4>
                     </Col>
+
+                    <Col className="d-flex justify-content-end">
+                        <Link href="buat-role">
+                            <Button variant="primary mr-2"><Add fontSize="small" /> Buat Role Baru</Button>
+                        </Link>
+                    </Col>
                 </Row>
                 <div class="mt-8">
                     <table class="min-w-full table-auto">

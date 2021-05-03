@@ -10,12 +10,20 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// Menu Table
+model Menu {
+  id        Int    @default(autoincrement()) @id 
+  menu_name String
+  RoleAccess  RoleAccess[]
+}
+
 // Role Table
 model Role {
   id       Int    @default(autoincrement()) @id 
   roleType String @db.VarChar(50)
   roleDesc String @db.VarChar(255)
   User     User[]
+  RoleAccess  RoleAccess[]
 }
 
 // User Table
@@ -28,6 +36,14 @@ model User {
   role      Role     @relation(fields: [roleId], references: [id])
   roleId    Int  
   loggedIn  Boolean @default(false)    
+}
+
+model RoleAccess {
+  id        Int      @default(autoincrement()) @id  
+  role      Role     @relation(fields: [roleId], references: [id])
+  roleId    Int  
+  menu      Menu    @relation(fields: [menuId], references: [id])
+  menuId    Int
 }
 
 // Kategori Table
