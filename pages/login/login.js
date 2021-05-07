@@ -15,7 +15,7 @@ export default function login() {
     return (
         <Layout>
             <Formik
-                initialValues={{
+                    initialValues={{
                     loginEmail: '',
                     loginPassword: '',
                 }}

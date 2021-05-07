@@ -19,7 +19,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AddIcon from '@material-ui/icons/Add';
 
-export default function Kontak () {
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+export default function Kontak ({data}) {
 	return (
 		<Layout>
 			<h2>Kontak</h2>
@@ -107,32 +110,46 @@ export default function Kontak () {
 													<th class="px-2 py-2">
 														<span class="text-gray-300">Saldo</span>
 													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Action</span>
+													</th>
+
 												</tr>
 											</thead>
 											<tbody class="bg-white divide-y divide-gray-200">
+
+											{console.log(data)}
+											{data.map(i => (
 												<tr>
 													<th class="px-2 py-2">
 														<FormCheck />
 													</th>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">John Smith</div>
+														<div class="text-sm text-gray-900">{i.nama_panggilan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Bank Central Asia</div>
+														<div class="text-sm text-gray-900">{i.nama_perusahaan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+														<div class="text-sm text-gray-900">{i.alamat_pengiriman}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+														<div class="text-sm text-gray-900">{i.email}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">081234567890</div>
+														<div class="text-sm text-gray-900">{i.no_hp}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
 														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
 													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">
+															<Button variant="warning mr-2">Edit</Button>
+															<Button variant="danger">Delete</Button>
+														</div>
+													</td>
 												</tr>
+											))}
 											</tbody>
 										</table>
 									</div>
@@ -210,32 +227,44 @@ export default function Kontak () {
 													<th class="px-2 py-2">
 														<span class="text-gray-300">Saldo</span>
 													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Action</span>
+													</th>
 												</tr>
 											</thead>
 											<tbody class="bg-white divide-y divide-gray-200">
+											{console.log(data)}
+											{data.map(i => (
 												<tr>
 													<th class="px-2 py-2">
 														<FormCheck />
 													</th>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">John Smith</div>
+														<div class="text-sm text-gray-900">{i.nama_panggilan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Bank Central Asia</div>
+														<div class="text-sm text-gray-900">{i.nama_perusahaan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+														<div class="text-sm text-gray-900">{i.alamat_pengiriman}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+														<div class="text-sm text-gray-900">{i.email}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">081234567890</div>
+														<div class="text-sm text-gray-900">{i.no_hp}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
 														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
 													</td>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">
+															<Button variant="warning mr-2">Edit</Button>
+															<Button variant="danger">Delete</Button>
+														</div>
+													</td>
 												</tr>
+											))}
 											</tbody>
 										</table>
 									</div>
@@ -313,32 +342,44 @@ export default function Kontak () {
 													<th class="px-2 py-2">
 														<span class="text-gray-300">Saldo</span>
 													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Action</span>
+													</th>
 												</tr>
 											</thead>
 											<tbody class="bg-white divide-y divide-gray-200">
+											{console.log(data)}
+											{data.map(i => (
 												<tr>
 													<th class="px-2 py-2">
 														<FormCheck />
 													</th>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">John Smith</div>
+														<div class="text-sm text-gray-900">{i.nama_panggilan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Bank Central Asia</div>
+														<div class="text-sm text-gray-900">{i.nama_perusahaan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+														<div class="text-sm text-gray-900">{i.alamat_pengiriman}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+														<div class="text-sm text-gray-900">{i.email}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">081234567890</div>
+														<div class="text-sm text-gray-900">{i.no_hp}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
 														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
 													</td>
-												</tr>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">
+															<Button variant="warning mr-2">Edit</Button>
+															<Button variant="danger">Delete</Button>
+														</div>
+													</td>
+												</tr>	
+												))}											
 											</tbody>
 										</table>
 									</div>
@@ -416,32 +457,44 @@ export default function Kontak () {
 													<th class="px-2 py-2">
 														<span class="text-gray-300">Saldo</span>
 													</th>
+													<th class="px-2 py-2">
+														<span class="text-gray-300">Action</span>
+													</th>
 												</tr>
 											</thead>
 											<tbody class="bg-white divide-y divide-gray-200">
+											{console.log(data)}
+											{data.map(i => (
 												<tr>
 													<th class="px-2 py-2">
 														<FormCheck />
 													</th>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">John Smith</div>
+														<div class="text-sm text-gray-900">{i.nama_panggilan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Bank Central Asia</div>
+														<div class="text-sm text-gray-900">{i.nama_perusahaan}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">Jl. Sudirman</div>
+														<div class="text-sm text-gray-900">{i.alamat_pengiriman}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">BCA@gmail.com</div>
+														<div class="text-sm text-gray-900">{i.email}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
-														<div class="text-sm text-gray-900">081234567890</div>
+														<div class="text-sm text-gray-900">{i.no_hp}</div>
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
 														<div class="text-sm text-gray-900">Rp. 335,340,000</div>
 													</td>
-												</tr>
+													<td class="px-2 py-2 whitespace-nowrap">
+														<div class="text-sm text-gray-900">
+															<Button variant="warning mr-2">Edit</Button>
+															<Button variant="danger">Delete</Button>
+														</div>
+													</td>
+												</tr>	
+												))}
 											</tbody>
 										</table>
 									</div>
@@ -461,3 +514,25 @@ export default function Kontak () {
 		</Layout>
 	);
 }
+
+export async function getServerSideProps() {
+	const kontaks = await prisma.kontak.findMany({
+		orderBy: [
+			{
+				id: 'asc'
+			}
+		],
+		include: {
+			Kategori_id: true,
+		}
+
+	});
+
+	return {
+		props: {
+			data: kontaks
+		}
+
+	}
+}
+

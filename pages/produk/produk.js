@@ -19,7 +19,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AddIcon from '@material-ui/icons/Add';
 
-export default function Produk () {
+export default function Produk() {
 	return (
 		<Layout>
 			<Row>
@@ -29,7 +29,7 @@ export default function Produk () {
 				<Col className="d-flex justify-content-end">
 					<SettingsIcon fontSize="Large" />
 					<h4 class="mr-4">Kategori Produk</h4>
-					<Link href="/kontak/buat-kontak-baru">
+					<Link href="/produk/buat-produk">
 						<Button variant="primary">
 							<AddIcon fontSize="small" />Buat Baru
 						</Button>

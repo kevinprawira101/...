@@ -5,15 +5,16 @@ const prisma = new PrismaClient();
 
 export default async (req, res) => {
     try {
-        const deleteUser = await prisma.user.delete({
+        const createMany = await prisma.akun.delete({
             where: {
-                id: req.body.userid,
+                id: req.body.deleteid,
             },
+
         })
 
-        res.status(201).json({ message: 'success!', data: deleteUser })
+        res.status(200).json({ message: 'success!', data: createMany })
     } catch (error) {
-        res.status(400).json({ data: 'error', error })
+        res.status(error.statusCode).json({ data: 'error'})
         console.log(error)
     }
 }

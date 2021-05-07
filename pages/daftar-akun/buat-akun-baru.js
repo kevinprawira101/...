@@ -62,8 +62,9 @@ export default function BuatAkunBaru({ data, data2 }) {
 									<Col sm="2">Sub Akun Dari</Col>
 									<Col sm="6">
 										<Form.Control as="select" name="sub_akun" onChange={props.handleChange} onBLur={props.handleBlur}>
-											{data2.map((i, index) => (
-												<option key={i.id} value={i.id}>{i.name}</option>
+											{/* loop over kategori and show them */}
+											{data2.map((kategori) => (
+												<option key={kategori.id} value={kategori.id}>{kategori.name}</option>
 											))}
 										</Form.Control>
 										{props.errors.sub_akun && props.touched.sub_akun ? <div class="text-red-500 text-sm">{props.errors.sub_akun}</div> : null}
@@ -74,8 +75,9 @@ export default function BuatAkunBaru({ data, data2 }) {
 									<Col sm="2">Akun Header Dari</Col>
 									<Col sm="6">
 										<Form.Control as="select" name="header_akun" onChange={props.handleChange} onBLur={props.handleBlur}>
-											{data.map((i, index) => (
-												<option key={i.id} value={i.id}>{i.name}</option>
+											{/* loop over tipe akun and show them */}
+											{data.map((tipeAkun, index) => (
+												<option key={tipeAkun.id} value={tipeAkun.id}>{tipeAkun.name}</option>
 											))}
 
 										</Form.Control>
@@ -120,6 +122,7 @@ export default function BuatAkunBaru({ data, data2 }) {
 }
 
 export async function getServerSideProps() {
+	// get kategoris from our api
 	const kategories = await prisma.kategori.findMany({
 		orderBy: [
 			{
@@ -128,6 +131,7 @@ export async function getServerSideProps() {
 		]
 	});
 
+	// get tipeAkun from our api
 	const tipeAkuns = await prisma.tipeAkun.findMany({
 		orderBy: [
 			{

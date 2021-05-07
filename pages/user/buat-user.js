@@ -1,4 +1,4 @@
-import React from 'react'
+import { useRouter } from 'next/router'
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
@@ -18,6 +18,8 @@ const UserSchema = Yup.object().shape({
 
 export default function User({ data }) {
     const url = 'http://localhost:3000/api/user/user';
+    const router = useRouter();
+    // return <Redirect to="list" />
 
     return (
         <Layout>
@@ -34,11 +36,11 @@ export default function User({ data }) {
                 onSubmit={async (values) => {
                     Axios.post(url, values).
                         then(function (response) {
-                            console.log(response)
+                            console.log(response);
+                            router.push('list')
                         }).
                         catch(function (error) {
                             console.log(error)
-
                         })
                 }}
             >
@@ -95,14 +97,10 @@ export default function User({ data }) {
                                         <Col sm="4">
                                             <Row>
                                                 <Col>
-                                                    {/* <Form.Control as="select" defaultValue="Choose..." name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
-                                                        {data.map((i, index) => (
-                                                            <option key={i.id} value={index}>{i.roleType}</option>
-                                                        ))}
-                                                    </Form.Control> */}
                                                     <Form.Control as="select" name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
-                                                        {data.map((i, index) => (
-                                                            <option key={i.id} value={i.id}>{i.roleType}</option>
+                                                        {/* loop over roles and show them */}
+                                                        {data.map((role, index) => (
+                                                            <option key={role.id} value={role.id}>{role.roleType}</option>
                                                         ))}
                                                     </Form.Control>
                                                 </Col>
@@ -129,6 +127,7 @@ export default function User({ data }) {
 }
 
 export async function getServerSideProps() {
+    // get list of roles from our api
     const roles = await prisma.role.findMany({
         orderBy: [
             {

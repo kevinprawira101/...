@@ -1,16 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
 import * as Yup from 'yup';
 import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
+import { useRouter } from 'next/router'
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
-export default function update({ data, data2 }) {
+export default function update({ data }) {
     const url = 'http://localhost:3000/api/user/updateUser';
+    const router = useRouter();
+
+    const { id } = router.query
+
+    // useEffect(() => {
+
+    // }, [])
+
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/api/user/updateUser' + id)
+    // }, [])
+    // const handleUpdate = async () => {
+    //     Axios.put(url, {
+    //         data: {
+    //             id: id
+    //         }
+    //     }).then(function (response) {
+    //         console.log(response);
+    //         router.push('list');
+    //     }).
+    //         catch(function (error) {
+    //             console.log(error)
+    //             alert('update failed' + id);
+    //         })
+    // };
 
     return (
         <Layout>
@@ -24,22 +50,23 @@ export default function update({ data, data2 }) {
                 }}
 
                 onSubmit={async (values) => {
-                    console.log(values)
+                    console.log(id);
+                    console.log(values);
+
                     Axios.put(url, values).
                         then(function (response) {
                             console.log(response)
-                            alert("update successful")
                         }).
                         catch(function (error) {
                             console.log(error)
-                            alert("update fail")
                         })
                 }}
+            // onSubmit={handleUpdate}
             >
                 {(props) => (
                     <Forms noValidate>
                         <div>
-                            <h4>Buat User Baru</h4>
+                            <h4>Update user</h4>
                             <div class="mt-12 container">
                                 <Form>
                                     <Row className="mb-2">
@@ -89,14 +116,10 @@ export default function update({ data, data2 }) {
                                         <Col sm="4">
                                             <Row>
                                                 <Col>
-                                                    {/* <Form.Control as="select" defaultValue="Choose..." name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
-                                                            {data.map((i, index) => (
-                                                                <option key={i.id} value={index}>{i.roleType}</option>
-                                                            ))}
-                                                        </Form.Control> */}
                                                     <Form.Control as="select" name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
-                                                        {data.map((i, index) => (
-                                                            <option key={i.id} value={i.id}>{i.roleType}</option>
+                                                        {/* loop over list of roles */}
+                                                        {data.map((role) => (
+                                                            <option key={role.id} value={role.id}>{role.roleType}</option>
                                                         ))}
                                                     </Form.Control>
                                                 </Col>
@@ -108,6 +131,7 @@ export default function update({ data, data2 }) {
                                         <Col sm="2" />
                                         <Col sm="4" className="d-flex justify-content-end mt-10">
                                             <Button variant="danger mr-2">Batal</Button>
+                                            {/* <Button variant="success" onClick={() => handleUpdate(user.id)}>Simpan</Button> */}
                                             <Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
                                         </Col>
                                     </Row>
@@ -117,30 +141,29 @@ export default function update({ data, data2 }) {
                     </Forms>
                 )}
             </Formik>
-            {/* <div>
-                <h1>CURRENT DATA</h1>
-                <div>
-                    {data.map((i) => (
-                        <p>{i.firstName}</p>
-
-                    ))}
-                </div>
-            </div> */}
-        </Layout>
+        </Layout >
     )
 }
 
 export async function getServerSideProps() {
+    // get roles from our api
+
     const roles = await prisma.role.findMany({
         orderBy: {
             id: 'asc'
         }
     })
 
+    // const users = await prisma.user.findUnique({
+    //     where: {
+    //         id: id,
+    //     }
+    // })
+
     return {
         props: {
-            // data: users,
-            data: roles
+            data: roles,
+            // data2: users
         }
 
     }

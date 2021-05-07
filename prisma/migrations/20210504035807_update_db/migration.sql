@@ -65,6 +65,24 @@ CREATE TABLE `Akun` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- CreateTable
+CREATE TABLE `Produk` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `image` VARCHAR(191) NOT NULL,
+    `kode_sku` VARCHAR(191) NOT NULL,
+    `kategoriId` INTEGER NOT NULL,
+    `unit` INTEGER NOT NULL,
+    `deskripsi` VARCHAR(191) NOT NULL,
+    `harga_beli_satuan` INTEGER NOT NULL,
+    `akun_pembelian1` VARCHAR(191) NOT NULL,
+    `pajak_beli` VARCHAR(191) NOT NULL,
+    `harga_jual_satuan` INTEGER NOT NULL,
+    `akun_pembelian2` VARCHAR(191) NOT NULL,
+    `pajak_jual` VARCHAR(191) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- AddForeignKey
 ALTER TABLE `User` ADD FOREIGN KEY (`roleId`) REFERENCES `Role`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -79,3 +97,6 @@ ALTER TABLE `Akun` ADD FOREIGN KEY (`tipeId`) REFERENCES `TipeAkun`(`id`) ON DEL
 
 -- AddForeignKey
 ALTER TABLE `Akun` ADD FOREIGN KEY (`kategoriId`) REFERENCES `Kategori`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Produk` ADD FOREIGN KEY (`kategoriId`) REFERENCES `Kategori`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

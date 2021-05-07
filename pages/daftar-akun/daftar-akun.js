@@ -3,12 +3,29 @@ import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { Button, DropdownButton, Dropdown, Row, Col } from 'react-bootstrap';
 import Add from '@material-ui/icons/Add';
-
+import Axios from 'axios'
+import { useRouter } from 'next/router'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function DaftarAkun({ data }) {
-
+	const url1 = 'http://localhost:3000/api/user/deletedaftarakun';
+	const router = useRouter();
+	const deletedata = (id) => {
+		Axios.delete(
+			url1, {
+			data: {
+				deleteid: id
+			}
+		}).then(function (response) {
+			console.log(response);
+			alert(id);
+			router.push('list')
+		}).catch(function (error) {
+			console.log(error)
+			alert(id);
+		})
+	};
 	return (
 		<Layout>
 			<div variant="container">
@@ -57,30 +74,7 @@ export default function DaftarAkun({ data }) {
 								</th>
 							</tr>
 						</thead>
-						{/* <tbody class="bg-white divide-y divide-gray-200">
-							{data.map((i, index) => (
-								<tr>
-									<td class="px-2 py-2 whitespace-nowrap">
-										<div class="flex items-center">
-											<div>
-												<div class="text-sm font-medium text-gray-900">{i.kode}</div>
-												<div class="text-sm text-gray-500">{i.kodeAkun}</div>
-											</div>
-										</div>
-									</td>
-									<td class="px-2 py-2 whitespace-nowrap">
-										<div class="text-sm text-gray-900">{i.namaAkun}</div>
-									</td>
-									<td class="px-2 py-2 whitespace-nowrap">
-										<div class="text-sm text-gray-900">{i.kategoriAkun}</div>
-									</td>
-									<td class="px-2 py-2 whitespace-nowrap font-medium">
-										<div class="text-sm text-gray-900">Rp. {i.saldo}</div>
-									</td>
-								</tr>
 
-							))}
-						</tbody> */}
 						<tbody class="bg-white divide-y divide-gray-200">
 							<tr>
 								<td class="px-2 py-2 whitespace-nowrap">
@@ -125,7 +119,7 @@ export default function DaftarAkun({ data }) {
 									<td class="px-2 py-2 whitespace-nowrap">
 										<div class="text-sm text-gray-900">
 											<Button variant="warning mr-2">Edit</Button>
-											<Button variant="danger">Delete</Button>
+											<Button variant="danger" onClick={() => { deletedata(i.id) }}>Delete</Button>
 										</div>
 									</td>
 								</tr>

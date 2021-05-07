@@ -3,13 +3,14 @@ import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { Button, Row, Col } from 'react-bootstrap';
 import Add from '@material-ui/icons/Add';
-
+import {useRouter} from 'next/router'
 import Axios from 'axios'
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function roleList({ data }) {
+    const router = useRouter();
     const url = 'http://localhost:3000/api/user/role/1';
     const updateData = (e) => {
         const data = {
@@ -19,6 +20,24 @@ export default function roleList({ data }) {
         Axios.put(url, data).
             then(function (response) { console.log(response) }).
             catch(function (error) { console.log(error) })
+
+    
+
+    };
+    const url1 = 'http://localhost:3000/api/user/deleterole';
+    const deletedata = (id)=>{
+        Axios.delete(
+            url1, {
+                data:{
+                   deleteid: id 
+                }
+            }).then(function(response){
+                    console.log(response);
+                    router.push('list')
+                }).catch(function (error) {
+                console.log(error)
+                alert(id);
+            })
     };
 
     return (
@@ -68,7 +87,7 @@ export default function roleList({ data }) {
                                     <td class="px-2 py-2 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">
                                             <Button variant="warning mr-2" onClick={updateData}>Edit</Button>
-                                            <Button variant="danger">Delete</Button>
+                                            <Button variant="danger" onClick={()=>deletedata(i.id)}>Delete</Button>
                                         </div>
                                     </td>
                                 </tr>
