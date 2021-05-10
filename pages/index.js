@@ -13,12 +13,9 @@ export default function Home({ data }) {
 	const router = useRouter()
 	console.log(data)
 	if (typeof window !== "undefined") {
-
-
 		if (!localStorage.getItem('user')) {
 			router.push('/login')
 		}
-
 	}
 	// useEffect(async () => {
 	// 	const fetchUser = async () => {
@@ -28,15 +25,12 @@ export default function Home({ data }) {
 	// 	}
 	// 	fetchUser()
 	// }, [])
+
 	return (
-		<Layout>
-			<div>
-				<h1> <HomeIcon fontSize="medium" />Ini adalah dashboard</h1>
-			</div>
-		</Layout>
+		<div >
+		</div>
 	);
 }
-
 
 export async function getServerSideProps() {
 	const akuns = await prisma.user.findMany({

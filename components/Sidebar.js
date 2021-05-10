@@ -19,21 +19,21 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 const Sidebar = () => {
 	return (
 		<div>
-			<div class="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
-				<div class="flex items-center justify-center h-14 border-b">
+			<div class="fixed flex flex-col top-0 left-0 w-64 bg-dark h-full ">
+				<div class="flex items-center justify-center h-14">
 					<div />
 				</div>
 				<div class="overflow-y-auto overflow-x-hidden flex-grow">
 					<ul class="flex flex-col py-4 space-y-1">
 						<li class="px-7">
 							<div class="flex flex-row items-center h-8">
-								<div class="text-lg font-light tracking-wide text-gray-500">Menu</div>
+								<div class="text-lg font-light tracking-wide text-white">Menu</div>
 							</div>
 						</li>
 
 						<li>
 							<Link href="/">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<HomeIcon />
 									</span>
@@ -43,7 +43,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/jurnal/create-jurnal">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<MenuBookIcon />
 									</span>
@@ -54,7 +54,7 @@ const Sidebar = () => {
 
 						<li>
 							<Link href="/user/list">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<FaceIcon />
 									</span>
@@ -65,7 +65,7 @@ const Sidebar = () => {
 
 						<li>
 							<Link href="/role/list">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<SupervisorAccountIcon />
 									</span>
@@ -75,11 +75,11 @@ const Sidebar = () => {
 						</li>
 
 
-						<hr class="ml-4 mr-4" />
+						<hr class="ml-4 mr-4 bg-black" />
 
 						<li>
 							<Link href="/daftar-akun/daftar-akun">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<AccountBalanceIcon />
 									</span>
@@ -89,7 +89,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/kontak/kontak">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<ImportContactsIcon />
 									</span>
@@ -99,7 +99,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/laporan/menulaporan">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<AssessmentIcon />
 									</span>
@@ -109,7 +109,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/pajak/tabelpajak">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<MonetizationOnIcon />
 									</span>
@@ -119,7 +119,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/produk/produk">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<LocalMallIcon />
 									</span>
@@ -128,11 +128,11 @@ const Sidebar = () => {
 							</Link>
 						</li>
 
-						<hr class="ml-4 mr-4" />
+						<hr class="ml-4 mr-4 bg-black" />
 
 						<li>
 							<Link href="/kasbank/kasbankhome">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<AccountBalanceWalletIcon />
 									</span>
@@ -142,7 +142,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/jual/penjualan">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<ShoppingBasketIcon />
 									</span>
@@ -153,7 +153,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/beli/pembelian">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<ShoppingCartIcon />
 									</span>
@@ -163,7 +163,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<Link href="/biaya/pengeluaran">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<PaymentIcon />
 									</span>
@@ -172,11 +172,11 @@ const Sidebar = () => {
 							</Link>
 						</li>
 
-						<hr class="ml-4 mr-4" />
+						<hr class="ml-4 mr-4 bg-black" />
 
 						<li>
 							<Link href="/setting/setting-perusahaan">
-								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<SettingsIcon />
 									</span>
