@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
-export default function update({ data, data2 }) {
+export default function update({ data }) {
     // user API
     const url = 'http://localhost:3000/api/user/updateUser';
 
@@ -65,7 +65,7 @@ export default function update({ data, data2 }) {
                 {(props) => (
                     <Forms noValidate>
                         <div>
-                            <h4>Update user</h4>
+                            <h4>Update User with {id}</h4>
                             <div class="mt-12 container">
                                 <Form>
                                     <Row className="mb-2">
@@ -144,14 +144,8 @@ export default function update({ data, data2 }) {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
     // get roles from our api
-
-    const users = await prisma.user.findUnique({
-        where: {
-            id: { id },
-        }
-    })
 
     const roles = await prisma.role.findMany({
         orderBy: {
@@ -161,8 +155,7 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            data: users,
-            data2: roles
+            data: roles
         }
 
     }
