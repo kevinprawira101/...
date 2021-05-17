@@ -10,19 +10,18 @@ import { useRouter } from 'next/router'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
-export default function update({ data }) {
+export default function update({ data, data2 }) {
+    // user API
     const url = 'http://localhost:3000/api/user/updateUser';
-    const router = useRouter();
 
+    // Take route [id]
+    const router = useRouter();
     const { id } = router.query
 
     // useEffect(() => {
 
     // }, [])
 
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/api/user/updateUser' + id)
-    // }, [])
     // const handleUpdate = async () => {
     //     Axios.put(url, {
     //         data: {
@@ -145,8 +144,14 @@ export default function update({ data }) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     // get roles from our api
+
+    const users = await prisma.user.findUnique({
+        where: {
+            id: { id },
+        }
+    })
 
     const roles = await prisma.role.findMany({
         orderBy: {
@@ -154,16 +159,10 @@ export async function getServerSideProps() {
         }
     })
 
-    // const users = await prisma.user.findUnique({
-    //     where: {
-    //         id: id,
-    //     }
-    // })
-
     return {
         props: {
-            data: roles,
-            // data2: users
+            data: users,
+            data2: roles
         }
 
     }

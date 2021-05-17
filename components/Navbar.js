@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
-export default function navbar () {
+export default function navbar() {
 	return (
 		<div>
 			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -18,6 +18,6 @@ export default function navbar () {
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
-		</div>			
+		</div>
 	);
 }
