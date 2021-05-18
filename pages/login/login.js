@@ -74,7 +74,7 @@ export default function login() {
                     </div> */}
                     <Form>
                         <div class="max-w-lg max-w-xs bg-gray-600 shadow-2xl rounded-lg mx-auto text-center py-12 mt-48 rounded-xl">
-                            <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl ml-2 mr-2">PT. Hexoan Business Mitrasindo</h1>
+                            <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl ml-2 mr-2">PT. Hexaon Business Mitrasindo</h1>
                             <div class="container py-5 max-w-md mx-auto">
                                 <form method="" action="">
                                     <div class="mb-4">

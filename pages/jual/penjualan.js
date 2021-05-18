@@ -5,14 +5,14 @@ import AddIcon from '@material-ui/icons/Add';
 import Link from 'next/Link'
 
 
-export async function getServerSideProps() {
-	// Fetch data from external API
-	const res = await fetch(`http://localhost:3000/api/penjualan`)
-	const data = await res.json()
+// export async function getServerSideProps() {
+// 	// Fetch data from external API
+// 	const res = await fetch(`http://localhost:3000/api/penjualan`)
+// 	const data = await res.json()
 
-	// Pass data to the page via props
-	return { props: { data } }
-}
+// 	// Pass data to the page via props
+// 	return { props: { data } }
+// }
 export default function penjualan({data}) {
     return (
         <Layout>
@@ -97,22 +97,22 @@ export default function penjualan({data}) {
 							</tr>
 						</thead>
 						<tbody class="bg-white divide-y divide-gray-200">
-						{data.map((i, index) => (
+						{/* {data.map((i, index) => ( */}
 							<tr>
                                 <td class="px-2 py-2 whitespace-nowrap font-large">
 									<Form.Check type="checkbox"/>
 								</td>
                                  <td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">{i.tgltransaksi}</div>
+									<div class="text-lg text-gray-900">-</div>
 								</td>
 								<td class="px-8 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">{i.notransaksi}</div>
+									<div class="text-lg text-gray-900">-</div>
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">{i.pelanggan}</div>
+									<div class="text-lg text-gray-900"></div>
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-large">
-									<div class="text-lg text-gray-900">{i.tgljatuhtempo}</div>
+									<div class="text-lg text-gray-900"></div>
 								</td>
 								<td class="px-2 py-2 whitespace-nowrap font-large">
 									<div class="text-lg text-gray-900">XXX</div>
@@ -127,7 +127,7 @@ export default function penjualan({data}) {
 									<div class="text-lg text-gray-900">Rp.0,00</div>
 								</td>
 							</tr>
-					))}
+					{/* ))} */}
 							
 						</tbody>
 			</table>

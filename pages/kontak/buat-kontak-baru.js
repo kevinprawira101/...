@@ -16,26 +16,26 @@ import Axios from 'axios'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
-// const BuatKontakBaruSchema = Yup.object().shape({
-// 	nama_panggilan: Yup.string().required('*Required'),
-// 	nama_awalkontak: Yup.string().required('*Required'),
-// 	nama_awalkontak1: Yup.string().required('*Required'),
-// 	nama_awalkontak2: Yup.string().required('*Required'),
-// 	no_hp: Yup.string().required('*Required'),
-// 	no_hp: Yup.string().required('*Required'),
-// 	no_id: Yup.string().required('*Required'),
-// 	nama_perusahaan: Yup.string().required('*Required'),
-// 	email: Yup.string().required('*Required'),
-// 	no_telp: Yup.string().required('*Required'),
-// 	no_fax: Yup.string().required('*Required'),
-// 	no_npwp: Yup.string().required('*Required'),
-// 	alamat_pembayaran: Yup.string().required('*Required'),
-// 	alamat_pengiriman: Yup.string().required('*Required'),
-// 	nama_bank: Yup.string().required('*Required'),
-// 	kantor_cabang: Yup.string().required('*Required'),
-// 	pemegang_akunbank: Yup.string().required('*Required'),
-// 	no_rek: Yup.string().required('*Required'),
-// });
+const BuatKontakBaruSchema = Yup.object().shape({
+	nama_panggilan: Yup.string().required('*Required'),
+	nama_awalkontak: Yup.string().required('*Required'),
+	nama_awalkontak1: Yup.string().required('*Required'),
+	nama_awalkontak2: Yup.string().required('*Required'),
+	no_hp: Yup.string().required('*Required'),
+	no_hp: Yup.string().required('*Required'),
+	no_id: Yup.string().required('*Required'),
+	nama_perusahaan: Yup.string().required('*Required'),
+	email: Yup.string().required('*Required'),
+	no_telp: Yup.string().required('*Required'),
+	no_fax: Yup.string().required('*Required'),
+	no_npwp: Yup.string().required('*Required'),
+	alamat_pembayaran: Yup.string().required('*Required'),
+	alamat_pengiriman: Yup.string().required('*Required'),
+	nama_bank: Yup.string().required('*Required'),
+	kantor_cabang: Yup.string().required('*Required'),
+	pemegang_akunbank: Yup.string().required('*Required'),
+	no_rek: Yup.string().required('*Required'),
+});
 
 export default function BuatKontakBaru({data}) {
 
@@ -68,7 +68,7 @@ export default function BuatKontakBaru({data}) {
 				akunHutang: '',
 				pembayaran_utama: '',
 				}}
-				// validationSchema={BuatKontakBaruSchema}
+				validationSchema={BuatKontakBaruSchema}
 				onSubmit={async (values) => {
 					console.log(values)
 					Axios.post(url, values).
