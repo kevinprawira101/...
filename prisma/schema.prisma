@@ -100,3 +100,13 @@ model Produk{
   akun_pembelian2   Int
   pajak_jual        String
 }
+
+// Pajak Table
+model Pajak{
+  id                  Int     @default(autoincrement()) @id 
+  nama                String
+  presentasaAktif     Int
+  akunPajakPenjualan  String
+  akunPajakPembelian  String
+  
+}

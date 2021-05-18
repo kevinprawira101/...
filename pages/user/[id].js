@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
@@ -12,34 +12,36 @@ const prisma = new PrismaClient();
 
 export default function update({ data }) {
     // user API
-    const url = 'http://localhost:3000/api/user/updateUser';
+    const url = 'http://localhost:3000/api/user/getuserid';
 
     // Take route [id]
     const router = useRouter();
     const { id } = router.query
+    const formikref = useRef(null)
+    const handleUpdate = async () => {
+        Axios.post(url, {
 
-    // useEffect(() => {
+            id: id
 
-    // }, [])
+        }).then(function (response) {
+            formikref.current.setFieldValue('first_name', response.data.data.firstName)
+            console.log(response.data.data.firstName);
 
-    // const handleUpdate = async () => {
-    //     Axios.put(url, {
-    //         data: {
-    //             id: id
-    //         }
-    //     }).then(function (response) {
-    //         console.log(response);
-    //         router.push('list');
-    //     }).
-    //         catch(function (error) {
-    //             console.log(error)
-    //             alert('update failed' + id);
-    //         })
-    // };
+        }).
+            catch(function (error) {
+                console.log(error)
+                alert('update failed' + id);
+            })
+    };
+    useEffect(() => {
+        handleUpdate()
+    }, [])
+
 
     return (
         <Layout>
             <Formik
+                innerRef={formikref}
                 initialValues={{
                     first_name: '',
                     last_name: '',
@@ -73,7 +75,7 @@ export default function update({ data }) {
                                             <Form.Label>First Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="First Name" name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder="First Name" value={props.values.first_name} name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.first_name && props.touched.first_name ? <div class="text-red-500 text-sm">{props.errors.first_name}</div> : null}
                                         </Col>
                                     </Row>
@@ -147,9 +149,10 @@ export default function update({ data }) {
 export async function getServerSideProps() {
     // get roles from our api
 
-    const roles = await prisma.role.findMany({
+
+    const roles = await prisma.user.findMany({
         orderBy: {
-            id: 'asc'
+            id: "asc",
         }
     })
 

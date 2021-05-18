@@ -16,7 +16,7 @@ const UserSchema = Yup.object().shape({
     password: Yup.string().required('*required'),
 });
 
-export default function User({ data }) {
+export default function User({ data, data2 }) {
     const url = 'http://localhost:3000/api/user/user';
     const router = useRouter();
     // return <Redirect to="list" />
@@ -55,6 +55,7 @@ export default function User({ data }) {
                                             <Form.Label>First Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
+
                                             <Form.Control placeholder="First Name" name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.first_name && props.touched.first_name ? <div class="text-red-500 text-sm">{props.errors.first_name}</div> : null}
                                         </Col>
@@ -120,7 +121,6 @@ export default function User({ data }) {
                         </div>
                     </Forms>
                 )}
-
             </Formik>
         </Layout>
     )
@@ -128,6 +128,7 @@ export default function User({ data }) {
 
 export async function getServerSideProps() {
     // get list of roles from our api
+
     const roles = await prisma.role.findMany({
         orderBy: [
             {
