@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
@@ -10,36 +10,54 @@ import { useRouter } from 'next/router'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
-export default function update({ data, data2 }) {
+export default function update({ data }) {
     // user API
-    const url = 'http://localhost:3000/api/user/updateUser';
-
+    const url = 'http://localhost:3000/api/user/getuserid';
+    const url2 = 'http://localhost:3000/api/user/updateUser'
     // Take route [id]
     const router = useRouter();
     const { id } = router.query
+    const formikref = useRef(null)
+    const getdata = async () => {
+        Axios.post(url, {
 
-    // useEffect(() => {
+            id: id
 
-    // }, [])
+        }).then(function (response) {
+            formikref.current.setFieldValue('first_name', response.data.data.firstName)
+            formikref.current.setFieldValue('last_name', response.data.data.lastName)
+            console.log(response.data.data.firstName);
 
-    // const handleUpdate = async () => {
-    //     Axios.put(url, {
-    //         data: {
-    //             id: id
-    //         }
-    //     }).then(function (response) {
-    //         console.log(response);
-    //         router.push('list');
-    //     }).
-    //         catch(function (error) {
-    //             console.log(error)
-    //             alert('update failed' + id);
-    //         })
-    // };
+        }).
+            catch(function (error) {
+                console.log(error)
+                
+    })
+    };
+
+    const handleupdate = async (id) => {
+        Axios.put(url2, {
+            data: {
+                userid: id
+            }
+        }).then(function (response) {
+            console.log(response);
+            
+        }).
+            catch(function (error) {
+                console.log(error)
+                alert("Failed to update user with id " + id);
+            })
+    };
+    useEffect(() => {
+        getdata()
+    }, [])
+
 
     return (
         <Layout>
             <Formik
+                innerRef={formikref}
                 initialValues={{
                     first_name: '',
                     last_name: '',
@@ -49,10 +67,9 @@ export default function update({ data, data2 }) {
                 }}
 
                 onSubmit={async (values) => {
-                    console.log(id);
-                    console.log(values);
-
-                    Axios.put(url, values).
+                
+                let data = {...values,id}
+                    Axios.put(url2, data).
                         then(function (response) {
                             console.log(response)
                         }).
@@ -65,7 +82,7 @@ export default function update({ data, data2 }) {
                 {(props) => (
                     <Forms noValidate>
                         <div>
-                            <h4>Update user</h4>
+                            <h4>Update User with {id}</h4>
                             <div class="mt-12 container">
                                 <Form>
                                     <Row className="mb-2">
@@ -73,7 +90,7 @@ export default function update({ data, data2 }) {
                                             <Form.Label>First Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="First Name" name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder={props.values.first_name}  name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.first_name && props.touched.first_name ? <div class="text-red-500 text-sm">{props.errors.first_name}</div> : null}
                                         </Col>
                                     </Row>
@@ -83,7 +100,7 @@ export default function update({ data, data2 }) {
                                             <Form.Label>Last Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Last Name" name="last_name" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder={props.values.last_name} name="last_name" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.last_name && props.touched.last_name ? <div class="text-red-500 text-sm">{props.errors.last_name}</div> : null}
                                         </Col>
                                     </Row>
@@ -93,7 +110,7 @@ export default function update({ data, data2 }) {
                                             <Form.Label>Email</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Email" name="email" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder={props.values.email} name="email" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.email && props.touched.email ? <div class="text-red-500 text-sm">{props.errors.email}</div> : null}
                                         </Col>
                                     </Row>
@@ -144,25 +161,21 @@ export default function update({ data, data2 }) {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
     // get roles from our api
 
-    const users = await prisma.user.findUnique({
-        where: {
-            id: { id },
-        }
-    })
 
     const roles = await prisma.role.findMany({
         orderBy: {
-            id: 'asc'
+            id: "asc",
         }
     })
 
+    
+
     return {
         props: {
-            data: users,
-            data2: roles
+            data: roles
         }
 
     }

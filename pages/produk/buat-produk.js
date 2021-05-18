@@ -153,8 +153,8 @@ export default function BuatProduk({ data, data2 }) {
 											</Form.Control>
 										</Col>
 										<Col>
-											<Form.Label>Pajak Jual</Form.Label>
-											<Form.Control className="mb-2" as="select" nama="pajak_beli" onChange={props.handleChange}>
+											<Form.Label>Pajak Beli</Form.Label>
+											<Form.Control className="mb-2" as="select" name="pajak_beli" onChange={props.handleChange}>
 												<option disabled>Pilih</option>
 												<option value="1">1</option>
 												<option value="2">2</option>
@@ -171,7 +171,7 @@ export default function BuatProduk({ data, data2 }) {
 
 									<Row sm="6">
 										<Col>
-											<Form.Label>Harga Beli Satuan</Form.Label>
+											<Form.Label>Harga Jual Satuan</Form.Label>
 											<Form.Control className="mb-2" placeholder="Rp. 0,00" name="hjs" onChange={props.handleChange} />
 										</Col>
 										<Col>
@@ -196,9 +196,7 @@ export default function BuatProduk({ data, data2 }) {
 									<Row>
 										<Col className="d-flex justify-content-end mt-10">
 											<Button variant="danger mr-2">Batal</Button>
-
 											<Button variant="success" onClick={props.handleSubmit}>Tambah</Button>
-
 										</Col>
 									</Row>
 								</Card.Body>
