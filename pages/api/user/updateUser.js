@@ -8,7 +8,7 @@ export default async (req, res) => {
     try {
         const updateUser = await prisma.user.update({
             where: {
-                id: 24,
+                id: parseInt(req.body.id),
             },
             data:
             {
