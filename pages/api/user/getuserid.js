@@ -35,7 +35,7 @@ export default async (req, res) => {
     try {
         const createMany = await prisma.user.findUnique({
             where: {
-                id: 17,
+                id: parseInt(req.body.id),
             },
             // include: {
             //     Role: true,

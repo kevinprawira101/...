@@ -13,28 +13,44 @@ const prisma = new PrismaClient();
 export default function update({ data }) {
     // user API
     const url = 'http://localhost:3000/api/user/getuserid';
-
+    const url2 = 'http://localhost:3000/api/user/updateUser'
     // Take route [id]
     const router = useRouter();
     const { id } = router.query
     const formikref = useRef(null)
-    const handleUpdate = async () => {
+    const getdata = async () => {
         Axios.post(url, {
 
             id: id
 
         }).then(function (response) {
             formikref.current.setFieldValue('first_name', response.data.data.firstName)
+            formikref.current.setFieldValue('last_name', response.data.data.lastName)
             console.log(response.data.data.firstName);
 
         }).
             catch(function (error) {
                 console.log(error)
-                alert('update failed' + id);
+                
+    })
+    };
+
+    const handleupdate = async (id) => {
+        Axios.put(url2, {
+            data: {
+                userid: id
+            }
+        }).then(function (response) {
+            console.log(response);
+            
+        }).
+            catch(function (error) {
+                console.log(error)
+                alert("Failed to update user with id " + id);
             })
     };
     useEffect(() => {
-        handleUpdate()
+        getdata()
     }, [])
 
 
@@ -51,10 +67,9 @@ export default function update({ data }) {
                 }}
 
                 onSubmit={async (values) => {
-                    console.log(id);
-                    console.log(values);
-
-                    Axios.put(url, values).
+                
+                let data = {...values,id}
+                    Axios.put(url2, data).
                         then(function (response) {
                             console.log(response)
                         }).
@@ -75,7 +90,7 @@ export default function update({ data }) {
                                             <Form.Label>First Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="First Name" value={props.values.first_name} name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder={props.values.first_name}  name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.first_name && props.touched.first_name ? <div class="text-red-500 text-sm">{props.errors.first_name}</div> : null}
                                         </Col>
                                     </Row>
@@ -85,7 +100,7 @@ export default function update({ data }) {
                                             <Form.Label>Last Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Last Name" name="last_name" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder={props.values.last_name} name="last_name" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.last_name && props.touched.last_name ? <div class="text-red-500 text-sm">{props.errors.last_name}</div> : null}
                                         </Col>
                                     </Row>
@@ -95,7 +110,7 @@ export default function update({ data }) {
                                             <Form.Label>Email</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Email" name="email" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder={props.values.email} name="email" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.email && props.touched.email ? <div class="text-red-500 text-sm">{props.errors.email}</div> : null}
                                         </Col>
                                     </Row>
@@ -150,11 +165,13 @@ export async function getServerSideProps() {
     // get roles from our api
 
 
-    const roles = await prisma.user.findMany({
+    const roles = await prisma.role.findMany({
         orderBy: {
             id: "asc",
         }
     })
+
+    
 
     return {
         props: {
