@@ -3,34 +3,33 @@ import Link from 'next/link';
 import Layout from '../../components/Layout';
 import { Button, Row, Col } from 'react-bootstrap';
 import Add from '@material-ui/icons/Add';
-import { useRouter } from 'next/router'
 
 import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
+import { useRouter } from 'next/router'
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function list({ data }) {
-    const url = 'http://localhost:3000/api/user/delete'
+    // User API
+    const deleteUser = 'http://localhost:3000/api/user/deleteUser'
+
+    // Redirect
     const router = useRouter();
 
-    const handleClick = async (id) => {
-        console.log(id)
-    }
-
+    // Delete Exisiting User based on [id] 
     const handleDelete = async (id) => {
-        Axios.delete(url, {
+        Axios.delete(deleteUser, {
             data: {
                 userid: id
             }
         }).then(function (response) {
             console.log(response);
-            router.push('list');
+            router.push('tabel-user');
         }).
             catch(function (error) {
                 console.log(error)
-                alert("Failed to delete user with id " + id);
             })
     };
 
@@ -46,55 +45,55 @@ export default function list({ data }) {
                                 </Col>
 
                                 <Col className="d-flex justify-content-end">
-                                    <Link href="buat-user">
+                                    <Link href="add-user">
                                         <Button variant="primary mr-2"><Add fontSize="small" /> Buat User Baru</Button>
                                     </Link>
                                 </Col>
                             </Row>
-                            <div class="mt-8">
-                                <table class="min-w-full table-auto">
-                                    <thead class="justify-between">
-                                        <tr class="bg-dark">
-                                            <th class="px-2 py-2">
-                                                <span class="text-gray-300">First Name</span>
+                            <div className="mt-8">
+                                <table className="min-w-full table-auto">
+                                    <thead className="justify-between">
+                                        <tr className="bg-dark">
+                                            <th className="px-2 py-2">
+                                                <span className="text-gray-300">First Name</span>
                                             </th>
-                                            <th class="px-2 py-2">
-                                                <span class="text-gray-300">Last Name</span>
+                                            <th className="px-2 py-2">
+                                                <span className="text-gray-300">Last Name</span>
                                             </th>
-                                            <th class="px-2 py-2">
-                                                <span class="text-gray-300">Email</span>
-                                            </th>
-
-                                            <th class="px-2 py-2">
-                                                <span class="text-gray-300">Role</span>
+                                            <th className="px-2 py-2">
+                                                <span className="text-gray-300">Email</span>
                                             </th>
 
-                                            <th class="px-2 py-2">
-                                                <span class="text-gray-300">Actions</span>
+                                            <th className="px-2 py-2">
+                                                <span className="text-gray-300">Role</span>
+                                            </th>
+
+                                            <th className="px-2 py-2">
+                                                <span className="text-gray-300">Actions</span>
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        {data.map((user, index) => (
+                                    <tbody className="bg-white divide-y divide-gray-200">
+                                        {data.map((user) => (
                                             <tr key={user.id}>
-                                                <td class="px-2 py-2 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{user.firstName}</div>
+                                                <td className="px-2 py-2 whitespace-nowrap">
+                                                    <div className="text-sm text-gray-900">{user.firstName}</div>
                                                 </td>
-                                                <td class="px-2 py-2 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{user.lastName}</div>
+                                                <td className="px-2 py-2 whitespace-nowrap">
+                                                    <div className="text-sm text-gray-900">{user.lastName}</div>
                                                 </td>
-                                                <td class="px-2 py-2 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{user.email}</div>
+                                                <td className="px-2 py-2 whitespace-nowrap">
+                                                    <div className="text-sm text-gray-900">{user.email}</div>
                                                 </td>
-                                                <td class="px-2 py-2 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">
+                                                <td className="px-2 py-2 whitespace-nowrap">
+                                                    <div className="text-sm text-gray-900">
                                                         {user.role.roleType}
                                                     </div>
                                                 </td>
 
-                                                <td class="px-2 py-2 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">
-                                                        <Link key={user.id} id="updateUser" name="updateUser" href={`${user.id}`} onClick={() => handleClick(user.id)}>
+                                                <td className="px-2 py-2 whitespace-nowrap">
+                                                    <div className="text-sm text-gray-900">
+                                                        <Link key={user.id} href={`${user.id}`} >
                                                             <Button variant="warning mr-2" >
                                                                 Edit
                                                             </Button>
@@ -116,6 +115,7 @@ export default function list({ data }) {
 }
 
 export async function getServerSideProps() {
+    // Get User and Role Names from API
     const users = await prisma.user.findMany({
         orderBy: [
             {

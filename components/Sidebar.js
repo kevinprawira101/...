@@ -53,7 +53,7 @@ const Sidebar = () => {
 						</li>
 
 						<li>
-							<Link href="/user/list">
+							<Link href="/user/tabel-user">
 								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<FaceIcon />
@@ -64,7 +64,7 @@ const Sidebar = () => {
 						</li>
 
 						<li>
-							<Link href="/role/list">
+							<Link href="/role/tabel-role">
 								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<SupervisorAccountIcon />
@@ -108,7 +108,7 @@ const Sidebar = () => {
 							</Link>
 						</li>
 						<li>
-							<Link href="/pajak/tabelpajak">
+							<Link href="/pajak/tabel-pajak">
 								<a class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-600 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
 									<span class="inline-flex justify-center items-center ml-4">
 										<MonetizationOnIcon />
