@@ -49,7 +49,7 @@ export default function Kontak ({data}) {
                 }
             }).then(function(response){
                     console.log(response);
-                    // router.push('informasi-kontak')
+                    router.push('../kontak/kontak')
                 }).catch(function (error) {
                 console.log(error)
                 alert(id);
@@ -408,7 +408,10 @@ export default function Kontak ({data}) {
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
 														<div class="text-sm text-gray-900">
-															<Button variant="warning mr-2">Edit</Button>
+														<Link key={i.id} href={`${i.id}`} >
+                                                            <Button variant="warning mr-2">Edit</Button>
+                                                        </Link>
+															
 															<Button variant="danger" onClick={()=>deletekontak(i.id)}>Delete</Button>
 														</div>
 													</td>
