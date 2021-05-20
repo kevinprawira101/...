@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import { Button, Table, Row, Input, Form, Col } from 'react-bootstrap';
 import Link from 'next/link';
+import SettingsIcon from '@material-ui/icons/Settings';
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
@@ -21,8 +22,19 @@ export default function AturSaldoAwal({ data }) {
                 <h1>Saldo Awal</h1>
 
                 <div class="mt-12">
-                    <h4>Tanggal Konversi</h4>
-                    <input type="date" class="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm grid-cols-12 " />
+                    <Row>
+                        <Col>
+                            <h4>Tanggal Konversi</h4>
+                            <input type="date" class="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm grid-cols-12 " />
+                        </Col>
+              
+                         <Col class="mr-6"> 
+					        <Button variant="primary">
+						        <SettingsIcon fontSize="small" />Edit Saldo
+					        </Button>
+				        </Col> 
+			       </Row>
+
                     <Table class="min-w-full table-auto" hover size="sm">
                         <thead class="justify-between ">
                             <tr class="bg-dark">
