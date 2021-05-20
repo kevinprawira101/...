@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import { Button, Form, Col, Row, FormCheck, Card } from 'react-bootstrap';
-import Link from 'next/link';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
