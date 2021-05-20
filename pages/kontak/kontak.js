@@ -18,11 +18,45 @@ import {
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AddIcon from '@material-ui/icons/Add';
+import { useRouter } from 'next/router'
+import Axios from 'axios'
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function Kontak ({data}) {
+
+	const router = useRouter();
+    const url = 'http://localhost:3000/api/updatekontak';
+    const updatekontak = (e) => {
+        const data = {
+            // roleType: 'test',
+            // roleDesc: 'test22222'
+        }
+        Axios.put(url, data).
+            then(function (response) { console.log(response) }).
+            catch(function (error) { console.log(error) })
+
+    
+
+    };
+    const url1 = 'http://localhost:3000/api/kontak/deletekontak';
+    const deletekontak = (id)=>{
+        Axios.delete(
+            url1, {
+                data:{
+                   deleteid: id 
+                }
+            }).then(function(response){
+                    console.log(response);
+                    router.push('../kontak/kontak')
+                }).catch(function (error) {
+                console.log(error)
+                alert(id);
+            })
+    };
+
+
 	return (
 		<Layout>
 			<h2>Kontak</h2>
@@ -374,8 +408,11 @@ export default function Kontak ({data}) {
 													</td>
 													<td class="px-2 py-2 whitespace-nowrap">
 														<div class="text-sm text-gray-900">
-															<Button variant="warning mr-2">Edit</Button>
-															<Button variant="danger">Delete</Button>
+														<Link key={i.id} href={`${i.id}`} >
+                                                            <Button variant="warning mr-2">Edit</Button>
+                                                        </Link>
+															
+															<Button variant="danger" onClick={()=>deletekontak(i.id)}>Delete</Button>
 														</div>
 													</td>
 												</tr>	

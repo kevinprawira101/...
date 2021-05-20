@@ -4,7 +4,7 @@ import { Card, Col, Row, Table, Tabs, Tab, Button } from 'react-bootstrap';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import Link from 'next/link';
 
-export default function DetailProduk () {
+export default function DetailProduk() {
 	return (
 		<Layout>
 			<div>
@@ -24,38 +24,38 @@ export default function DetailProduk () {
 						<hr />
 						<Row>
 							<Col>
-								<Table class="min-w-full table-auto" hover size="sm">
-									<thead class="justify-between ">
-										<tr class="bg-dark">
-											<th class="py-2 px-2">
-												<span class="text-gray-300">Informasi</span>
+								<Table className="min-w-full table-auto" hover size="sm">
+									<thead className="justify-between ">
+										<tr className="bg-dark">
+											<th className="py-2 px-2">
+												<span className="text-gray-300">Informasi</span>
 											</th>
 										</tr>
 									</thead>
-									<tbody class="bg-white divide-y divide-gray-200">
+									<tbody className="bg-white divide-y divide-gray-200">
 										<tr>
-											<td class="px-2 py-2 whitespace-nowrap">
-												<div class="text-sm text-gray-900">Harga Rata-Rata</div>
+											<td className="px-2 py-2 whitespace-nowrap">
+												<div className="text-sm text-gray-900">Harga Rata-Rata</div>
 											</td>
 										</tr>
 										<tr>
-											<td class="px-2 py-2 whitespace-nowrap">
-												<div class="text-sm text-gray-900">Stok Saat ini</div>
+											<td className="px-2 py-2 whitespace-nowrap">
+												<div className="text-sm text-gray-900">Stok Saat ini</div>
 											</td>
 										</tr>
 										<tr>
-											<td class="px-2 py-2 whitespace-nowrap">
-												<div class="text-sm text-gray-900">Batas Stok Minimum</div>
+											<td className="px-2 py-2 whitespace-nowrap">
+												<div className="text-sm text-gray-900">Batas Stok Minimum</div>
 											</td>
 										</tr>
 										<tr>
-											<td class="px-2 py-2 whitespace-nowrap">
-												<div class="text-sm text-gray-900">Kategori Produk</div>
+											<td className="px-2 py-2 whitespace-nowrap">
+												<div className="text-sm text-gray-900">Kategori Produk</div>
 											</td>
 										</tr>
 										<tr>
-											<td class="px-2 py-2 whitespace-nowrap">
-												<div class="text-sm text-gray-900">Keterangan</div>
+											<td className="px-2 py-2 whitespace-nowrap">
+												<div className="text-sm text-gray-900">Keterangan</div>
 											</td>
 										</tr>
 									</tbody>
@@ -66,31 +66,31 @@ export default function DetailProduk () {
 									<Tab eventKey="satuanproduk" title="Satuan Produk" />
 
 									<div eventKey="transaksi">
-										<div class="mt-8">
-											<Table class="min-w-full table-auto" hover size="sm">
-												<thead class="justify-between ">
-													<tr class="bg-dark">
-														<th class="py-2 px-2">
-															<span class="text-gray-300">Tanggal</span>
+										<div className="mt-8">
+											<Table className="min-w-full table-auto" hover size="sm">
+												<thead className="justify-between ">
+													<tr className="bg-dark">
+														<th className="py-2 px-2">
+															<span className="text-gray-300">Tanggal</span>
 														</th>
-														<th class="py-2 px-2">
-															<span class="text-gray-300">Tipe</span>
+														<th className="py-2 px-2">
+															<span className="text-gray-300">Tipe</span>
 														</th>
-														<th class="py-2 px-2">
-															<span class="text-gray-300">Jumlah</span>
+														<th className="py-2 px-2">
+															<span className="text-gray-300">Jumlah</span>
 														</th>
 													</tr>
 												</thead>
-												<tbody class="bg-white divide-y divide-gray-200">
+												<tbody className="bg-white divide-y divide-gray-200">
 													<tr>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">3/24/2021</div>
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">3/24/2021</div>
 														</td>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">-</div>
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">-</div>
 														</td>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">-</div>
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">-</div>
 														</td>
 													</tr>
 												</tbody>
@@ -99,41 +99,41 @@ export default function DetailProduk () {
 									</div>
 
 									<div eventKey="satuanproduk">
-										<div class="mt-8">
-											<Table class="min-w-full table-auto" hover size="sm">
-												<thead class="justify-between ">
-													<tr class="bg-dark">
-														<th class="py-2 px-2">
-															<span class="text-gray-300">
+										<div className="mt-8">
+											<Table className="min-w-full table-auto" hover size="sm">
+												<thead className="justify-between ">
+													<tr className="bg-dark">
+														<th className="py-2 px-2">
+															<span className="text-gray-300">
 																Satuan Dasar Produk: Unit Produk
 															</span>
 														</th>
-														<th class="py-2 px-2">
-															<span class="text-gray-300">Satuan</span>
+														<th className="py-2 px-2">
+															<span className="text-gray-300">Satuan</span>
 														</th>
-														<th class="py-2 px-2">
-															<span class="text-gray-300">Harga Beli</span>
+														<th className="py-2 px-2">
+															<span className="text-gray-300">Harga Beli</span>
 														</th>
-														<th class="py-2 px-2">
-															<span class="text-gray-300">Harga Jual</span>
+														<th className="py-2 px-2">
+															<span className="text-gray-300">Harga Jual</span>
 														</th>
 													</tr>
 												</thead>
-												<tbody class="bg-white divide-y divide-gray-200">
+												<tbody className="bg-white divide-y divide-gray-200">
 													<tr>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">X _________________</div>
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">X _________________</div>
 														</td>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">
 																= X _________________Unit Produk
 															</div>
 														</td>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">X _________________</div>
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">X _________________</div>
 														</td>
-														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">X _________________</div>
+														<td className="px-2 py-2 whitespace-nowrap">
+															<div className="text-sm text-gray-900">X _________________</div>
 														</td>
 													</tr>
 												</tbody>
@@ -144,33 +144,33 @@ export default function DetailProduk () {
 							</Col>
 
 							<Col>
-								<Card class="bg-gray-300">
+								<Card className="bg-gray-300">
 									<Card.Body>
 										<h5>Penjualan</h5>
-										<hr class="bg-black" />
-										<p class="text-sm text-gray-900">Harga Jual Satuan</p>
-										<p class="text-sm text-gray-900 font-medium">Rp. 0,00</p>
+										<hr className="bg-black" />
+										<p className="text-sm text-gray-900">Harga Jual Satuan</p>
+										<p className="text-sm text-gray-900 font-medium">Rp. 0,00</p>
 
-										<p class="text-sm text-gray-900">Akun Penjualan</p>
-										<p class="text-sm text-gray-900 font-medium">-</p>
+										<p className="text-sm text-gray-900">Akun Penjualan</p>
+										<p className="text-sm text-gray-900 font-medium">-</p>
 
-										<p class="text-sm text-gray-900">Pajak Jual</p>
-										<p class="text-sm text-gray-900 font-medium">-</p>
+										<p className="text-sm text-gray-900">Pajak Jual</p>
+										<p className="text-sm text-gray-900 font-medium">-</p>
 									</Card.Body>
 								</Card>
 
-								<Card class="bg-gray-300 mt-4">
+								<Card className="bg-gray-300 mt-4">
 									<Card.Body>
 										<h5>Pembelian</h5>
-										<hr class="bg-black" />
-										<p class="text-sm text-gray-900">Harga Jual Satuan</p>
-										<p class="text-sm text-gray-900 font-medium">Rp. 0,00</p>
+										<hr className="bg-black" />
+										<p className="text-sm text-gray-900">Harga Jual Satuan</p>
+										<p className="text-sm text-gray-900 font-medium">Rp. 0,00</p>
 
-										<p class="text-sm text-gray-900">Akun Pembelian</p>
-										<p class="text-sm text-gray-900 font-medium">-</p>
+										<p className="text-sm text-gray-900">Akun Pembelian</p>
+										<p className="text-sm text-gray-900 font-medium">-</p>
 
-										<p class="text-sm text-gray-900">Pajak Beli</p>
-										<p class="text-sm text-gray-900 font-medium">-</p>
+										<p className="text-sm text-gray-900">Pajak Beli</p>
+										<p className="text-sm text-gray-900 font-medium">-</p>
 									</Card.Body>
 								</Card>
 							</Col>

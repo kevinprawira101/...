@@ -7,9 +7,13 @@ import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutli
 import SearchIcon from '@material-ui/icons/Search';
 import Link from 'next/link';
 
-export default function InformasiKontak () {
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+export default function InformasiKontak ({data}) {
 	return (
 		<Layout>
+				
 			<div>
 				<h4 class="text-gray-500">Kontak</h4>
 				<h3 class="text-blue-600">Informasi Kontak</h3>
@@ -31,10 +35,12 @@ export default function InformasiKontak () {
 						<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
 							<Tab eventKey="profil" title="Profil" />
 							<Tab eventKey="transaksi" title="Transaksi" />
-
+					{console.log(data)}
+									{data.map(i => (
 							<div eventKey="profil">
 								<div class="mt-8">
 									{/* Informasi Umum */}
+									
 									<Card className="mb-4">
 										<Card.Body>
 											<Row>
@@ -42,44 +48,45 @@ export default function InformasiKontak () {
 												<h3>Informasi Umum</h3>
 											</Row>
 											<hr />
+										
 											<Row>
 												<Col>
 													<p class="text-lg font-medium">Nama Kontak</p>
-													<p>John Smith</p>
+													<p>{i.nama_awalkontak}</p>
 
 													<p class="text-lg font-medium">Nama Perushaan</p>
-													<p>PT. Hexaon MitrasIndo</p>
+													<p>{i.nama_perusahaan}</p>
 
 													<p class="text-lg font-medium">Email</p>
-													<p>hexoanmitrasindo@gmail.com</p>
+													<p>{i.email}</p>
 
 													<p class="text-lg font-medium">Handphone</p>
-													<p>+62 81212345678</p>
+													<p>{i.no_hp}</p>
 												</Col>
 
 												<Col>
 													<p class="text-lg font-medium">Telepon</p>
-													<p>021-1234-5678</p>
+													<p>{i.no_telp}</p>
 
 													<p class="text-lg font-medium">Fax</p>
-													<p>-</p>
+													<p>{i.no_fax}</p>
 
 													<p class="text-lg font-medium">Alamat Pembayaran</p>
-													<p>-</p>
+													<p>{i.alamat_pembayaran}</p>
 
 													<p class="text-lg font-medium">Alamat Pengiriman</p>
-													<p>-</p>
+													<p>{i.alamat_pengiriman}</p>
 												</Col>
 
 												<Col>
 													<p class="text-lg font-medium">NPWP</p>
-													<p>09.254.294.3-407.000</p>
+													<p>{i.no_npwp}</p>
 
 													<p class="text-lg font-medium">Identitas</p>
-													<p>KTP</p>
+													<p>{i.kartu_indentitas}</p>
 
 													<p class="text-lg font-medium">Identitas</p>
-													<p>1234 5678 9087</p>
+													<p>{i.no_id}</p>
 
 													<p class="text-lg font-medium">Info Lain</p>
 													<p>-</p>
@@ -101,19 +108,19 @@ export default function InformasiKontak () {
 													<Row>
 														<Col>
 															<p class="text-lg font-medium">Nama Bank</p>
-															<p>Bank Central Asia</p>
+															<p>{i.nama_bank}</p>
 														</Col>
 														<Col>
 															<p class="text-lg font-medium">Kantor Cabang Bank</p>
-															<p>Central Park</p>
+															<p>{i.kantor_cabang}</p>
 														</Col>
 														<Col>
 															<p class="text-lg font-medium">Pemegang Akun Bank</p>
-															<p>PT. Hexaon Mitrasindo</p>
+															<p>{i.pemegang_akunbank}</p>
 														</Col>
 														<Col>
 															<p class="text-lg font-medium">Nomor Rekening</p>
-															<p>7351498815</p>
+															<p>{i.no_rek}</p>
 														</Col>
 													</Row>
 													<hr />
@@ -178,9 +185,10 @@ export default function InformasiKontak () {
 											</Col>
 										</Card.Body>
 									</Card>
+								
 								</div>
 							</div>
-
+						))}
 							<div eventKey="transaksi">
 								<div class="mt-8">
 									<Card>
@@ -245,14 +253,40 @@ export default function InformasiKontak () {
 													</tbody>
 												</table>
 											</div>
+											
 										</Card.Body>
 									</Card>
+									
 								</div>
-							</div>
+							</div>	
+								
 						</Tabs>
+
 					</Card.Body>
 				</Card>
-			</div>
+			</div>	
+		
 		</Layout>
 	);
+}
+
+export async function getServerSideProps() {
+	const kontaks = await prisma.kontak.findMany({
+		orderBy: [
+			{
+				id: 'asc'
+			}
+		],
+		include: {
+			Kategori_id: true,
+		}
+
+	});
+
+	return {
+		props: {
+			data: kontaks
+		}
+
+	}
 }

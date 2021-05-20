@@ -8,7 +8,7 @@ import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
 import { useRouter } from 'next/router'
 
-export default function Role() {
+export default function updateRole() {
     // Form Validation
     const RoleSchema = Yup.object().shape({
         role_type: Yup.string().required(' required'),
@@ -19,8 +19,8 @@ export default function Role() {
     const getRole = 'http://localhost:3000/api/user/getRole';
     const updateRole = 'http://localhost:3000/api/user/updateRole';
 
-    // Take URL Parameter [ID]
-    const router = useRouter();
+    // Take URL Parameter [id]
+    const router = useRouter()
     const { id } = router.query
 
     // Get Existing Role data based on [id]
@@ -105,7 +105,7 @@ export default function Role() {
                                         <Col sm="2" />
                                         <Col sm="4" className="d-flex justify-content-end mt-10">
                                             <Button variant="danger mr-2" onClick={cancelButton}>Batal</Button>
-                                            <Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
+                                            <Button variant="success" onClick={props.handleSubmit}>Update</Button>
                                         </Col>
                                     </Row>
                                 </Form>

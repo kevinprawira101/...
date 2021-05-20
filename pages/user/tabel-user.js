@@ -94,9 +94,7 @@ export default function list({ data }) {
                                                 <td className="px-2 py-2 whitespace-nowrap">
                                                     <div className="text-sm text-gray-900">
                                                         <Link key={user.id} href={`${user.id}`} >
-                                                            <Button variant="warning mr-2" >
-                                                                Edit
-                                                            </Button>
+                                                            <Button variant="warning mr-2" >Edit</Button>
                                                         </Link>
                                                         <Button variant="danger" key={user.id} id="id" name="id" onClick={() => handleDelete(user.id)}>Delete</Button>
                                                     </div>

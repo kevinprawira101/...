@@ -1,44 +1,55 @@
-import React from 'react';
-import Layout from '../../components/Layout';
-import { Button, Form, Col, Row, FormCheck, Card } from 'react-bootstrap';
-import Link from 'next/link';
-import LocalMallIcon from '@material-ui/icons/LocalMall';
-import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import React, { useEffect, useRef } from 'react'
+import Layout from '../../components/Layout'
+import { Button, Form, Col, Row, FormCheck, Card } from 'react-bootstrap'
+import LocalMallIcon from '@material-ui/icons/LocalMall'
 
-import { useRouter } from 'next/router'
-import * as Yup from 'yup';
-import { Formik, Form as Forms } from 'formik';
+import * as Yup from 'yup'
+import { Formik, Form as Forms } from 'formik'
 import Axios from 'axios'
+import { useRouter } from 'next/router'
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-export default function buatProduk({ data, data2 }) {
-	// Form Validation
-	const ProdukSchema = Yup.object().shape({
-		file_upload: Yup.string().required('required'),
-		nama: Yup.string().required('required'),
-		kode_sku: Yup.string().required('required'),
-		kategori_akun: Yup.string().required('required'),
-		unit: Yup.number().integer().required('required'),
-		deskripsi: Yup.string().required('required'),
-		hbs: Yup.number().integer().required('required'),
-		akun_pembelian1: Yup.number().integer().required('required'),
-		pajak_beli: Yup.string().required('required'),
-		hjs: Yup.number().integer().required('required'),
-		akun_pembelian2: Yup.number().integer().required('required'),
-		pajak_jual: Yup.string().required('required'),
-	})
+export default function updateProduk({ data, data2 }) {
+	//Form Validation
 
-	// Produk Api
-	const url = 'http://localhost:3000/api/produk/produk';
+	// Produk API
+	const getProduk = 'http://localhost:3000/api/produk/getProduk'
+	const updateProduk = 'http://localhost:3000/api/produk/updateProduk'
 
-	// Redirect
+	// Take URL Parameter [id]
 	const router = useRouter()
+	const { id } = router.query
+
+	// Get Existing Produk data based on [id]
+	const formikref = useRef(null)
+	const getData = async () => {
+		Axios.post(getProduk, {
+
+			id: id
+
+		}).then(function (response) {
+			formikref.current.setFieldValue('nama', response.data.data.nama)
+
+		}).
+			catch(function (error) {
+				console.log(error)
+			})
+	};
+	useEffect(() => {
+		getData()
+	}, [])
+
+	// Batal Button Function
+	function cancelButton() {
+		router.push('../produk/tabel-produk')
+	}
 
 	return (
 		<Layout>
 			<Formik
+				innerRef={formikref}
 				initialValues={{
 					file_upload: "",
 					nama: "",
@@ -54,13 +65,14 @@ export default function buatProduk({ data, data2 }) {
 					pajak_jual: "",
 				}}
 
-				validationSchema={ProdukSchema}
+				// validationSchema={UserSchema}
 				onSubmit={async (values) => {
-					console.log(values);
-					Axios.post(url, values).
+					let data = { ...values, id }
+					Axios.put(updateProduk, data).
 						then(function (response) {
 							console.log(response)
 							router.push('../produk/tabel-produk')
+
 						}).
 						catch(function (error) {
 							console.log(error)
@@ -72,7 +84,7 @@ export default function buatProduk({ data, data2 }) {
 						<Form>
 							<Row className="ml-2 mb-4">
 								<LocalMallIcon fontSize="large" />
-								<h3>Buat Produk / Jasa Baru</h3>
+								<h3>Update Produk / Jasa Baru</h3>
 							</Row>
 							<Card>
 								<Card.Body>
@@ -87,10 +99,7 @@ export default function buatProduk({ data, data2 }) {
 											{/* <Form.File className="mb-2" id="formcheck-api-regular" name="file_upload" onChange={props.handleChange}>
 												<Form.File.Input />
 											</Form.File> */}
-											<Form.Control className="mb-2" placeholder="" name="file_upload" onChange={props.handleChange} />
-											{props.errors.file_upload && props.touched.file_upload ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.file_upload}</div>
-												: null}
+											<Form.Control className="mb-2" placeholder={props.values.nama} name="file_upload" onChange={props.handleChange} />
 										</Col>
 									</Row>
 
@@ -101,9 +110,6 @@ export default function buatProduk({ data, data2 }) {
 										</Col>
 										<Col sm="4">
 											<Form.Control className="mb-2" placeholder="" name="nama" onChange={props.handleChange} />
-											{props.errors.nama && props.touched.nama ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.nama}</div>
-												: null}
 										</Col>
 									</Row>
 
@@ -114,9 +120,6 @@ export default function buatProduk({ data, data2 }) {
 										</Col>
 										<Col sm="4">
 											<Form.Control className="mb-2" placeholder="" name="kode_sku" onChange={props.handleChange} />
-											{props.errors.kode_sku && props.touched.kode_sku ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.kode_sku}</div>
-												: null}
 										</Col>
 									</Row>
 
@@ -131,11 +134,9 @@ export default function buatProduk({ data, data2 }) {
 												<option disabled>Pilih</option>
 												{data.map((kategori) => (
 													<option key={kategori.id} value={kategori.id}>{kategori.name}</option>
+
 												))}
 											</Form.Control>
-											{props.errors.kategori_akun && props.touched.kategori_akun ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.kategori_akun}</div>
-												: null}
 										</Col>
 									</Row>
 
@@ -153,9 +154,6 @@ export default function buatProduk({ data, data2 }) {
 												<option value="4">4</option>
 												<option value="5">5</option>
 											</Form.Control>
-											{props.errors.unit && props.touched.unit ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.unit}</div>
-												: null}
 										</Col>
 									</Row>
 
@@ -166,9 +164,6 @@ export default function buatProduk({ data, data2 }) {
 										</Col>
 										<Col sm="4">
 											<Form.Control className="mb-2" placeholder="" name="deskripsi" onChange={props.handleChange} />
-											{props.errors.deskripsi && props.touched.deskripsi ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.deskripsi}</div>
-												: null}
 										</Col>
 									</Row>
 
@@ -184,9 +179,6 @@ export default function buatProduk({ data, data2 }) {
 										<Col>
 											<Form.Label>Harga Beli Satuan</Form.Label>
 											<Form.Control className="mb-2" placeholder="Rp. 0,00" name="hbs" onChange={props.handleChange} />
-											{props.errors.hbs && props.touched.hbs ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.hbs}</div>
-												: null}
 										</Col>
 										<Col>
 											<Form.Label>Akun Pembelian</Form.Label>
@@ -195,10 +187,9 @@ export default function buatProduk({ data, data2 }) {
 												{data2.map((akun) => (
 													<option key={akun.id} value={akun.id}>{akun.nama_akun}</option>
 												))}
+
+
 											</Form.Control>
-											{props.errors.akun_pembelian1 && props.touched.akun_pembelian1 ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.akun_pembelian1}</div>
-												: null}
 										</Col>
 										<Col>
 											<Form.Label>Pajak Beli</Form.Label>
@@ -207,9 +198,6 @@ export default function buatProduk({ data, data2 }) {
 												<option value="1">1</option>
 												<option value="2">2</option>
 											</Form.Control>
-											{props.errors.pajak_beli && props.touched.pajak_beli ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.pajak_beli}</div>
-												: null}
 										</Col>
 									</Row>
 
@@ -224,9 +212,6 @@ export default function buatProduk({ data, data2 }) {
 										<Col>
 											<Form.Label>Harga Jual Satuan</Form.Label>
 											<Form.Control className="mb-2" placeholder="Rp. 0,00" name="hjs" onChange={props.handleChange} />
-											{props.errors.hjs && props.touched.hjs ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.hjs}</div>
-												: null}
 										</Col>
 										<Col>
 											<Form.Label>Akun Pembelian</Form.Label>
@@ -236,9 +221,6 @@ export default function buatProduk({ data, data2 }) {
 													<option key={akun.id} value={akun.id}>{akun.nama_akun}</option>
 												))}
 											</Form.Control>
-											{props.errors.akun_pembelian2 && props.touched.akun_pembelian2 ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.akun_pembelian2}</div>
-												: null}
 										</Col>
 										<Col>
 											<Form.Label>Pajak Jual</Form.Label>
@@ -247,16 +229,13 @@ export default function buatProduk({ data, data2 }) {
 												<option value="1">1</option>
 												<option value="2">2</option>
 											</Form.Control>
-											{props.errors.pajak_jual && props.touched.pajak_jual ?
-												<div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.pajak_jual}</div>
-												: null}
 										</Col>
 									</Row>
 
 									<Row>
 										<Col className="d-flex justify-content-end mt-10">
-											<Button variant="danger mr-2">Batal</Button>
-											<Button variant="success" onClick={props.handleSubmit}>Tambah</Button>
+											<Button variant="danger mr-2" onClick={cancelButton}>Batal</Button>
+											<Button variant="success" onClick={props.handleSubmit}>Update</Button>
 										</Col>
 									</Row>
 								</Card.Body>
@@ -271,6 +250,7 @@ export default function buatProduk({ data, data2 }) {
 }
 
 export async function getServerSideProps() {
+	// Get Kategories from API
 	const kategories = await prisma.kategori.findMany({
 		orderBy: [
 			{
@@ -279,6 +259,7 @@ export async function getServerSideProps() {
 		],
 	});
 
+	// Get Akuns from API
 	const akuns = await prisma.akun.findMany({
 		orderBy: [
 			{

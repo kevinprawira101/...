@@ -13,7 +13,7 @@ export default function Role() {
     const RoleSchema = Yup.object().shape({
         role_type: Yup.string().required(' required'),
         role_desc: Yup.string().required(' required'),
-    });
+    })
 
     // Role API
     const url = 'http://localhost:3000/api/user/createRole';
