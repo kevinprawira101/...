@@ -35,6 +35,11 @@ export default function buatProduk({ data, data2 }) {
 	// Redirect
 	const router = useRouter()
 
+	// Batal Button Function
+	function cancelButton() {
+		router.push('../produk/tabel-produk')
+	}
+
 	return (
 		<Layout>
 			<Formik
@@ -254,7 +259,7 @@ export default function buatProduk({ data, data2 }) {
 
 									<Row>
 										<Col className="d-flex justify-content-end mt-10">
-											<Button variant="danger mr-2">Batal</Button>
+											<Button variant="danger mr-2" onClick={cancelButton}>Batal</Button>
 											<Button variant="success" onClick={props.handleSubmit}>Tambah</Button>
 										</Col>
 									</Row>

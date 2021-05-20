@@ -130,16 +130,16 @@ export default function Produk({ data }) {
 												<div className="text-sm text-gray-900">30</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
-												<div className="text-sm text-gray-900">{produk.unit * 0.5}</div>
+												<div className="text-sm text-gray-900">{produk.unit * 1.5}</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
-												<div className="text-sm text-gray-900">Rp. 34,000</div>
+												<div className="text-sm text-gray-900">-</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
-												<div className="text-sm text-gray-900">Rp. 20,000</div>
+												<div className="text-sm text-gray-900">-</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
-												<div className="text-sm text-gray-900">Rp. 28,000</div>
+												<div className="text-sm text-gray-900">Rp. {produk.harga_beli_satuan}</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
 												<div className="text-sm text-gray-900">

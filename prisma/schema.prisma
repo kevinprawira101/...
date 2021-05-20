@@ -58,7 +58,7 @@ model Kategori {
 model TipeAkun {
   id          Int     @default(autoincrement()) @id  
   name        String  
-  Akun        Akun[]
+  Akun        Akun[]  
 }
 
 // Akun table
@@ -72,34 +72,6 @@ model Akun{
   kategoriId      Int
   Saldo           Saldo[]
 }
-
-model Kontak {
-  id          Int @default(autoincrement()) @id  
-  nama_panggilan      String
-  gelar               String
-	nama_awalkontak     String
-	nama_awalkontak1    String
-	nama_awalkontak2    String
-	no_hp               String
-  kartu_identitas     String
-	no_id               String
-	email               String
-	nama_perusahaan     String
-	no_telp             String
-  no_fax              String
-  no_npwp             String
-	alamat_pembayaran   String
-	alamat_pengiriman   String
-	nama_bank           String
-  kantor_cabang       String
-	pemegang_akunbank   String
-	no_rek              String
-  Kategori_id         Kategori @relation(fields: [KategoriID], references: [id])
-  KategoriID          Int
-  akunHutang          Int
-  pembayaran_utama    String
-}
-
 
 model Saldo{
   id              Int     @default(autoincrement()) @id  
@@ -137,5 +109,31 @@ model Pajak{
   presentasaAktif     Int
   akunPajakPenjualan  String
   akunPajakPembelian  String
-  
+}
+
+model Kontak {
+  id          Int @default(autoincrement()) @id  
+  nama_panggilan      String
+  gelar               String
+	nama_awalkontak     String
+	nama_awalkontak1    String
+	nama_awalkontak2    String
+	no_hp               String
+  kartu_identitas     String
+	no_id               String
+	email               String
+	nama_perusahaan     String
+	no_telp             String
+  no_fax              String
+  no_npwp             String
+	alamat_pembayaran   String
+	alamat_pengiriman   String
+	nama_bank           String
+  kantor_cabang       String
+	pemegang_akunbank   String
+	no_rek              String
+  Kategori_id         Kategori @relation(fields: [KategoriID], references: [id])
+  KategoriID          Int
+  akunHutang          Int
+  pembayaran_utama    String
 }
