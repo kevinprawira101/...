@@ -1,6 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from ".prisma/client"
-
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
@@ -11,9 +9,9 @@ export default async (req, res) => {
             },
         })
 
-        res.status(201).json({ message: 'success!', data: deleteUser })
+        res.status(201).json({ message: 'DELETE USER SUCESS!', data: deleteUser })
     } catch (error) {
-        res.status(400).json({ data: 'error', error })
+        res.status(400).json({ data: 'DELETE USER FAILED!', error })
         console.log(error)
     }
 }

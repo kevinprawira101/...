@@ -6,14 +6,26 @@ import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import * as Yup from 'yup';
 import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
-
-const UserSchema = Yup.object().shape({
-    role_type: Yup.string().required(' required'),
-    role_desc: Yup.string().required(' required'),
-});
+import { useRouter } from 'next/router'
 
 export default function Role() {
-    const url = 'http://localhost:3000/api/user/role';
+    // Form Validation 
+    const RoleSchema = Yup.object().shape({
+        role_type: Yup.string().required(' required'),
+        role_desc: Yup.string().required(' required'),
+    });
+
+    // Role API
+    const url = 'http://localhost:3000/api/user/createRole';
+
+    // Redirect
+    const router = useRouter()
+
+    // Batal Button Function
+    function cancelButton() {
+        router.push('../role/tabel-role')
+    }
+
     return (
         <Layout>
             <Formik
@@ -22,11 +34,17 @@ export default function Role() {
                     role_desc: '',
                 }}
 
-                validationSchema={UserSchema}
+                validationSchema={RoleSchema}
                 onSubmit={async (values) => {
                     Axios.post(url, values).
-                        then(function (response) { console.log(response) }).
-                        catch(function (error) { console.log(error) })
+                        then(function (response) {
+                            console.log(response)
+                            router.push('../role/tabel-role')
+
+                        }).
+                        catch(function (error) {
+                            console.log(error)
+                        })
                 }}
             >
                 {(props) => (
@@ -58,7 +76,7 @@ export default function Role() {
                                     <Row>
                                         <Col sm="2" />
                                         <Col sm="4" className="d-flex justify-content-end mt-10">
-                                            <Button variant="danger mr-2">Batal</Button>
+                                            <Button variant="danger mr-2" onClick={cancelButton}>Batal</Button>
                                             <Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
                                         </Col>
                                     </Row>

@@ -1,20 +1,17 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from ".prisma/client"
-
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
     try {
-        const createMany = await prisma.role.delete({
+        const deleteRole = await prisma.role.delete({
             where: {
-                id: req.body.deleteid,
+                id: req.body.roleid,
             },
-
         })
 
-        res.status(200).json({ message: 'success!', data: createMany })
+        res.status(201).json({ message: 'DELETE ROLE SUCCESS!', data: deleteRole })
     } catch (error) {
-        res.status(error.statusCode).json({ data: 'error'})
+        res.status(400).json({ data: 'DELETE ROLE FAILED!', error })
         console.log(error)
     }
 }

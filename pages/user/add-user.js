@@ -1,25 +1,34 @@
-import { useRouter } from 'next/router'
+import React from 'react';
 import Layout from '../../components/Layout';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 
 import * as Yup from 'yup';
-import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
+import { useRouter } from 'next/router'
+import { Formik, Form as Forms } from 'formik';
 
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient();
 
-const UserSchema = Yup.object().shape({
-    first_name: Yup.string().required('*required'),
-    last_name: Yup.string().required('*required'),
-    email: Yup.string().required('*required'),
-    password: Yup.string().required('*required'),
-});
+export default function User({ data }) {
+    // Form validation
+    const UserSchema = Yup.object().shape({
+        first_name: Yup.string().required('*required'),
+        last_name: Yup.string().required('*required'),
+        email: Yup.string().email().required('*required'),
+        password: Yup.string().required('*required'),
+    });
 
-export default function User({ data, data2 }) {
-    const url = 'http://localhost:3000/api/user/user';
+    // User API
+    const createUser = 'http://localhost:3000/api/user/createUser';
+
+    // Redirect
     const router = useRouter();
-    // return <Redirect to="list" />
+
+    // Batal Button Function
+    function cancelButton() {
+        router.push('../user/tabel-user')
+    }
 
     return (
         <Layout>
@@ -34,13 +43,15 @@ export default function User({ data, data2 }) {
 
                 validationSchema={UserSchema}
                 onSubmit={async (values) => {
-                    Axios.post(url, values).
+                    Axios.post(createUser, values).
                         then(function (response) {
                             console.log(response);
-                            router.push('list')
+                            router.push('tabel-user')
+
                         }).
                         catch(function (error) {
                             console.log(error)
+
                         })
                 }}
             >
@@ -55,9 +66,10 @@ export default function User({ data, data2 }) {
                                             <Form.Label>First Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-
                                             <Form.Control placeholder="First Name" name="first_name" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                            {props.errors.first_name && props.touched.first_name ? <div class="text-red-500 text-sm">{props.errors.first_name}</div> : null}
+                                            {props.errors.first_name && props.touched.first_name ?
+                                                <div class="text-red-500 text-sm">{props.errors.first_name}</div>
+                                                : null}
                                         </Col>
                                     </Row>
 
@@ -67,7 +79,9 @@ export default function User({ data, data2 }) {
                                         </Col>
                                         <Col sm="4">
                                             <Form.Control placeholder="Last Name" name="last_name" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                            {props.errors.last_name && props.touched.last_name ? <div class="text-red-500 text-sm">{props.errors.last_name}</div> : null}
+                                            {props.errors.last_name && props.touched.last_name ?
+                                                <div class="text-red-500 text-sm">{props.errors.last_name}</div>
+                                                : null}
                                         </Col>
                                     </Row>
 
@@ -77,7 +91,9 @@ export default function User({ data, data2 }) {
                                         </Col>
                                         <Col sm="4">
                                             <Form.Control placeholder="Email" name="email" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                            {props.errors.email && props.touched.email ? <div class="text-red-500 text-sm">{props.errors.email}</div> : null}
+                                            {props.errors.email && props.touched.email ?
+                                                <div class="text-red-500 text-sm">{props.errors.email}</div>
+                                                : null}
                                         </Col>
                                     </Row>
 
@@ -87,7 +103,9 @@ export default function User({ data, data2 }) {
                                         </Col>
                                         <Col sm="4">
                                             <Form.Control placeholder="Password" name="password" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                            {props.errors.password && props.touched.password ? <div class="text-red-500 text-sm">{props.errors.password}</div> : null}
+                                            {props.errors.password && props.touched.password ?
+                                                <div class="text-red-500 text-sm">{props.errors.password}</div>
+                                                : null}
                                         </Col>
                                     </Row>
 
@@ -112,7 +130,7 @@ export default function User({ data, data2 }) {
                                     <Row>
                                         <Col sm="2" />
                                         <Col sm="4" className="d-flex justify-content-end mt-10">
-                                            <Button variant="danger mr-2">Batal</Button>
+                                            <Button variant="danger mr-2" onClick={cancelButton}>Batal</Button>
                                             <Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
                                         </Col>
                                     </Row>
@@ -127,8 +145,7 @@ export default function User({ data, data2 }) {
 }
 
 export async function getServerSideProps() {
-    // get list of roles from our api
-
+    // Get Roles from API
     const roles = await prisma.role.findMany({
         orderBy: [
             {
