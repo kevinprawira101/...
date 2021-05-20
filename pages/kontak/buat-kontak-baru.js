@@ -103,7 +103,7 @@ export default function BuatKontakBaru({data}) {
 
 							<Row className="mb-2">
 								<Col sm="2">
-									<Form.Label>Tipe Kontak (lebih dari 1)</Form.Label>
+									<Form.Label>Tipe Kontak (dapat lebih dari 1)</Form.Label>
 								</Col>
 								<Col sm="10" class="ml-8">
 									<Row>
