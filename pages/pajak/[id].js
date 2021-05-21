@@ -18,7 +18,7 @@ export default function update() {
     const getPajak = 'http://localhost:3000/api/pajak/getPajak';
     const updatePajak = 'http://localhost:3000/api/pajak/updatePajak';
 
-    // Redirect & Take URL Parameter [id]
+    // Redirect Function and Take URL Parameter [id]
     const router = useRouter();
     const { id } = router.query;
 

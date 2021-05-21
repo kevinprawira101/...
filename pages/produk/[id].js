@@ -135,7 +135,7 @@ export default function updateProduk({ data, data2 }) {
 												{/* loop over kategori and show them */}
 												<option disabled>Pilih</option>
 												{data.map((kategori) => (
-													<option key={kategori.id} value={kategori.id}>{kategori.name}</option>
+													<option key={kategori.id} value={kategori.id}>{kategori.nama}</option>
 
 												))}
 											</Form.Control>
@@ -253,7 +253,7 @@ export default function updateProduk({ data, data2 }) {
 
 export async function getServerSideProps() {
 	// Get Kategories from API
-	const kategories = await prisma.kategori.findMany({
+	const kategories = await prisma.kategoriProduk.findMany({
 		orderBy: [
 			{
 				id: 'asc'

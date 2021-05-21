@@ -23,7 +23,7 @@ export default function update({ data }) {
     const getUser = 'http://localhost:3000/api/user/getUser';
     const updateUser = 'http://localhost:3000/api/user/updateUser';
 
-    // Take URL Parameter [ID]
+    // Redirect Function and Take URL Parameter [id]
     const router = useRouter();
     const { id } = router.query
 

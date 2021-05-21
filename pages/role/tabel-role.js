@@ -15,7 +15,7 @@ export default function roleList({ data }) {
     // Role API
     const deleteRole = 'http://localhost:3000/api/user/deleteRole';
 
-    // Redirect
+    // Redirect Function
     const router = useRouter();
 
     // Delete Exisiting Role based on [id] 

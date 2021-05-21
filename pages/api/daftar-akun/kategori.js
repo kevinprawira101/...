@@ -1,6 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from ".prisma/client"
-
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
@@ -28,17 +26,17 @@ export default async (req, res) => {
             skipDuplicates: true,
         })
 
-        const allKateogories = await prisma.kategori.findMany({
-            include: {
-                Akun: true,
-            },
-        })
+        // const allKateogories = await prisma.kategori.findMany({
+        //     include: {
+        //         Akun: true,
+        //     },
+        // })
 
-        console.dir(allKateogories, { depth: null })
+        // console.dir(allKateogories, { depth: null })
 
-        res.status(200).json({ message: 'success!', data: createMany })
+        res.status(200).json({ message: 'SEED KATEGORI DAFTAR AKUN SUCCESS!', data: createMany })
     } catch (error) {
-        res.status(400).json({ rname: 'error', error })
+        res.status(400).json({ name: 'SEED KATEGORI DAFTAR AKUN FAILED!', error })
         console.log(error)
     }
 }

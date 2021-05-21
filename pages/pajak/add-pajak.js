@@ -17,7 +17,7 @@ export default function addpajak() {
 	// Pajak API
 	const createPajak = 'http://localhost:3000/api/pajak/createPajak'
 
-	// Redirect
+	// Redirect Function
 	const router = useRouter();
 
 	// Batal Button Function

@@ -19,7 +19,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-export default function Produk({ data }) {
+export default function tabelProduk({ data }) {
 	return (
 		<Layout>
 			<Row>
@@ -27,12 +27,18 @@ export default function Produk({ data }) {
 					<h2>Produk</h2>
 				</Col>
 				<Col className="d-flex justify-content-end">
-					<SettingsIcon fontSize="Large" />
+					<Link href="kategori/tabel-kategori">
+						<a>
+							<SettingsIcon fontSize="Large" />
+						</a>
+					</Link>
 					<h4 className="mr-4">Kategori Produk</h4>
-					<Link href="/produk/buat-produk">
-						<Button variant="primary">
-							<AddIcon fontSize="small" />Buat Baru
+					<Link href="/produk/add-produk">
+						<a>
+							<Button variant="primary">
+								<AddIcon fontSize="small" />Buat Baru
 						</Button>
+						</a>
 					</Link>
 				</Col>
 			</Row>
@@ -130,7 +136,7 @@ export default function Produk({ data }) {
 												<div className="text-sm text-gray-900">30</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
-												<div className="text-sm text-gray-900">{produk.unit * 1.5}</div>
+												<div className="text-sm text-gray-900">{produk.unit / 5}</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
 												<div className="text-sm text-gray-900">-</div>
@@ -139,12 +145,14 @@ export default function Produk({ data }) {
 												<div className="text-sm text-gray-900">-</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
-												<div className="text-sm text-gray-900">Rp. {produk.harga_beli_satuan}</div>
+												<div className="text-sm text-gray-900">Rp. {produk.harga_beli_satuan * 5000}</div>
 											</td>
 											<td className="px-2 py-2 whitespace-nowrap">
 												<div className="text-sm text-gray-900">
 													<Link key={produk.id} href={`${produk.id}`}>
-														<Button variant="warning mr-2">Edit</Button>
+														<a>
+															<Button variant="warning mr-2">Edit</Button>
+														</a>
 													</Link>
 												</div>
 											</td>

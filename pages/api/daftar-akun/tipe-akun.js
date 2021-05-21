@@ -42,9 +42,9 @@ export default async (req, res) => {
 
         console.dir(allTipeAkun, { depth: null })
 
-        res.status(200).json({ message: 'success!', data: createMany })
+        res.status(200).json({ message: 'SEED TIPE AKUN DAFTAR AKUN SUCCESS!', data: createMany })
     } catch (error) {
-        res.status(400).json({ rname: 'error', error })
+        res.status(400).json({ rname: 'SEED TIPE AKUN DAFTAR AKUN FAILED!', error })
         console.log(error)
     }
 }

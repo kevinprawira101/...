@@ -12,7 +12,7 @@ import Axios from 'axios'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-export default function buatProduk({ data, data2 }) {
+export default function addProduk({ data, data2 }) {
 	// Form Validation
 	const ProdukSchema = Yup.object().shape({
 		file_upload: Yup.string().required('required'),
@@ -30,7 +30,7 @@ export default function buatProduk({ data, data2 }) {
 	})
 
 	// Produk Api
-	const url = 'http://localhost:3000/api/produk/produk';
+	const url = 'http://localhost:3000/api/produk/addProduk';
 
 	// Redirect
 	const router = useRouter()
@@ -134,7 +134,7 @@ export default function buatProduk({ data, data2 }) {
 												{/* loop over kategori and show them */}
 												<option disabled>Pilih</option>
 												{data.map((kategori) => (
-													<option key={kategori.id} value={kategori.id}>{kategori.name}</option>
+													<option key={kategori.id} value={kategori.id}>{kategori.nama}</option>
 												))}
 											</Form.Control>
 											{props.errors.kategori_akun && props.touched.kategori_akun ?
@@ -275,7 +275,7 @@ export default function buatProduk({ data, data2 }) {
 }
 
 export async function getServerSideProps() {
-	const kategories = await prisma.kategori.findMany({
+	const kategories = await prisma.kategoriProduk.findMany({
 		orderBy: [
 			{
 				id: 'asc'

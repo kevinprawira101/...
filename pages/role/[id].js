@@ -19,7 +19,7 @@ export default function updateRole() {
     const getRole = 'http://localhost:3000/api/user/getRole';
     const updateRole = 'http://localhost:3000/api/user/updateRole';
 
-    // Take URL Parameter [id]
+    // Redirect Function and Take URL Parameter [id]
     const router = useRouter()
     const { id } = router.query
 

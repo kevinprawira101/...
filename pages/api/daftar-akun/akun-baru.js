@@ -1,11 +1,8 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from ".prisma/client"
-
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
 
-    // console.log(error);
     try {
         const createMany = await prisma.akun.createMany({
             data: [
@@ -19,9 +16,9 @@ export default async (req, res) => {
             skipDuplicates: true,
         })
 
-        res.status(200).json({ message: 'success!', data: createMany })
+        res.status(200).json({ message: 'CREATE AKUN BARU SUCCESS!', data: createMany })
     } catch (error) {
-        res.status(400).json({ kode_akun: 'error', error })
+        res.status(400).json({ kode_akun: 'CREATE AKUN BARU FAILED!', error })
         console.log(error)
     }
 }

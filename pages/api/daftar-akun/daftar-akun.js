@@ -1667,9 +1667,9 @@ export default async (req, res) => {
             skipDuplicates: true,
         })
 
-        res.status(200).json({ message: 'success!', data: createMany })
+        res.status(200).json({ message: 'SEED DAFTAR AKUN SUCCESS!', data: createMany })
     } catch (error) {
-        res.status(400).json({ kode_akun: 'error', error })
+        res.status(400).json({ kode_akun: 'SEED DAFTAR AKUN FAILED!', error })
         console.log(error)
     }
 }

@@ -15,7 +15,7 @@ export default function list({ data }) {
     // User API
     const deleteUser = 'http://localhost:3000/api/user/deleteUser'
 
-    // Redirect
+    // Redirect Function
     const router = useRouter();
 
     // Delete Exisiting User based on [id] 

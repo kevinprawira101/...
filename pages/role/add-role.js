@@ -8,7 +8,7 @@ import { Formik, Form as Forms } from 'formik';
 import Axios from 'axios'
 import { useRouter } from 'next/router'
 
-export default function Role() {
+export default function addRole() {
     // Form Validation 
     const RoleSchema = Yup.object().shape({
         role_type: Yup.string().required(' required'),
@@ -18,7 +18,7 @@ export default function Role() {
     // Role API
     const url = 'http://localhost:3000/api/user/createRole';
 
-    // Redirect
+    // Redirect Function
     const router = useRouter()
 
     // Batal Button Function
@@ -58,7 +58,7 @@ export default function Role() {
                                             <Form.Label>Role Name</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Role Name" name="role_type" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder="Role Name" name="role_type" onChange={props.handleChange} onBlur={props.handleBlur} />
                                             {props.errors.role_type && props.touched.role_type ? <div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.role_type}</div> : null}
                                         </Col>
                                     </Row>
@@ -68,7 +68,7 @@ export default function Role() {
                                             <Form.Label>Role Description</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Role Desc" name="role_desc" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control placeholder="Role Desc" name="role_desc" onChange={props.handleChange} onChange={props.handleChange} onBlur={props.handleBlur} />
                                             {props.errors.role_desc && props.touched.role_desc ? <div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.role_desc}</div> : null}
                                         </Col>
                                     </Row>

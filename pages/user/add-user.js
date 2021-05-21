@@ -22,7 +22,7 @@ export default function User({ data }) {
     // User API
     const createUser = 'http://localhost:3000/api/user/createUser';
 
-    // Redirect
+    // Redirect Function
     const router = useRouter();
 
     // Batal Button Function

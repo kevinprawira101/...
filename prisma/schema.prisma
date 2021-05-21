@@ -38,6 +38,7 @@ model User {
   loggedIn  Boolean @default(false)    
 }
 
+// Role Permission Table
 model RoleAccess {
   id        Int      @default(autoincrement()) @id  
   role      Role     @relation(fields: [roleId], references: [id])
@@ -51,10 +52,10 @@ model Kategori {
   id          Int     @default(autoincrement()) @id  
   name        String  
   Akun        Akun[]
-  Produk      Produk[]
   Kontak      Kontak[]
 }
 
+// Daftar Akun -> Tipe Akun Table
 model TipeAkun {
   id          Int     @default(autoincrement()) @id  
   name        String  
@@ -73,6 +74,7 @@ model Akun{
   Saldo           Saldo[]
 }
 
+// Saldo Table
 model Saldo{
   id              Int     @default(autoincrement()) @id  
   debit           Int
@@ -81,13 +83,21 @@ model Saldo{
   akunId          Int
 }
 
+// Kategori Produk
+model KategoriProduk {
+    id                Int     @default(autoincrement()) @id 
+    nama              String
+    jumlah            Int
+    Produk      Produk[]
+}
+
 // Produk table
 model Produk{
   id                Int     @default(autoincrement()) @id 
   nama              String
   image             String
   kode_sku          String
-  kategori_akun     Kategori @relation(fields: [kategoriId], references: [id])
+  kategori_akun     KategoriProduk @relation(fields: [kategoriId], references: [id])
   kategoriId        Int
   
   unit              Int
@@ -111,6 +121,7 @@ model Pajak{
   akunPajakPembelian  String
 }
 
+// Kontak Table
 model Kontak {
   id          Int @default(autoincrement()) @id  
   nama_panggilan      String
