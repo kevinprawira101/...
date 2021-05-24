@@ -148,3 +148,10 @@ model Kontak {
   akunHutang          Int
   pembayaran_utama    String
 }
+
+// Kategori Kontak
+model KategoriKontak {
+    id                Int     @default(autoincrement()) @id 
+    nama              String
+    Kontak            Kontak[]
+}

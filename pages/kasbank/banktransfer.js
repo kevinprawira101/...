@@ -9,6 +9,19 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import PrintIcon from '@material-ui/icons/Print';
 
+import { Formik, Form as Forms } from 'formik';
+import * as Yup from 'yup';
+import Axios from 'axios'
+
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient();
+
+const BankTransferSchema = Yup.object().shape({
+	nama_panggilan: Yup.string().required('*Required'),
+	nama_awalkontak: Yup.string().required('*Required'),
+
+});
+
 const banktransfer = () => {
     return (
         <Layout>
@@ -28,11 +41,10 @@ const banktransfer = () => {
                             <h1 class="text-2xl">
                                 Selesai
                             </h1>
-                 </div>
+                     </div>
                  </Col>
-
-</Row>
-</div>        
+            </Row>
+        </div>        
         
         <div class="mb-10">
             <Row>
