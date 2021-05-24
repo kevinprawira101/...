@@ -15,7 +15,7 @@ export default function addKategoriProduk() {
     })
 
     // Kategori Produk API
-    const addKategoriProduk = 'http://localhost:3000/api/produk/addKategori';
+    const addKategoriProduk = 'http://localhost:3000/api/produk/createKategori';
 
     // Redirect
     const router = useRouter()

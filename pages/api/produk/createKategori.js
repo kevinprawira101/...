@@ -16,7 +16,7 @@ export default async (req, res) => {
 
         res.status(201).json({ message: 'CREATE KATEGORI PRODUK SUCCESSFUL!', data: createKategoriProduk })
     } catch (error) {
-        res.status(400).json({ kode_akun: 'CREATE KATEGORI PRODUK FAILED!', error })
+        res.status(400).json({ data: 'CREATE KATEGORI PRODUK FAILED!', error })
         console.log(error)
     }
 }
