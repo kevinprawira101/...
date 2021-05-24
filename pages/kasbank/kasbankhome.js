@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { Button, Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch(`http://localhost:3000/api/kasnbank`)
-    const data = await res.json()
+// export async function getServerSideProps() {
+//     // Fetch data from external API
+//     const res = await fetch(`http://localhost:3000/api/kasnbank`)
+//     const data = await res.json()
 
-    // Pass data to the page via props
-    return { props: { data } }
-}
+//     // Pass data to the page via props
+//     return { props: { data } }
+// }
 
 export default function jurnalentry({ data }) {
     return (

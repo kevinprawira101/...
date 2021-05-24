@@ -56,6 +56,7 @@ const banktransfer = () => {
                                     <FormControl
                                     placeholder="Pick date"
                                     aria-label="date"
+                                    type="date"
                                     />
                                 </InputGroup>
                            
