@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 export default async (req, res) => {
 
     try {
-        const updateKategori = await prisma.kategoriProduk.update({
+        const updateKategoriProduk = await prisma.kategoriProduk.update({
             where: {
                 id: parseInt(req.body.id)
             },
@@ -15,7 +15,7 @@ export default async (req, res) => {
             }
         })
 
-        res.status(201).json({ message: 'UPDATE KATEGORI PRODUK SUCCESS!', data: updateKategori })
+        res.status(201).json({ message: 'UPDATE KATEGORI PRODUK SUCCESS!', data: updateKategoriProduk })
     } catch (error) {
         res.status(400).json({ data: 'UPDATE KATEGORI PRODUK FAILED!', error })
         console.log(error)

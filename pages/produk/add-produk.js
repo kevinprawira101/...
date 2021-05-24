@@ -30,7 +30,7 @@ export default function addProduk({ data, data2 }) {
 	})
 
 	// Produk Api
-	const url = 'http://localhost:3000/api/produk/addProduk';
+	const url = 'http://localhost:3000/api/produk/createProduk';
 
 	// Redirect
 	const router = useRouter()

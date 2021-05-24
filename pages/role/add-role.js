@@ -12,7 +12,7 @@ export default function addRole() {
     // Form Validation 
     const RoleSchema = Yup.object().shape({
         role_type: Yup.string().required(' required'),
-        role_desc: Yup.string().required(' required'),
+        // role_desc: Yup.string().required(' required'),
     })
 
     // Role API
@@ -69,7 +69,7 @@ export default function addRole() {
                                         </Col>
                                         <Col sm="4">
                                             <Form.Control placeholder="Role Desc" name="role_desc" onChange={props.handleChange} onChange={props.handleChange} onBlur={props.handleBlur} />
-                                            {props.errors.role_desc && props.touched.role_desc ? <div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.role_desc}</div> : null}
+                                            {/* {props.errors.role_desc && props.touched.role_desc ? <div class="text-red-500 text-sm"><ErrorOutlineIcon />{props.errors.role_desc}</div> : null} */}
                                         </Col>
                                     </Row>
 

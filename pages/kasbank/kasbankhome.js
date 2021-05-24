@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button, Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
+<<<<<<< HEAD
 // export async function getServerSideProps() {
 //     // Fetch data from external API
 //     const res = await fetch(`http://localhost:3000/api/kasnbank`)
@@ -12,6 +13,10 @@ import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 //     // Pass data to the page via props
 //     return { props: { data } }
 // }
+=======
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+>>>>>>> b7e5af3e8ec51f32d4daaa264042640f7a10bf2b
 
 export default function jurnalentry({ data }) {
     return (
@@ -44,44 +49,63 @@ export default function jurnalentry({ data }) {
 
                     </DropdownButton>
                 </div>
-
-
-                <Table class="table mt-4">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="text-md font-medium text-gray-900">Daftar Akun Kas</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Kode Akun</td>
-                            <td>Nama Akun</td>
-                            <td>Saldo Bank</td>
-                            <td>Saldo Jurnal</td>
-
-                        </tr>
-
-                        {data.map((i, index) => (
-                            <tr>
-                                <td>0 {index + 1}</td>
-                                <td>
-                                    <Link href="/kasbank/akundetail">
-                                        {i.namaakun}
-                                    </Link>
-                                </td>
-                                <td>{i.saldobank}</td>
-                                <td>{i.saldojurnal}</td>
-
+                <div className="mt-8">
+                    <table className="min-w-full table-auto">
+                        <thead className="justify-between">
+                            <tr className="bg-dark">
+                                <th className="px-2 py-2">
+                                    <span className="text-gray-300">Kode Akun</span>
+                                </th>
+                                <th className="px-2 py-2">
+                                    <span className="text-gray-300">Nama Akun</span>
+                                </th>
+                                <th className="px-2 py-2">
+                                    <span className="text-gray-300">Saldo Bank</span>
+                                </th>
+                                <th className="px-2 py-2">
+                                    <span className="text-gray-300">Saldo di Jurnal</span>
+                                </th>
                             </tr>
-                        ))}
-
-                    </tbody>
-                </Table>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                            {data.map((kasBank) => (
+                                <tr>
+                                    <td className="px-2 py-2 whitespace-nowrap font-medium">
+                                        <div className="text-sm text-gray-900">{kasBank.kode_akun}</div>
+                                    </td>
+                                    <td className="px-2 py-2 whitespace-nowrap">
+                                        <div className="text-sm text-gray-900">{kasBank.nama_akun}</div>
+                                    </td>
+                                    <td className="px-2 py-2 whitespace-nowrap">
+                                        <div className="text-sm text-gray-900">Rp. 0,00</div>
+                                    </td>
+                                    <td className="px-2 py-2 whitespace-nowrap">
+                                        <div className="text-sm text-gray-900">Rp. 0,00</div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </Layout>
     )
+}
+
+export async function getServerSideProps() {
+    // Get Akuns from API
+    const kasBank = await prisma.akun.findMany({
+        where:
+        {
+            kategoriId: 3
+        }
+
+    });
+
+    return {
+        props: {
+            data: kasBank
+        }
+    }
 }
 

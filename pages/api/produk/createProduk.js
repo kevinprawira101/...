@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 export default async (req, res) => {
 
     try {
-        const createMany = await prisma.produk.createMany({
+        const createProduk = await prisma.produk.createMany({
             data: [
                 {
                     image: req.body.file_upload,
@@ -26,9 +26,13 @@ export default async (req, res) => {
             skipDuplicates: true,
         })
 
-        res.status(200).json({ message: 'success!', data: createMany })
+        res.status(201).json({ message: 'success!', data: createProduk })
     } catch (error) {
+<<<<<<< HEAD:pages/api/produk/addProduk.js
         res.status(400).json({ image: 'error', error })
+=======
+        res.status(400).json({ data: 'error', error })
+>>>>>>> b7e5af3e8ec51f32d4daaa264042640f7a10bf2b:pages/api/produk/createProduk.js
         console.log(error)
     }
 }
