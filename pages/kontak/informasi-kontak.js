@@ -10,10 +10,10 @@ import Link from 'next/link';
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-export default function InformasiKontak ({data}) {
+export default function InformasiKontak({ data }) {
 	return (
 		<Layout>
-				
+
 			<div>
 				<h4 class="text-gray-500">Kontak</h4>
 				<h3 class="text-blue-600">Informasi Kontak</h3>
@@ -35,160 +35,160 @@ export default function InformasiKontak ({data}) {
 						<Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
 							<Tab eventKey="profil" title="Profil" />
 							<Tab eventKey="transaksi" title="Transaksi" />
-					{console.log(data)}
-									{data.map(i => (
-							<div eventKey="profil">
-								<div class="mt-8">
-									{/* Informasi Umum */}
-									
-									<Card className="mb-4">
-										<Card.Body>
-											<Row>
-												<BusinessCenterOutlinedIcon fontSize="large" />
-												<h3>Informasi Umum</h3>
-											</Row>
-											<hr />
-										
-											<Row>
+							{console.log(data)}
+							{data.map(i => (
+								<div eventKey="profil">
+									<div class="mt-8">
+										{/* Informasi Umum */}
+
+										<Card className="mb-4">
+											<Card.Body>
+												<Row>
+													<BusinessCenterOutlinedIcon fontSize="large" />
+													<h3>Informasi Umum</h3>
+												</Row>
+												<hr />
+
+												<Row>
+													<Col>
+														<p class="text-lg font-medium">Nama Kontak</p>
+														<p>{i.nama}</p>
+
+														<p class="text-lg font-medium">Nama Perushaan</p>
+														<p>{i.nama_perusahaan}</p>
+
+														<p class="text-lg font-medium">Email</p>
+														<p>{i.email}</p>
+
+														<p class="text-lg font-medium">Handphone</p>
+														<p>{i.nomor_hp}</p>
+													</Col>
+
+													<Col>
+														<p class="text-lg font-medium">Telepon</p>
+														<p>{i.nomor_telepon}</p>
+
+														<p class="text-lg font-medium">Fax</p>
+														<p>{i.nomor_fax}</p>
+
+														<p class="text-lg font-medium">Alamat Pembayaran</p>
+														<p>{i.alamat_pembayaran}</p>
+
+														<p class="text-lg font-medium">Alamat Pengiriman</p>
+														<p>{i.alamat_pengiriman}</p>
+													</Col>
+
+													<Col>
+														<p class="text-lg font-medium">NPWP</p>
+														<p>{i.nomor_npwp}</p>
+
+														<p class="text-lg font-medium">Identitas</p>
+														<p>{i.tipe_identitas}</p>
+
+														<p class="text-lg font-medium">Identitas</p>
+														<p>{i.nomor_identitas}</p>
+
+														<p class="text-lg font-medium">Info Lain</p>
+														<p>{i.info_lain}</p>
+													</Col>
+												</Row>
+											</Card.Body>
+										</Card>
+
+										{/* Akun Bank */}
+										<Card className="mb-4">
+											<Card.Body>
+												<Row>
+													<AccountBalanceOutlinedIcon fontSize="large" />
+													<h3>Akun Bank</h3>
+												</Row>
+												<hr />
+												<Row>
+													<Col>
+														<Row>
+															<Col>
+																<p class="text-lg font-medium">Nama Bank #1</p>
+																<p>{i.nama_bank}</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Kantor Cabang Bank</p>
+																<p>{i.kantor_cabang_bank}</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Pemegang Akun Bank</p>
+																<p>{i.pemegang_akun_bank}</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Nomor Rekening</p>
+																<p>{i.nomor_rekening}</p>
+															</Col>
+														</Row>
+														<hr />
+														<Row>
+															<Col>
+																<p class="text-lg font-medium">Nama Bank #2</p>
+																<p>{i.nama_bank}</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Kantor Cabang Bank</p>
+																<p>{i.kantor_cabang_bank}</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Pemegang Akun Bank</p>
+																<p>{i.pemegang_akun_bank}</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Nomor Rekening</p>
+																<p>{i.nomor_rekening}</p>
+															</Col>
+														</Row>
+														<hr />
+														<Row>
+															<Col>
+																<p class="text-lg font-medium">Nama Bank #3</p>
+																<p>BTPN</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Kantor Cabang Bank</p>
+																<p>Central Park</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Pemegang Akun Bank</p>
+																<p>PT. Hexaon Mitrasindo</p>
+															</Col>
+															<Col>
+																<p class="text-lg font-medium">Nomor Rekening</p>
+																<p>56781239</p>
+															</Col>
+														</Row>
+													</Col>
+												</Row>
+											</Card.Body>
+										</Card>
+
+										{/* Pemetaan Akun */}
+										<Card className="mb-4">
+											<Card.Body>
+												<Row>
+													<InsertDriveFileOutlinedIcon fontSize="large" />
+													<h3>Pemetaan Akun</h3>
+												</Row>
+												<hr />
+
 												<Col>
-													<p class="text-lg font-medium">Nama Kontak</p>
-													<p>{i.nama_awalkontak}</p>
-
-													<p class="text-lg font-medium">Nama Perushaan</p>
-													<p>{i.nama_perusahaan}</p>
-
-													<p class="text-lg font-medium">Email</p>
-													<p>{i.email}</p>
-
-													<p class="text-lg font-medium">Handphone</p>
-													<p>{i.no_hp}</p>
+													<p class="text-lg font-medium">Akun Piutang</p>
+													<p>{i.piutang.nama_akun}</p>
+													<p class="text-lg font-medium">Akun Hutang</p>
+													<p>{i.hutang.nama_akun}</p>
+													<p class="text-lg font-medium">Syarat Pembayaran Utama</p>
+													<p>{i.syarat_pembayaran_utama}</p>
 												</Col>
+											</Card.Body>
+										</Card>
 
-												<Col>
-													<p class="text-lg font-medium">Telepon</p>
-													<p>{i.no_telp}</p>
-
-													<p class="text-lg font-medium">Fax</p>
-													<p>{i.no_fax}</p>
-
-													<p class="text-lg font-medium">Alamat Pembayaran</p>
-													<p>{i.alamat_pembayaran}</p>
-
-													<p class="text-lg font-medium">Alamat Pengiriman</p>
-													<p>{i.alamat_pengiriman}</p>
-												</Col>
-
-												<Col>
-													<p class="text-lg font-medium">NPWP</p>
-													<p>{i.no_npwp}</p>
-
-													<p class="text-lg font-medium">Identitas</p>
-													<p>{i.kartu_indentitas}</p>
-
-													<p class="text-lg font-medium">Identitas</p>
-													<p>{i.no_id}</p>
-
-													<p class="text-lg font-medium">Info Lain</p>
-													<p>-</p>
-												</Col>
-											</Row>
-										</Card.Body>
-									</Card>
-
-									{/* Akun Bank */}
-									<Card className="mb-4">
-										<Card.Body>
-											<Row>
-												<AccountBalanceOutlinedIcon fontSize="large" />
-												<h3>Akun Bank</h3>
-											</Row>
-											<hr />
-											<Row>
-												<Col>
-													<Row>
-														<Col>
-															<p class="text-lg font-medium">Nama Bank</p>
-															<p>{i.nama_bank}</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Kantor Cabang Bank</p>
-															<p>{i.kantor_cabang}</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Pemegang Akun Bank</p>
-															<p>{i.pemegang_akunbank}</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Nomor Rekening</p>
-															<p>{i.no_rek}</p>
-														</Col>
-													</Row>
-													<hr />
-													<Row>
-														<Col>
-															<p class="text-lg font-medium">Nama Bank</p>
-															<p>Mandiri</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Kantor Cabang Bank</p>
-															<p>Central Park</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Pemegang Akun Bank</p>
-															<p>PT. Hexaon Mitrasindo</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Nomor Rekening</p>
-															<p>1234567890</p>
-														</Col>
-													</Row>
-													<hr />
-													<Row>
-														<Col>
-															<p class="text-lg font-medium">Nama Bank</p>
-															<p>BTPN</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Kantor Cabang Bank</p>
-															<p>Central Park</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Pemegang Akun Bank</p>
-															<p>PT. Hexaon Mitrasindo</p>
-														</Col>
-														<Col>
-															<p class="text-lg font-medium">Nomor Rekening</p>
-															<p>56781239</p>
-														</Col>
-													</Row>
-												</Col>
-											</Row>
-										</Card.Body>
-									</Card>
-
-									{/* Pemetaan Akun */}
-									<Card className="mb-4">
-										<Card.Body>
-											<Row>
-												<InsertDriveFileOutlinedIcon fontSize="large" />
-												<h3>Pemetaan Akun</h3>
-											</Row>
-											<hr />
-
-											<Col>
-												<p class="text-lg font-medium">Akun Piutang</p>
-												<p>-</p>
-												<p class="text-lg font-medium">Akun Hutang</p>
-												<p>-</p>
-												<p class="text-lg font-medium">Syarat Pembayaran Utama</p>
-												<p>-</p>
-											</Col>
-										</Card.Body>
-									</Card>
-								
+									</div>
 								</div>
-							</div>
-						))}
+							))}
 							<div eventKey="transaksi">
 								<div class="mt-8">
 									<Card>
@@ -253,32 +253,32 @@ export default function InformasiKontak ({data}) {
 													</tbody>
 												</table>
 											</div>
-											
+
 										</Card.Body>
 									</Card>
-									
+
 								</div>
-							</div>	
-								
+							</div>
+
 						</Tabs>
 
 					</Card.Body>
 				</Card>
-			</div>	
-		
+			</div>
+
 		</Layout>
 	);
 }
 
 export async function getServerSideProps() {
 	const kontaks = await prisma.kontak.findMany({
-		orderBy: [
-			{
-				id: 'asc'
-			}
-		],
+		where:
+		{
+			id: 1
+		},
 		include: {
-			Kategori_id: true,
+			piutang: true,
+			hutang: true
 		}
 
 	});
@@ -287,6 +287,5 @@ export async function getServerSideProps() {
 		props: {
 			data: kontaks
 		}
-
 	}
 }

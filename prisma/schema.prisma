@@ -47,15 +47,14 @@ model RoleAccess {
   menuId    Int
 }
 
-// Kategori Table
+// Kategori Akun Table
 model Kategori {
   id          Int     @default(autoincrement()) @id  
   name        String  
   Akun        Akun[]
-  Kontak      Kontak[]
 }
 
-// Daftar Akun -> Tipe Akun Table
+// Tipe Akun Table
 model TipeAkun {
   id          Int     @default(autoincrement()) @id  
   name        String  
@@ -64,16 +63,19 @@ model TipeAkun {
 
 // Akun table
 model Akun{
-  id              Int     @default(autoincrement()) @id  
+  id              Int       @default(autoincrement()) @id  
   kode_akun       String  
-  tipe_akun       TipeAkun @relation(fields: [tipeId], references: [id])
+  tipe_akun       TipeAkun  @relation(fields: [tipeId], references: [id])
   tipeId          Int
   nama_akun       String
-  kategori_akun   Kategori @relation(fields: [kategoriId], references: [id])
+  kategori_akun   Kategori  @relation(fields: [kategoriId], references: [id])
   kategoriId      Int
   // Saldo           Saldo[]
-  Pajak1          Pajak[] @relation("akunPenjual")
-  Pajak2          Pajak[] @relation("akunPembeli")
+  Pajak1          Pajak[]   @relation("akunPenjual")
+  Pajak2          Pajak[]   @relation("akunPembeli")
+
+  Kontak1         Kontak[]  @relation("akunPiutang")
+  Kontak2         Kontak[]  @relation("akunHutang")
 }
 
 // Saldo Table
@@ -85,12 +87,51 @@ model Akun{
 //   akunId          Int
 // }
 
+// Kategori Kontak
+model KategoriKontak {
+    id                Int     @default(autoincrement()) @id 
+    nama              String
+}
+
 // Kategori Produk
 model KategoriProduk {
     id                Int     @default(autoincrement()) @id 
     nama              String
     jumlah            Int
     Produk            Produk[]
+}
+
+// Kontak Table
+model Kontak {
+  id                  Int @default(autoincrement()) @id  
+  
+  nama_panggilan      String
+  
+  gelar               String
+	nama                String
+	nomor_hp            String
+  tipe_identitas      String
+	nomor_identitas     String
+	email               String
+  info_lain           String
+	nama_perusahaan     String
+	nomor_telepon       String
+  nomor_fax           String
+  nomor_npwp          String
+	alamat_pembayaran   String
+	alamat_pengiriman   String
+
+	nama_bank           String
+  kantor_cabang_bank  String
+	pemegang_akun_bank  String
+	nomor_rekening      String
+
+  piutang             Akun @relation("akunPiutang", fields: [akun_piutang], references: [id])
+  akun_piutang        Int
+  hutang              Akun @relation("akunHutang", fields: [akun_hutang], references: [id])
+  akun_hutang         Int
+
+  syarat_pembayaran_utama    String
 }
 
 // Produk table
@@ -123,32 +164,4 @@ model Pajak{
   akunPenjual         Int
   kategori2           Akun @relation("akunPembeli", fields: [akunPembeli], references: [id])
   akunPembeli         Int
-}
-
-// Kontak Table
-model Kontak {
-  id          Int @default(autoincrement()) @id  
-  nama_panggilan      String
-  gelar               String
-	nama_awalkontak     String
-	nama_awalkontak1    String
-	nama_awalkontak2    String
-	no_hp               String
-  kartu_identitas     String
-	no_id               String
-	email               String
-	nama_perusahaan     String
-	no_telp             String
-  no_fax              String
-  no_npwp             String
-	alamat_pembayaran   String
-	alamat_pengiriman   String
-	nama_bank           String
-  kantor_cabang       String
-	pemegang_akunbank   String
-	no_rek              String
-  Kategori_id         Kategori @relation(fields: [KategoriID], references: [id])
-  KategoriID          Int
-  akunHutang          Int
-  pembayaran_utama    String
 }

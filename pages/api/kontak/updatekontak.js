@@ -1,18 +1,16 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from ".prisma/client"
-
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
 
-    try {
-        const updatekontak = await prisma.kontak.update({
-            where: {
-                id: parseInt(req.body.id)
-            },
-            data:
-            {
-                nama_panggilan: req.body.nama_panggilan,
+	try {
+		const updatekontak = await prisma.kontak.update({
+			where: {
+				id: parseInt(req.body.id)
+			},
+			data:
+			{
+				nama_panggilan: req.body.nama_panggilan,
 				gelar: req.body.gelar,
 				nama_awalkontak: req.body.nama_awalkontak,
 				nama_awalkontak1: req.body.nama_awalkontak1,
@@ -31,14 +29,15 @@ export default async (req, res) => {
 				kantor_cabang: req.body.kantor_cabang,
 				pemegang_akunbank: req.body.pemegang_akunbank,
 				no_rek: req.body.no_rek,
-                akunHutang: parseInt(req.body.akunHutang),
+				akunHutang: parseInt(req.body.akunHutang),
 				KategoriID: parseInt(req.body.akunPiutang),
 				pembayaran_utama: req.body.pembayaran_utama,
-            }
-        })
-        res.status(201).json({ message: 'success!', data: updatekontak })
-    } catch (error) {
-        res.status(400).json({ data: 'error', error })
-        console.log(error)
-    }
+			}
+		})
+
+		res.status(201).json({ message: 'UPDATE KONTAK SUCCESS!', data: updatekontak })
+	} catch (error) {
+		res.status(400).json({ data: 'UPDATE KONTAK FAILED!', error })
+		console.log(error)
+	}
 }

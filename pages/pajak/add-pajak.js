@@ -182,6 +182,5 @@ export async function getServerSideProps() {
 			data: getAkunPenjualan,
 			data2: getAkunPembelian,
 		}
-
 	}
 }
