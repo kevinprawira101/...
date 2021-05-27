@@ -71,24 +71,26 @@ model Akun{
   nama_akun       String
   kategori_akun   Kategori @relation(fields: [kategoriId], references: [id])
   kategoriId      Int
-  Saldo           Saldo[]
+  // Saldo           Saldo[]
+  Pajak1          Pajak[] @relation("akunPenjual")
+  Pajak2          Pajak[] @relation("akunPembeli")
 }
 
 // Saldo Table
-model Saldo{
-  id              Int     @default(autoincrement()) @id  
-  debit           Int
-  kredit          Int
-  akun            Akun    @relation(fields: [akunId], references: [id])
-  akunId          Int
-}
+// model Saldo{
+//   id              Int     @default(autoincrement()) @id  
+//   debit           Int
+//   kredit          Int
+//   akun            Akun    @relation(fields: [akunId], references: [id])
+//   akunId          Int
+// }
 
 // Kategori Produk
 model KategoriProduk {
     id                Int     @default(autoincrement()) @id 
     nama              String
     jumlah            Int
-    Produk      Produk[]
+    Produk            Produk[]
 }
 
 // Produk table
@@ -117,8 +119,10 @@ model Pajak{
   id                  Int     @default(autoincrement()) @id 
   nama                String
   presentasaAktif     Int
-  akunPajakPenjualan  String
-  akunPajakPembelian  String
+  kategori1           Akun @relation("akunPenjual", fields: [akunPenjual], references: [id])
+  akunPenjual         Int
+  kategori2           Akun @relation("akunPembeli", fields: [akunPembeli], references: [id])
+  akunPembeli         Int
 }
 
 // Kontak Table

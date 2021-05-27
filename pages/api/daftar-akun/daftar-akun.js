@@ -294,7 +294,7 @@ export default async (req, res) => {
                 {
                     kode_akun: "1-10402",
                     tipeId: 7,
-                    nama_akun: "Sewa Dibayat dimuka",
+                    nama_akun: "Sewa dibayar dimuka",
                     kategoriId: 2,
                 },
                 {

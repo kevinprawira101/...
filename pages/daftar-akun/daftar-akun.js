@@ -134,11 +134,12 @@ export default function DaftarAkun({ data }) {
 
 export async function getServerSideProps() {
 	const akuns = await prisma.akun.findMany({
-		orderBy: [
-			{
-				kode_akun: 'asc'
-			}
-		],
+		orderBy:
+			[
+				{
+					kode_akun: 'asc'
+				}
+			],
 		include: {
 			kategori_akun: true,
 		}

@@ -102,7 +102,7 @@ export default function User({ data }) {
                                             <Form.Label>Password</Form.Label>
                                         </Col>
                                         <Col sm="4">
-                                            <Form.Control placeholder="Password" name="password" onChange={props.handleChange} onBLur={props.handleBlur} />
+                                            <Form.Control type="password" placeholder="Password" name="password" onChange={props.handleChange} onBLur={props.handleBlur} />
                                             {props.errors.password && props.touched.password ?
                                                 <div class="text-red-500 text-sm">{props.errors.password}</div>
                                                 : null}
@@ -118,7 +118,7 @@ export default function User({ data }) {
                                                 <Col>
                                                     <Form.Control as="select" name="role_id" onChange={props.handleChange} onBLur={props.handleBlur} >
                                                         {/* loop over roles and show them */}
-                                                        {data.map((role, index) => (
+                                                        {data.map((role) => (
                                                             <option key={role.id} value={role.id}>{role.roleType}</option>
                                                         ))}
                                                     </Form.Control>

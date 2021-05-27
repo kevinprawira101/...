@@ -115,11 +115,12 @@ export default function list({ data }) {
 export async function getServerSideProps() {
     // Get User and Role Names from API
     const users = await prisma.user.findMany({
-        orderBy: [
-            {
-                id: 'asc'
-            }
-        ],
+        orderBy:
+            [
+                {
+                    id: 'asc'
+                }
+            ],
         include: {
             role: true,
         }

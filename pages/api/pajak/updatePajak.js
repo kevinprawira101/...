@@ -11,14 +11,14 @@ export default async (req, res) => {
             {
                 nama: req.body.nama,
                 presentasaAktif: parseInt(req.body.presentaseAktif),
-                akunPajakPenjualan: req.body.akunPajakPenjualan,
-                akunPajakPembelian: req.body.akunPajakPembelian
+                akunPenjual: parseInt(req.body.akunPajakPenjualan),
+                akunPembeli: parseInt(req.body.akunPajakPembelian)
             }
         })
 
-        res.status(200).json({ message: 'success!', data: updatePajak })
+        res.status(200).json({ message: 'UPDATE AKUN PAJAK SUCCESS!', data: updatePajak })
     } catch (error) {
-        res.status(400).json({ data: 'error', error })
+        res.status(400).json({ data: 'UPDATE AKUN PAJAK FAILED!', error })
         console.log(error)
     }
 }
