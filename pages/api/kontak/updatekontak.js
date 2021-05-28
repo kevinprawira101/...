@@ -10,28 +10,31 @@ export default async (req, res) => {
 			},
 			data:
 			{
-				nama_panggilan: req.body.nama_panggilan,
+				nama_panggilan: req.body.namaPanggilan,
+
 				gelar: req.body.gelar,
-				nama_awalkontak: req.body.nama_awalkontak,
-				nama_awalkontak1: req.body.nama_awalkontak1,
-				nama_awalkontak2: req.body.nama_awalkontak2,
-				no_hp: req.body.no_hp,
-				kartu_identitas: req.body.kartu_identitas,
-				no_id: req.body.no_id,
+				nama: req.body.nama,
+				nomor_hp: req.body.nomorHp,
+				tipe_identitas: req.body.tipeIdentitas,
+				nomor_identitas: req.body.nomorIdentitas,
 				email: req.body.email,
-				nama_perusahaan: req.body.nama_perusahaan,
-				no_telp: req.body.no_telp,
-				no_fax: req.body.no_fax,
-				no_npwp: req.body.no_npwp,
-				alamat_pembayaran: req.body.alamat_pembayaran,
-				alamat_pengiriman: req.body.alamat_pengiriman,
-				nama_bank: req.body.nama_bank,
-				kantor_cabang: req.body.kantor_cabang,
-				pemegang_akunbank: req.body.pemegang_akunbank,
-				no_rek: req.body.no_rek,
-				akunHutang: parseInt(req.body.akunHutang),
-				KategoriID: parseInt(req.body.akunPiutang),
-				pembayaran_utama: req.body.pembayaran_utama,
+				info_lain: req.body.infoLain,
+				nama_perusahaan: req.body.namaPerusahaan,
+				nomor_telepon: req.body.nomorTelepon,
+				nomor_fax: req.body.nomorFax,
+				nomor_npwp: req.body.nomorNpwp,
+				alamat_pembayaran: req.body.alamatPembayaran,
+				alamat_pengiriman: req.body.alamatPengiriman,
+
+				nama_bank: req.body.namaBank,
+				kantor_cabang_bank: req.body.kantorCabangBank,
+				pemegang_akun_bank: req.body.pemegangAkunBank,
+				nomor_rekening: req.body.nomorRekening,
+
+				akun_piutang: parseInt(req.body.akunPiutang),
+				akun_hutang: parseInt(req.body.akunHutang),
+
+				syarat_pembayaran_utama: req.body.syaratPembayaranUtama,
 			}
 		})
 
