@@ -66,11 +66,9 @@ CREATE TABLE `Akun` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Saldo` (
+CREATE TABLE `KategoriKontak` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `debit` INTEGER NOT NULL,
-    `kredit` INTEGER NOT NULL,
-    `akunId` INTEGER NOT NULL,
+    `nama` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -80,6 +78,34 @@ CREATE TABLE `KategoriProduk` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `nama` VARCHAR(191) NOT NULL,
     `jumlah` INTEGER NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Kontak` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nama_panggilan` VARCHAR(191) NOT NULL,
+    `gelar` VARCHAR(191) NOT NULL,
+    `nama` VARCHAR(191) NOT NULL,
+    `nomor_hp` VARCHAR(191) NOT NULL,
+    `tipe_identitas` VARCHAR(191) NOT NULL,
+    `nomor_identitas` VARCHAR(191) NOT NULL,
+    `email` VARCHAR(191) NOT NULL,
+    `info_lain` VARCHAR(191) NOT NULL,
+    `nama_perusahaan` VARCHAR(191) NOT NULL,
+    `nomor_telepon` VARCHAR(191) NOT NULL,
+    `nomor_fax` VARCHAR(191) NOT NULL,
+    `nomor_npwp` VARCHAR(191) NOT NULL,
+    `alamat_pembayaran` VARCHAR(191) NOT NULL,
+    `alamat_pengiriman` VARCHAR(191) NOT NULL,
+    `nama_bank` VARCHAR(191) NOT NULL,
+    `kantor_cabang_bank` VARCHAR(191) NOT NULL,
+    `pemegang_akun_bank` VARCHAR(191) NOT NULL,
+    `nomor_rekening` VARCHAR(191) NOT NULL,
+    `akun_piutang` INTEGER NOT NULL,
+    `akun_hutang` INTEGER NOT NULL,
+    `syarat_pembayaran_utama` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -108,37 +134,8 @@ CREATE TABLE `Pajak` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `nama` VARCHAR(191) NOT NULL,
     `presentasaAktif` INTEGER NOT NULL,
-    `akunPajakPenjualan` VARCHAR(191) NOT NULL,
-    `akunPajakPembelian` VARCHAR(191) NOT NULL,
-
-    PRIMARY KEY (`id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
-CREATE TABLE `Kontak` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `nama_panggilan` VARCHAR(191) NOT NULL,
-    `gelar` VARCHAR(191) NOT NULL,
-    `nama_awalkontak` VARCHAR(191) NOT NULL,
-    `nama_awalkontak1` VARCHAR(191) NOT NULL,
-    `nama_awalkontak2` VARCHAR(191) NOT NULL,
-    `no_hp` VARCHAR(191) NOT NULL,
-    `kartu_identitas` VARCHAR(191) NOT NULL,
-    `no_id` VARCHAR(191) NOT NULL,
-    `email` VARCHAR(191) NOT NULL,
-    `nama_perusahaan` VARCHAR(191) NOT NULL,
-    `no_telp` VARCHAR(191) NOT NULL,
-    `no_fax` VARCHAR(191) NOT NULL,
-    `no_npwp` VARCHAR(191) NOT NULL,
-    `alamat_pembayaran` VARCHAR(191) NOT NULL,
-    `alamat_pengiriman` VARCHAR(191) NOT NULL,
-    `nama_bank` VARCHAR(191) NOT NULL,
-    `kantor_cabang` VARCHAR(191) NOT NULL,
-    `pemegang_akunbank` VARCHAR(191) NOT NULL,
-    `no_rek` VARCHAR(191) NOT NULL,
-    `KategoriID` INTEGER NOT NULL,
-    `akunHutang` INTEGER NOT NULL,
-    `pembayaran_utama` VARCHAR(191) NOT NULL,
+    `akunPenjual` INTEGER NOT NULL,
+    `akunPembeli` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -159,10 +156,16 @@ ALTER TABLE `Akun` ADD FOREIGN KEY (`tipeId`) REFERENCES `TipeAkun`(`id`) ON DEL
 ALTER TABLE `Akun` ADD FOREIGN KEY (`kategoriId`) REFERENCES `Kategori`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Saldo` ADD FOREIGN KEY (`akunId`) REFERENCES `Akun`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Kontak` ADD FOREIGN KEY (`akun_piutang`) REFERENCES `Akun`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Kontak` ADD FOREIGN KEY (`akun_hutang`) REFERENCES `Akun`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Produk` ADD FOREIGN KEY (`kategoriId`) REFERENCES `KategoriProduk`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Kontak` ADD FOREIGN KEY (`KategoriID`) REFERENCES `Kategori`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `Pajak` ADD FOREIGN KEY (`akunPenjual`) REFERENCES `Akun`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Pajak` ADD FOREIGN KEY (`akunPembeli`) REFERENCES `Akun`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

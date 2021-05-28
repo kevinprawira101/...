@@ -1,42 +1,53 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from ".prisma/client"
-
 const prisma = new PrismaClient();
 
 export default async (req, res) => {
 
-    try {
-        const updatekontak = await prisma.kontak.update({
-            where: {
-                id: parseInt(req.body.id)
-            },
-            data:
-            {
-                nama_panggilan: req.body.nama_panggilan,
+	try {
+		const updatekontak = await prisma.kontak.update({
+			where: {
+				id: parseInt(req.body.id)
+			},
+			data:
+			{
+				nama_panggilan: req.body.namaPanggilan,
+
 				gelar: req.body.gelar,
+<<<<<<< HEAD
 				nama_awalkontak: req.body.nama_awalkontak,
 				no_hp: req.body.no_hp,
 				kartu_identitas: req.body.kartu_identitas,
 				no_id: req.body.no_id,
+=======
+				nama: req.body.nama,
+				nomor_hp: req.body.nomorHp,
+				tipe_identitas: req.body.tipeIdentitas,
+				nomor_identitas: req.body.nomorIdentitas,
+>>>>>>> e9d5b93f777e6450fb5d804f5573001bb925498e
 				email: req.body.email,
-				nama_perusahaan: req.body.nama_perusahaan,
-				no_telp: req.body.no_telp,
-				no_fax: req.body.no_fax,
-				no_npwp: req.body.no_npwp,
-				alamat_pembayaran: req.body.alamat_pembayaran,
-				alamat_pengiriman: req.body.alamat_pengiriman,
-				nama_bank: req.body.nama_bank,
-				kantor_cabang: req.body.kantor_cabang,
-				pemegang_akunbank: req.body.pemegang_akunbank,
-				no_rek: req.body.no_rek,
-                akunHutang: parseInt(req.body.akunHutang),
-				KategoriID: parseInt(req.body.akunPiutang),
-				pembayaran_utama: req.body.pembayaran_utama,
-            }
-        })
-        res.status(201).json({ message: 'success!', data: updatekontak })
-    } catch (error) {
-        res.status(400).json({ data: 'error', error })
-        console.log(error)
-    }
+				info_lain: req.body.infoLain,
+				nama_perusahaan: req.body.namaPerusahaan,
+				nomor_telepon: req.body.nomorTelepon,
+				nomor_fax: req.body.nomorFax,
+				nomor_npwp: req.body.nomorNpwp,
+				alamat_pembayaran: req.body.alamatPembayaran,
+				alamat_pengiriman: req.body.alamatPengiriman,
+
+				nama_bank: req.body.namaBank,
+				kantor_cabang_bank: req.body.kantorCabangBank,
+				pemegang_akun_bank: req.body.pemegangAkunBank,
+				nomor_rekening: req.body.nomorRekening,
+
+				akun_piutang: parseInt(req.body.akunPiutang),
+				akun_hutang: parseInt(req.body.akunHutang),
+
+				syarat_pembayaran_utama: req.body.syaratPembayaranUtama,
+			}
+		})
+
+		res.status(201).json({ message: 'UPDATE KONTAK SUCCESS!', data: updatekontak })
+	} catch (error) {
+		res.status(400).json({ data: 'UPDATE KONTAK FAILED!', error })
+		console.log(error)
+	}
 }

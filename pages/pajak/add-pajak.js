@@ -1,16 +1,21 @@
 import React from 'react';
+import Head from 'next/head'
 import Layout from '../../components/Layout';
 import CreditCardIcon from '@material-ui/icons/CreditCard';
+import { Form, Button, Row, Col, InputGroup } from 'react-bootstrap';
 
 import * as Yup from 'yup';
 import Axios from 'axios'
 import { useRouter } from 'next/router'
 import { Formik, Form as Forms } from 'formik';
 
-export default function addpajak() {
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient();
+
+export default function addpajak({ data, data2 }) {
 	// Form validation
 	const PajakScehma = Yup.object().shape({
-		nama: Yup.string().required('*required'),
+		nama: Yup.string().min(5).required('*required'),
 		presentaseAktif: Yup.number().required('*required').positive().integer(),
 	})
 
@@ -27,6 +32,10 @@ export default function addpajak() {
 
 	return (
 		<Layout>
+			<Head>
+				<title>Create New Pajak</title>
+			</Head>
+
 			<Formik
 				initialValues={{
 					nama: "",
@@ -52,148 +61,91 @@ export default function addpajak() {
 				{(props) => (
 					<Forms noValidate>
 						<div variant="container">
-							<div className="">
-								<h1 className="text-4xl mb-7">
-									<CreditCardIcon fontSize="large" />
-								Create New Pajak
-								</h1>
-
-								<div className="-mx-3 md:flex mb-6">
-									<div className="md:w-1/2 px-3 mb-6 md:mb-0">
-										<label
-											className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-											htmlFor="grid-first-name"
-										>
-											First Name
-										</label>
-										<input
-											className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-											id="grid-first-name"
-											type="text"
-											placeholder="Jane"
-											name="nama"
-											onChange={props.handleChange} onBlur={props.handleBlur}
-										/>
+							<Row>
+								<Col>
+									<Row>
+										<CreditCardIcon fontSize="large" />
+										<h4> Create New Pajak</h4>
+									</Row>
+								</Col>
+							</Row>
+							<div className="mt-12 container">
+								<Form>
+									<Row className="mb-2">
+										<Col sm="2">
+											<Form.Label>Nama</Form.Label>
+										</Col>
+										<Col sm="4">
+											<Form.Control placeholder="John Doe Smith" name="nama" onChange={props.handleChange} onBLur={props.handleBlur} />
+										</Col>
 										{props.errors.nama && props.touched.nama ?
-											<p className="text-red-500 text-xs italic">
+											<p className="text-red-500 text-sm italic mt-2">
 												{props.errors.nama}
 											</p>
 											: null}
-									</div>
+									</Row>
 
-									<div className="md:w-1/2 px-3">
-										<label
-											className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-											htmlFor="grid-last-name"
-										>
-											Persentase Aktif
-										</label>
-										<input
-											className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-											id="grid-last-name"
-											type="text"
-											placeholder="Doe"
-											name="presentaseAktif"
-											onChange={props.handleChange} onBlur={props.handleBlur}
-										/>
+									<Row className="mb-2">
+										<Col sm="2">
+											<Form.Label>Presentase Aktif</Form.Label>
+										</Col>
+										<Col sm="4">
+											<InputGroup >
+												<Form.Control placeholder="30" name="presentaseAktif" onChange={props.handleChange} onBLur={props.handleBlur} />
+												<InputGroup.Append>
+													<InputGroup.Text >%</InputGroup.Text>
+												</InputGroup.Append>
+											</InputGroup>
+										</Col>
 										{props.errors.presentaseAktif && props.touched.presentaseAktif ?
-											<p className="text-red-500 text-xs italic">
+											<p className="text-red-500 text-sm italic mt-2">
 												{props.errors.presentaseAktif}
 											</p>
 											: null}
-									</div>
-								</div>
+									</Row>
 
-								<div className="-mx-3 md:flex mb-6">
-									<div className="md:w-1/2 px-3 mb-6 md:mb-0">
-										<label
-											className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-											htmlFor="grid-first-name"
-										>
-											Akun Pajak Penjualan
-										</label>
-										<select
-											className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-											id="grid-state"
-											name="akunPajakPenjualan"
-											onChange={props.handleChange} onBlur={props.handleBlur}
-										>
-											<option value="Penjualan1">Penjualan 1</option>
-											<option value="Penjualan2">Penjualan 2</option>
-											<option value="Penjualan3">Penjualan 3</option>
-										</select>
-									</div>
+									<Row className="mb-2">
+										<Col sm="2">
+											<Form.Label>Akun Pajak Penjualan</Form.Label>
+										</Col>
+										<Col sm="4">
+											<Row>
+												<Col>
+													<Form.Control as="select" name="akunPajakPenjualan" onChange={props.handleChange} onBLur={props.handleBlur} >
+														{data.map((akunPenjual) => (
+															<option key={akunPenjual.id} value={akunPenjual.id}>{akunPenjual.nama_akun}</option>
+														))}
+													</Form.Control>
+												</Col>
+											</Row>
+										</Col>
+									</Row>
 
-									<div className="md:w-1/2 px-3">
-										<label
-											className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-											htmlFor="grid-last-name"
-										>
-											Akun Pajak Pembelian
-										</label>
-										<select
-											className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-											id="grid-state"
-											onChange={props.handleChange} onBlur={props.handleBlur}
-											name="akunPajakPembelian"
-										>
-											<option value="Pembelian1">Pembelian 1</option>
-											<option value="Pembelian2">Pembelian 2</option>
-											<option value="Pembelian3">Pembelian 3</option>
-										</select>
-									</div>
-								</div>
+									<Row className="mb-2">
+										<Col sm="2">
+											<Form.Label>Akun Pajak Pembelian</Form.Label>
+										</Col>
+										<Col sm="4">
+											<Row>
+												<Col>
+													<Form.Control as="select" name="akunPajakPembelian" onChange={props.handleChange} onBLur={props.handleBlur} >
+														{data2.map((akunPembelian) => (
+															<option key={akunPembelian.id} value={akunPembelian.id}>{akunPembelian.nama_akun}</option>
+														))}
+													</Form.Control>
+												</Col>
+											</Row>
+										</Col>
+									</Row>
 
-								<div >
-									<div className="w-full py-1">
-										<div className="inline-block mr-2 mt-2">
-											<button
-												type="button"
-												className="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg flex items-center"
-												onClick={cancelButton}
-											>
-												<svg
-													className="w-4 h-4 mr-2"
-													xmlns="http://www.w3.org/2000/svg"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor">
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth="2"
-														d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"
-													/>
-												</svg>
-												Batal
-											</button>
-										</div>
-
-										<div className="inline-block mr-2 mt-2">
-											<button
-												onClick={props.handleSubmit}
-												type="button"
-												className="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-green-500 hover:bg-green-600 hover:shadow-lg flex items-center"
-											>
-												<svg
-													className="w-4 h-4 mr-2"
-													xmlns="http://www.w3.org/2000/svg"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor"
-												>
-													<path
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														strokeWidth="2"
-														d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-													/>
-												</svg>
-												Simpan
-											</button>
-										</div>
-									</div>
-								</div>
+									<Row>
+										<Col sm="2" />
+										<Col sm="4" className="d-flex justify-content-end mt-10">
+											<Button variant="danger mr-2" onClick={cancelButton}>Batal</Button>
+											<Button variant="success" onClick={props.handleSubmit}>Simpan</Button>
+										</Col>
+									</Row>
+								</Form>
 							</div>
 						</div>
 					</Forms>
@@ -201,4 +153,34 @@ export default function addpajak() {
 			</Formik>
 		</Layout>
 	);
+}
+
+export async function getServerSideProps() {
+	// Get kategori akun penjualan and pembelian from akun model
+	const getAkunPenjualan = await prisma.akun.findMany({
+		where:
+		{
+			kategoriId:
+			{
+				in: [10, 11, 13, 14, 16, 17]
+			}
+		},
+	});
+
+	const getAkunPembelian = await prisma.akun.findMany({
+		where:
+		{
+			kategoriId:
+			{
+				in: [2, 13, 14, 16, 17]
+			}
+		}
+	})
+
+	return {
+		props: {
+			data: getAkunPenjualan,
+			data2: getAkunPembelian,
+		}
+	}
 }

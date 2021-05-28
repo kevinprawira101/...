@@ -39,77 +39,39 @@ export default function login() {
         >
             {(props) => (
                 <Forms noValidate className="d-flex justify-content-center">
-                    {/* <div>
-                        <h1 class="mb-4">
-                            Login
-                         </h1>
-                        <Form>
-                            <Row className="mb-2">
-                                <Col sm="4" >
-                                    <Form.Label>Email</Form.Label>
-                                </Col>
-                                <Col sm="10" >
-                                    <Form.Control placeholder="Input Your Email" type="text" name="loginEmail" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                    {props.errors.loginEmail && props.touched.loginEmail ? <div class="text-red-500 text-sm">{props.errors.loginEmail}</div> : null}
-                                </Col>
-                            </Row>
-
-                            <Row className="mb-2">
-                                <Col sm="4">
-                                    <Form.Label>Password</Form.Label>
-                                </Col>
-                                <Col sm="10">
-                                    <Form.Control placeholder="Input password" type="password" name="loginPassword" onChange={props.handleChange} onBLur={props.handleBlur} />
-                                    {props.errors.loginPassword && props.touched.loginPassword ? <div class="text-red-500 text-sm">{props.errors.loginPassword}</div> : null}
-                                </Col>
-                            </Row>
-
-                            <Row className="mb-2">
-                                <Col sm="2" />
-                                <Col sm="4" className="d-flex justify-content-center">
-                                    <Button variant="primary" onClick={props.handleSubmit}>Login</Button>
-                                </Col>
-                            </Row>
-                        </Form>
-                    </div> */}
                     <Form>
-                        <div class="max-w-lg max-w-xs bg-gray-600 shadow-2xl rounded-lg mx-auto text-center py-12 mt-48 rounded-xl">
-                            <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl ml-2 mr-2">PT. Hexaon Business Mitrasindo</h1>
-                            <div class="container py-5 max-w-md mx-auto">
-                                <form method="" action="">
-                                    <div class="mb-4">
+                        <div class="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
+                            <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+                                <h1 class="font-bold text-center text-2xl mb-5">PT. Hexaon Mitrasindo Buisness</h1>
+                                <logo />
+                                <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
+                                    <div class="px-5 py-7">
+                                        <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
                                         <input
-                                            placeholder="Input Email"
+                                            type="text"
+                                            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                                             name="loginEmail"
                                             onChange={props.handleChange}
-                                            onBLur={props.handleBlur}
-                                            class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                            type="text" />
-                                        {props.errors.loginPassword && props.touched.loginPassword ? <div class="text-red-500 text-sm">{props.errors.loginPassword}</div> : null}
-                                    </div>
-                                    <div class="mb-6">
+                                            onBLur={props.handleBlur} />
 
+                                        <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
                                         <input
-                                            placeholder="Input password"
+                                            type="text"
+                                            class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
                                             name="loginPassword"
                                             onChange={props.handleChange}
-                                            onBLur={props.handleBlur}
-                                            class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                            type="password" />
-                                        {props.errors.loginPassword && props.touched.loginPassword ? <div class="text-red-500 text-sm">{props.errors.loginPassword}</div> : null}
-                                    </div>
-                                    <div class="flex items-center justify-end">
+                                            onBLur={props.handleBlur} />
                                         <button
-                                            onClick={props.handleSubmit}
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                            type="button">
-                                            Login
-                                    </button>
-                                        {/* <a class="inline-block align-baseline font-bold text-sm text-gray-400 " href="#">
-                                        Forgot Password?
-                                    </a> */}
+                                            type="button"
+                                            class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                                            onClick={props.handleSubmit}>
+                                            <span class="inline-block mr-2">Login</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 inline-block">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </Form>

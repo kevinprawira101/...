@@ -25,43 +25,31 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default function Kontak({ data }) {
+	// Kontak API
+	const deleteKontak = 'http://localhost:3000/api/kontak/deleteKontak';
 
-	const router = useRouter();
-	const url = 'http://localhost:3000/api/updatekontak';
-	const updatekontak = (e) => {
-		const data = {
-			// roleType: 'test',
-			// roleDesc: 'test22222'
-		}
-		Axios.put(url, data).
-			then(function (response) { console.log(response) }).
-			catch(function (error) { console.log(error) })
+	// Redirect Function
+	const router = useRouter()
 
-
-
-	};
-	const url1 = 'http://localhost:3000/api/kontak/deletekontak';
-	const deletekontak = (id) => {
-		Axios.delete(
-			url1, {
+	// Delete Exisiting User based on [id] 
+	const handleDelete = (id) => {
+		Axios.delete(deleteKontak, {
 			data: {
-				deleteid: id
+				kontakid: id
 			}
 		}).then(function (response) {
 			console.log(response);
-			router.push('../kontak/kontak')
+			router.push('../kontak/tabel-kontak')
 		}).catch(function (error) {
 			console.log(error)
-			alert(id);
 		})
 	};
-
 
 	return (
 		<Layout>
 			<h2>Kontak</h2>
 			<div className="d-flex justify-content-end">
-				<Link href="/kontak/buat-kontak-baru">
+				<Link href="/kontak/add-kontak">
 					<Button variant="primary">
 						<AddIcon fontSize="small" />Kontak Baru
 					</Button>
@@ -170,7 +158,7 @@ export default function Kontak({ data }) {
 															<div class="text-sm text-gray-900">{i.email}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">{i.no_hp}</div>
+															<div class="text-sm text-gray-900">{i.nomor_hp}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">Rp. 335,340,000</div>
@@ -180,7 +168,11 @@ export default function Kontak({ data }) {
 																<Link key={i.id} href={`${i.id}`} >
 																	<Button variant="warning mr-2">Edit</Button>
 																</Link>
+<<<<<<< HEAD:pages/kontak/kontak.js
 																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
+=======
+																<Button variant="danger" key={i.id} id="id" name="id" onClick={() => handleDelete(i.id)}>Delete</Button>
+>>>>>>> e9d5b93f777e6450fb5d804f5573001bb925498e:pages/kontak/tabel-kontak.js
 															</div>
 														</td>
 													</tr>
@@ -287,7 +279,7 @@ export default function Kontak({ data }) {
 															<div class="text-sm text-gray-900">{i.email}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">{i.no_hp}</div>
+															<div class="text-sm text-gray-900">{i.nomor_hp}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">Rp. 335,340,000</div>
@@ -297,7 +289,11 @@ export default function Kontak({ data }) {
 																<Link key={i.id} href={`${i.id}`} >
 																	<Button variant="warning mr-2">Edit</Button>
 																</Link>
+<<<<<<< HEAD:pages/kontak/kontak.js
 																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
+=======
+																<Button variant="danger" key={i.id} id="id" name="id" onClick={() => handleDelete(i.id)}>Delete</Button>
+>>>>>>> e9d5b93f777e6450fb5d804f5573001bb925498e:pages/kontak/tabel-kontak.js
 															</div>
 														</td>
 													</tr>
@@ -404,7 +400,7 @@ export default function Kontak({ data }) {
 															<div class="text-sm text-gray-900">{i.email}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">{i.no_hp}</div>
+															<div class="text-sm text-gray-900">{i.nomor_hp}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">Rp. 335,340,000</div>
@@ -415,7 +411,7 @@ export default function Kontak({ data }) {
 																	<Button variant="warning mr-2">Edit</Button>
 																</Link>
 
-																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
+																<Button variant="danger" key={i.id} id="id" name="id" onClick={() => handleDelete(i.id)}>Delete</Button>
 															</div>
 														</td>
 													</tr>
@@ -522,7 +518,7 @@ export default function Kontak({ data }) {
 															<div class="text-sm text-gray-900">{i.email}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
-															<div class="text-sm text-gray-900">{i.no_hp}</div>
+															<div class="text-sm text-gray-900">{i.nomor_hp}</div>
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">Rp. 335,340,000</div>
@@ -532,8 +528,12 @@ export default function Kontak({ data }) {
 																<Link key={i.id} href={`${i.id}`} >
 																	<Button variant="warning mr-2">Edit</Button>
 																</Link>
+<<<<<<< HEAD:pages/kontak/kontak.js
 
 																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
+=======
+																<Button variant="danger" key={i.id} id="id" name="id" onClick={() => handleDelete(i.id)}>Delete</Button>
+>>>>>>> e9d5b93f777e6450fb5d804f5573001bb925498e:pages/kontak/tabel-kontak.js
 															</div>
 														</td>
 													</tr>
@@ -566,7 +566,8 @@ export async function getServerSideProps() {
 			}
 		],
 		include: {
-			Kategori_id: true,
+			piutang: true,
+			hutang: true
 		}
 	});
 
