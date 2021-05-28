@@ -23,8 +23,6 @@ export default function BuatKontakBaru({data}) {
 	const BuatKontakBaruSchema = Yup.object().shape({
 		nama_panggilan: Yup.string().required('*Required'),
 		nama_awalkontak: Yup.string().required('*Required'),
-		nama_awalkontak1: Yup.string().required('*Required'),
-		nama_awalkontak2: Yup.string().required('*Required'),
 		no_hp: Yup.string().required('*Required'),
 		no_hp: Yup.string().required('*Required'),
 		no_id: Yup.string().required('*Required'),
@@ -60,8 +58,6 @@ export default function BuatKontakBaru({data}) {
             formikref.current.setFieldValue('nama_panggilan', response.data.data.nama_panggilan)
             formikref.current.setFieldValue('gelar', response.data.data.gelar)
 			formikref.current.setFieldValue('nama_awalkontak', response.data.data.nama_awalkontak)
-            formikref.current.setFieldValue('nama_awalkontak1', response.data.data.nama_awalkontak1)
-			formikref.current.setFieldValue('nama_awalkontak2', response.data.data.nama_awalkontak2)
             formikref.current.setFieldValue('no_hp', response.data.data.no_hp)
 			formikref.current.setFieldValue('kartu_identitas', response.data.data.kartu_identitas)
             formikref.current.setFieldValue('no_id', response.data.data.no_id)
@@ -90,8 +86,6 @@ export default function BuatKontakBaru({data}) {
         router.push('')
     }
 
-
-
 	return (
 		<Layout>
 				<Formik
@@ -100,8 +94,6 @@ export default function BuatKontakBaru({data}) {
 				nama_panggilan: '',
 				gelar: '',
 				nama_awalkontak: '',
-				nama_awalkontak1: '',
-				nama_awalkontak2: '',
 				no_hp: '',
 				kartu_identitas: '',
 				no_id: '',
@@ -138,7 +130,7 @@ export default function BuatKontakBaru({data}) {
 					<Forms noValidate>
 			<div>
 				<h4>Kontak</h4>
-				<h3>Buat Kontak Baru</h3>
+				<h3>Edit Kontak</h3>
 				<hr />
 				<Card>
 					<Card.Body>
@@ -189,7 +181,7 @@ export default function BuatKontakBaru({data}) {
 								</Col>
 								<Col sm="10">
 									<Row>
-										<Col>
+										<Col sm="3">
 											<Form.Control as="select" defaultValue="Choose..." name="gelar" onChange={props.handleChange} onBLur={props.handleBlur}>
 												<option disabled>(Kosong)</option>
 												<option value="Mr.">Mr. </option>
@@ -200,14 +192,6 @@ export default function BuatKontakBaru({data}) {
 										<Col>
 											<Form.Control placeholder={props.values.nama_awalkontak} type="text" name="nama_awalkontak" onChange={props.handleChange} onBLur={props.handleBlur} />
 											{props.errors.nama_awalkontak && props.touched.nama_awalkontak ? <div class="text-red-500 text-sm">{props.errors.nama_awalkontak}</div> : null}
-										</Col>
-										<Col>
-										<Form.Control placeholder={props.values.nama_awalkontak1} type="text" name="nama_awalkontak1" onChange={props.handleChange} onBLur={props.handleBlur} />
-											{props.errors.nama_awalkontak1 && props.touched.nama_awalkontak1 ? <div class="text-red-500 text-sm">{props.errors.nama_awalkontak1}</div> : null}
-										</Col>
-										<Col>
-										<Form.Control placeholder={props.values.nama_awalkontak2} type="text" name="nama_awalkontak2" onChange={props.handleChange} onBLur={props.handleBlur} />
-											{props.errors.nama_awalkontak2 && props.touched.nama_awalkontak2 ? <div class="text-red-500 text-sm">{props.errors.nama_awalkontak2}</div> : null}
 										</Col>
 									</Row>
 								</Col>

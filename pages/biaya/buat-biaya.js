@@ -55,7 +55,7 @@ export default function BuatBiaya () {
 
 					<Col sm="3">
 						<Form.Label className="font-medium">Tanggal Transaksi</Form.Label>
-						<Form.Control placeholder="Auto" />
+						<Form.Control placeholder="Auto" type="date" />
 					</Col>
 
 					<Col sm="3">

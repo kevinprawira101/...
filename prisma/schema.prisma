@@ -127,8 +127,6 @@ model Kontak {
   nama_panggilan      String
   gelar               String
 	nama_awalkontak     String
-	nama_awalkontak1    String
-	nama_awalkontak2    String
 	no_hp               String
   kartu_identitas     String
 	no_id               String
@@ -147,11 +145,12 @@ model Kontak {
   KategoriID          Int
   akunHutang          Int
   pembayaran_utama    String
+  KategoriKontak      KategoriKontak[]
 }
 
 // Kategori Kontak
 model KategoriKontak {
     id                Int     @default(autoincrement()) @id 
-    nama              String
-    Kontak            Kontak[]
+    name             String
+    Kontak           Kontak[] 
 }

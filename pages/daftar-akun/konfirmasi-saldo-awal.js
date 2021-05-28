@@ -28,11 +28,11 @@ export default function AturSaldoAwal({ data }) {
                             <input type="date" class="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm grid-cols-12 " />
                         </Col>
               
-                         <Col class="mr-6"> 
+                         <Col class="mr-6 float-right"> 
 					        <Button variant="primary">
 						        <SettingsIcon fontSize="small" />Edit Saldo
 					        </Button>
-				        </Col> 
+				        </Col>  
 			       </Row>
 
                     <Table class="min-w-full table-auto" hover size="sm">

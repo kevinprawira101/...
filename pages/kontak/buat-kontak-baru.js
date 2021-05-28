@@ -20,8 +20,6 @@ const prisma = new PrismaClient();
 const BuatKontakBaruSchema = Yup.object().shape({
 	nama_panggilan: Yup.string().required('*Required'),
 	nama_awalkontak: Yup.string().required('*Required'),
-	nama_awalkontak1: Yup.string().required('*Required'),
-	nama_awalkontak2: Yup.string().required('*Required'),
 	no_hp: Yup.string().required('*Required'),
 	no_hp: Yup.string().required('*Required'),
 	no_id: Yup.string().required('*Required'),
@@ -51,8 +49,6 @@ export default function BuatKontakBaru({data}) {
 				nama_panggilan: '',
 				gelar: '',
 				nama_awalkontak: '',
-				nama_awalkontak1: '',
-				nama_awalkontak2: '',
 				no_hp: '',
 				kartu_identitas: '',
 				no_id: '',
@@ -112,13 +108,13 @@ export default function BuatKontakBaru({data}) {
 								<Col sm="10" class="ml-8">
 									<Row>
 										<FormCheck />
-										<p class="ml-2 mr-4">Pelanggan</p>
+										<p class="ml-2 mr-4" value="1">Pelanggan</p>
 										<FormCheck />
-										<p class="ml-2 mr-4">Supplier</p>
+										<p class="ml-2 mr-4" value="2">Supplier</p>
 										<FormCheck />
-										<p class="ml-2 mr-4">Karyawan</p>
+										<p class="ml-2 mr-4" value="3">Karyawan</p>
 										<FormCheck />
-										<p class="ml-2 mr-4">Lainnya</p>
+										<p class="ml-2 mr-4" value="4">Lainnya</p>
 									</Row>
 								</Col>
 							</Row>
@@ -135,7 +131,7 @@ export default function BuatKontakBaru({data}) {
 								</Col>
 								<Col sm="10">
 									<Row>
-										<Col>
+										<Col sm="3">
 											<Form.Control as="select" defaultValue="Choose..." name="gelar" onChange={props.handleChange} onBLur={props.handleBlur}>
 												<option disabled>(Kosong)</option>
 												<option value="Mr.">Mr. </option>
@@ -146,14 +142,6 @@ export default function BuatKontakBaru({data}) {
 										<Col>
 											<Form.Control placeholder="Nama Awal"type="text" name="nama_awalkontak" onChange={props.handleChange} onBLur={props.handleBlur} />
 											{props.errors.nama_awalkontak && props.touched.nama_awalkontak ? <div class="text-red-500 text-sm">{props.errors.nama_awalkontak}</div> : null}
-										</Col>
-										<Col>
-										<Form.Control placeholder="Nama Awal"type="text" name="nama_awalkontak1" onChange={props.handleChange} onBLur={props.handleBlur} />
-											{props.errors.nama_awalkontak1 && props.touched.nama_awalkontak1 ? <div class="text-red-500 text-sm">{props.errors.nama_awalkontak1}</div> : null}
-										</Col>
-										<Col>
-										<Form.Control placeholder="Nama Awal"type="text" name="nama_awalkontak2" onChange={props.handleChange} onBLur={props.handleBlur} />
-											{props.errors.nama_awalkontak2 && props.touched.nama_awalkontak2 ? <div class="text-red-500 text-sm">{props.errors.nama_awalkontak2}</div> : null}
 										</Col>
 									</Row>
 								</Col>

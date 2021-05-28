@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Button, Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
-<<<<<<< HEAD
 // export async function getServerSideProps() {
 //     // Fetch data from external API
 //     const res = await fetch(`http://localhost:3000/api/kasnbank`)
@@ -13,10 +12,10 @@ import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 //     // Pass data to the page via props
 //     return { props: { data } }
 // }
-=======
+
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
->>>>>>> b7e5af3e8ec51f32d4daaa264042640f7a10bf2b
+
 
 export default function jurnalentry({ data }) {
     return (

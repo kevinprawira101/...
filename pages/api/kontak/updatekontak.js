@@ -15,8 +15,6 @@ export default async (req, res) => {
                 nama_panggilan: req.body.nama_panggilan,
 				gelar: req.body.gelar,
 				nama_awalkontak: req.body.nama_awalkontak,
-				nama_awalkontak1: req.body.nama_awalkontak1,
-				nama_awalkontak2: req.body.nama_awalkontak2,
 				no_hp: req.body.no_hp,
 				kartu_identitas: req.body.kartu_identitas,
 				no_id: req.body.no_id,

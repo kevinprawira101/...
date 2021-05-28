@@ -83,14 +83,14 @@ export default function Kontak({ data }) {
 							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
 								<Form.Group as={Row}>
-									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+									{/* <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
 										<Dropdown.Item>
 											<a>Arsip</a>
 										</Dropdown.Item>
 										<Dropdown.Item>
 											<a>Hapus</a>
 										</Dropdown.Item>
-									</DropdownButton>
+									</DropdownButton> */}
 
 									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
 										<Dropdown.Item>
@@ -151,7 +151,6 @@ export default function Kontak({ data }) {
 												</tr>
 											</thead>
 											<tbody class="bg-white divide-y divide-gray-200">
-
 												{console.log(data)}
 												{data.map(i => (
 													<tr>
@@ -178,8 +177,10 @@ export default function Kontak({ data }) {
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">
-																<Button variant="warning mr-2">Edit</Button>
-																<Button variant="danger">Delete</Button>
+																<Link key={i.id} href={`${i.id}`} >
+																	<Button variant="warning mr-2">Edit</Button>
+																</Link>
+																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
 															</div>
 														</td>
 													</tr>
@@ -200,14 +201,14 @@ export default function Kontak({ data }) {
 							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
 								<Form.Group as={Row}>
-									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+									{/* <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
 										<Dropdown.Item>
 											<a>Arsip</a>
 										</Dropdown.Item>
 										<Dropdown.Item>
 											<a>Hapus</a>
 										</Dropdown.Item>
-									</DropdownButton>
+									</DropdownButton> */}
 
 									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
 										<Dropdown.Item>
@@ -293,8 +294,10 @@ export default function Kontak({ data }) {
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">
-																<Button variant="warning mr-2">Edit</Button>
-																<Button variant="danger">Delete</Button>
+																<Link key={i.id} href={`${i.id}`} >
+																	<Button variant="warning mr-2">Edit</Button>
+																</Link>
+																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
 															</div>
 														</td>
 													</tr>
@@ -315,14 +318,14 @@ export default function Kontak({ data }) {
 							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
 								<Form.Group as={Row}>
-									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+									{/* <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
 										<Dropdown.Item>
 											<a>Arsip</a>
 										</Dropdown.Item>
 										<Dropdown.Item>
 											<a>Hapus</a>
 										</Dropdown.Item>
-									</DropdownButton>
+									</DropdownButton> */}
 
 									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
 										<Dropdown.Item>
@@ -433,14 +436,14 @@ export default function Kontak({ data }) {
 							</Form.Group>
 							<div class="flex flex-row-reverse mb-2">
 								<Form.Group as={Row}>
-									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
+									{/* <DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Tindakan">
 										<Dropdown.Item>
 											<a>Arsip</a>
 										</Dropdown.Item>
 										<Dropdown.Item>
 											<a>Hapus</a>
 										</Dropdown.Item>
-									</DropdownButton>
+									</DropdownButton> */}
 
 									<DropdownButton variant="primary ml-2" id="dropdown-basic-button" title="Ekspor">
 										<Dropdown.Item>
@@ -526,8 +529,11 @@ export default function Kontak({ data }) {
 														</td>
 														<td class="px-2 py-2 whitespace-nowrap">
 															<div class="text-sm text-gray-900">
-																<Button variant="warning mr-2">Edit</Button>
-																<Button variant="danger">Delete</Button>
+																<Link key={i.id} href={`${i.id}`} >
+																	<Button variant="warning mr-2">Edit</Button>
+																</Link>
+
+																<Button variant="danger" onClick={() => deletekontak(i.id)}>Delete</Button>
 															</div>
 														</td>
 													</tr>
